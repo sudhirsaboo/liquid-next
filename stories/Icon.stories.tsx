@@ -55,7 +55,7 @@ const List = styled.div({
 
 const list = Object.keys(icons).sort() as IconKey[];
 
-export default { title: "Icon" };
+export default { title: "Design Tokens/ SVG Icon" };
 
 export const Primary = () => (
   <List>

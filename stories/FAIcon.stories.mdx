@@ -1,0 +1,16 @@
+import { Meta, Title, IconGallery, IconItem } from '@storybook/addon-docs';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
+
+
+<Meta title="Design Tokens/FA Iconography" />
+
+# FA Iconography
+
+<IconGallery>
+  <IconItem name="user-secret">
+   <FontAwesomeIcon icon={faCheck} className="fas fa-check" style={{ color: "red" }}
+></FontAwesomeIcon>
+  </IconItem>
+</IconGallery>
