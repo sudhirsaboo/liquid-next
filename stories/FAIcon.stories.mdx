@@ -1,8 +1,9 @@
 import { Meta, Title, IconGallery, IconItem } from '@storybook/addon-docs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTrash, faAngleft} from "@fortawesome/free-solid-svg-icons";
 
+import './fa.scss';
 
 <Meta title="Design Tokens/FA Iconography" />
 
@@ -10,7 +11,55 @@ import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 <IconGallery>
   <IconItem name="user-secret">
-   <FontAwesomeIcon icon={faCheck} className="fas fa-check" style={{ color: "red" }}
+   <FontAwesomeIcon icon={faCheck} className="fas fa-check" 
 ></FontAwesomeIcon>
   </IconItem>
+   <IconItem name="angle-left">
+   <FontAwesomeIcon icon={faTrash} className="fa fa-angle-left" 
+></FontAwesomeIcon>
+  </IconItem>
+   <IconItem name="cart-angle-left">
+      <FontAwesomeIcon icon="fa fa-angle-left" className="fa"/>
+  </IconItem>
+    <IconItem name="chevron-down">
+      <FontAwesomeIcon icon="fa fa-chevron-down" className="fa"/>
+  </IconItem>
+    <IconItem name="eraser">
+      <FontAwesomeIcon icon="fa fa-eraser" className="fa"/>
+  </IconItem>
+    <IconItem name="paint-brush">
+      <FontAwesomeIcon icon="fa fa-paint-brush" className="fa"/>
+  </IconItem>
+    <IconItem name="calendar">
+      <FontAwesomeIcon icon="fa fa-calendar" className="fa"/>
+  </IconItem>
+    <IconItem name="clock-o">
+      <FontAwesomeIcon icon="fa fa-clock" className="fa"/>
+  </IconItem>
+    <IconItem name="chevron-left">
+      <FontAwesomeIcon icon="fa fa-chevron-left" className="fa" />
+  </IconItem>
+    <IconItem name="chevron-right">
+      <FontAwesomeIcon icon="fa fa-chevron-right" className="fa"/>
+  </IconItem>
+    <IconItem name="chevron-down">
+      <FontAwesomeIcon icon="fa fa-chevron-down" className="fa"/>
+  </IconItem>
+    <IconItem name="search">
+      <FontAwesomeIcon icon="fa fa-search" className="fa"/>
+  </IconItem>
+    <IconItem name="wifi">
+      <FontAwesomeIcon icon="fa fa-wifi" className="fa"/>
+  </IconItem>
+    <IconItem name="close">
+      <FontAwesomeIcon icon="fa fa-close" className="fa"/>
+  </IconItem>
+    <IconItem name="bell">
+      <FontAwesomeIcon icon="fa fa-bell" className="fa"/>
+  </IconItem>
+    <IconItem name="circle-o">
+      <FontAwesomeIcon icon="fa fa-circle-o" className="fa"/>
+  </IconItem>
+  
+   
 </IconGallery>
