@@ -2,6 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SplitScreen } from "../layouts/lib/SplitScreen";
+import "./html.css";
 
 const meta = {
   title: "Liquid/Layout/SplitScreen",
@@ -23,21 +24,21 @@ export const LeftDash: Story = {};
 
 LeftDash.args = {
   leftWidth: 400,
-  header: () => {
+  Header: () => {
     return (
       <div style={{ display: "flex", backgroundColor: "red" }}>
         <h1>Header</h1>
       </div>
     );
   },
-  left: () => {
+  Left: () => {
     return (
       <div style={{ display: "flex", backgroundColor: "green" }}>
         <div style={{}}>{list(100)}</div>
       </div>
     );
   },
-  right: () => {
+  Right: () => {
     return (
       <div
         style={{
@@ -74,9 +75,9 @@ export const RightDash: Story = {};
 
 RightDash.args = {
   rightWidth: 400,
-  header: LeftDash.args?.header,
-  right: LeftDash.args.left,
-  left: LeftDash.args.right,
+  Header: LeftDash.args.Header,
+  Right: LeftDash.args.Left,
+  Left: LeftDash.args.Right,
 };
 
 const list = (count: number) => {

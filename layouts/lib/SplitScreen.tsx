@@ -22,13 +22,8 @@ const RightPane = styled.div<{ rightWidth: string }>`
   flex: 0 0 ${(props) => props.rightWidth}px;
 `;
 
-export const SplitScreen = ({
-  header: Header,
-  left: Left,
-  right: Right,
-  leftWidth,
-  rightWidth,
-}) => {
+export const SplitScreen = (props: any) => {
+  const { Header, Left, Right, leftWidth, rightWidth } = props;
   return (
     <Screen>
       <HeaderPane>
