@@ -1,0 +1,143 @@
+{
+    "url": "/api/art/navigation",
+    "method": "POST",
+    "json": [
+      {
+        "id": 1,
+        "name": "dashboard",
+        "title": "Dashboard",
+        "link": "todo",
+        "icon": "fa-tachometer",
+        "nodes": []
+      },
+  
+      {
+        "id": 5,
+        "title": "Manage",
+        "link": "todo",
+        "nodes": [
+       {
+            "id": 52,
+            "title": "Programs",
+            "to": "/programs",
+            "nodes": [
+              {
+                   "id": 52,
+                   "title": "Programs",
+                   "to": "/programs"
+                },
+                 
+                 {
+                   "id": 52,
+                   "title": "Submissions",
+                   "to": "/programSubmissions"
+                 }
+         
+               ]
+          },
+          {
+            "id": 52,
+            "title": "Submissions",
+            "to": "/programSubmissions"
+          }
+  
+        ]
+      },
+  
+      {
+        "id": 5,
+        "title": "Admin",
+        "link": "todo",
+        "nodes": [
+          {
+            "id": 50,
+            "title": "Categories",
+            "to": "/categories"
+            ,"displayCondition":false
+          },
+          {
+            "id": 51,
+            "title": "Accounts",
+            "to": "/organizations"
+          },
+          {
+            "id": 511,
+            "title": "Accounts Chart",
+            "to": "/orgchart"
+            ,"displayCondition":false
+          }
+        ,  {
+            "id": 53,
+            "title": "Users",
+            "to": "/users"
+          }
+        ,  {
+            "id": 53,
+            "title": "Roles",
+            "to": "/roles"
+          }
+        ,  {
+            "id": 54,
+            "title": "Permissions",
+            "to": "/perms"
+          }
+        ]
+      },
+  
+      {
+  
+        "id": 5,
+        "title": "My Portfolio",
+        "link": "todo",
+        "displayCondition":true,
+        "nodes": [
+          {
+            "id": 511,
+            "title": "IO Chart",
+            "to": "/iochart"
+            ,"displayCondition":false
+          },
+          {
+            "id": 511,
+            "title": "React Toolbox",
+            "to": "/rtoolbox"
+            ,"displayCondition":true
+          },
+          {
+            "id": 512,
+            "title": "Editable IO Chart",
+            "to": "/editiochart"
+            ,"displayCondition":false
+          }
+          ,
+          {
+            "id": 513,
+            "title": "Table",
+            "to": "/table1"
+            ,"displayCondition":false
+          }
+        ,
+          {
+            "id": 514,
+            "title": "Table",
+            "to": "/table2", "displayCondition":false
+          }
+        ]
+  
+      },
+     {
+        "id": 5,
+        "title": "Settings",
+        "link": "todo",
+        "nodes": [
+          {
+            "id": 51,
+            "title": "Settings",
+            "link": "ui_editor",
+            "to": "/settings"
+          }
+        ]
+      }
+    ]
+  }
+  

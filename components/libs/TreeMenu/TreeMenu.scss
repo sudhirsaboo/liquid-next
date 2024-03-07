@@ -1,0 +1,126 @@
+.side-nav-toggler {
+  float: left;
+}
+
+#dash-menu-btn {
+  position: absolute;
+}
+.side-nav-container {
+  display: block;
+  position: absolute;
+  left: -400px;
+
+  width: 304px;
+  max-width: 400px;
+  min-width: 304px;
+  background: #333;
+  border: 4px solid black;
+  z-index: 500;
+  -webkit-user-select: none;
+
+  transition: left 0.2s ease-in;
+
+  &.open {
+    display: block;
+    position: relative;
+
+    left: 0;
+  }
+
+  .side-nav {
+    overflow-y: auto;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.ui-tree {
+  position: relative; // to expand the anchor
+  overflow-y: hidden; // needed for collapse of tree
+}
+
+.ui-tree-leaf {
+  display: flex;
+  list-style: none;
+
+  a {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    float: left;
+    width: 100%;
+
+    &:hover {
+      background-color: #dd7d38;
+      //  border-bottom: 4px solid #dd7d38;
+      box-sizing: content-box;
+    }
+  }
+
+  .fa {
+    font-size: 7px;
+    line-height: 30px;
+    color: #676767;
+  }
+}
+
+.ui-tree[data-depth="2"] {
+  .ui-tree-item {
+    &.header {
+      border-bottom: 4px solid rgba(50, 189, 173, 0.67);
+    }
+  }
+}
+
+.ui-tree-item {
+  position: relative;
+  display: block;
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+  border-bottom: 4px solid transparent;
+  padding: 10px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  box-sizing: border-box;
+  min-height: 20px;
+  line-height: 20px;
+  list-style: none;
+
+  &.header {
+    background-color: #000;
+    border-bottom: 4px solid #dd7d38;
+    height: 9px;
+    box-sizing: content-box;
+
+    .fa {
+      font-size: 15px;
+      color: #676767;
+    }
+  }
+}
+
+/* style for the children nodes container */
+.ui-tree-children {
+  &-collapsed {
+    height: 0px;
+  }
+}
+
+.ui-tree-arrow {
+  cursor: pointer;
+  user-select: none;
+  display: block;
+  float: left;
+
+  &-collapsed:not(.leaf) {
+    transform: rotate(-90deg);
+  }
+}
+
+/*
+  .ui-tree-arrow:after {
+    content: '▾';
+  }*/
