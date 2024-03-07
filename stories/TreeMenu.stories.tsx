@@ -1,22 +1,21 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import TreeMenu from "../components/libs/TreeMenu/TreeMenu";
 import "./TreeMenu.html.css";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta = {
   title: "components/menu/TreeMenu",
   component: TreeMenu,
-} as ComponentMeta<typeof TreeMenu>;
+  tags: ["autodocs"],
+  argTypes: {},
+} satisfies Meta<typeof TreeMenu>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof TreeMenu> = (args) => (
-  <TreeMenu {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const Primary: Story = {};
+
 Primary.args = {
   primary: true,
   label: "Button",

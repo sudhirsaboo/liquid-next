@@ -7,7 +7,7 @@ class Link extends React.Component<any, any> {
     super(props);
   }
 
-  onClick(e) {
+  onClick(e: any) {
     if (this.props.onClick) {
       this.props.onClick(e);
     }
