@@ -1,23 +1,27 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { SplitScreen } from "../layouts/lib/SplitScreen";
 
-export default {
+const meta = {
   title: "Liquid/Layout/SplitScreen",
   component: SplitScreen,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
   argTypes: {
     left: {},
     right: {},
   },
-} as ComponentMeta<typeof SplitScreen>;
+} satisfies Meta<typeof SplitScreen>;
 
-const Template: ComponentStory<typeof SplitScreen> = (args) => (
-  <SplitScreen {...args} />
-);
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Left = Template.bind({});
-Left.args = {
+export const LeftDash: Story = {};
+
+LeftDash.args = {
   leftWidth: 400,
   header: () => {
     return (
@@ -66,12 +70,13 @@ Left.args = {
   },
 };
 
-export const Right = Template.bind({});
-Right.args = {
+export const RightDash: Story = {};
+
+RightDash.args = {
   rightWidth: 400,
-  header: Left.args?.header,
-  right: Left.args.left,
-  left: Left.args.right,
+  header: LeftDash.args?.header,
+  right: LeftDash.args.left,
+  left: LeftDash.args.right,
 };
 
 const list = (count: number) => {
