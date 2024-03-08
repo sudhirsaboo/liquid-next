@@ -1,0 +1,38 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardFooter,
+    CardMediaCover,
+    CardMediaHeader,
+    CardMediaFooter
+} from "../../layouts/lib/card/index";
+
+# Card
+
+<Card>
+    <CardHeader label={"Program Application"}>
+        <div className="instruction_area"><span data-i18n="true">Select Portfolio</span></div>
+    </CardHeader>
+    <CardContent>
+        content
+    </CardContent>
+    <CardFooter>
+        footer
+    </CardFooter>
+</Card>
+
+<Card className="card ui">
+<CardMediaCover
+    cover="https://drscdn.500px.org/photo/1087619849/q%3D90_m%3D2048/v2?sig=508927fbd5a6d63b91b617fb1a7d4a75a1e4e1c2ce6d4a1905c3a8e1bc4faf9b"
+    >
+    <CardMediaHeader>header</CardMediaHeader>
+    <CardMediaFooter>
+        <div className="avatar large centered" style={{width: '54px'}}>
+            <img src="https://drscdn.500px.org/user_avatar/20054901/q%3D85_w%3D300_h%3D300/v2?webp=true&v=1&sig=d05164ca5d57992d2d0c9dc9effbcf6ff0f4c7d897889538b707623994ad929f" />
+        </div>
+    </CardMediaFooter>
+</CardMediaCover>
+</Card>

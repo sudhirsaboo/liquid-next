@@ -1,0 +1,126 @@
+.curtain-close {
+    float: right;
+    z-index: 100; // upgrade
+    background: transparent;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.media-card {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    z-index: 100;
+    background: white;
+    margin: 0 auto;
+
+    &.stretch {
+        width: 100%;
+        max-height: 90vh; // to account for nav header
+    }
+    .media-card-footer {
+        min-height: 65px;
+
+        .btn:only-child {
+            width: 100%;
+        }
+    }
+
+    /* @include respond-xmobile {
+        width: 100vw; // problem on small dialog. like are u sure
+    }
+    @include respond-xmobile-g {
+        width: 340px;
+        min-width: 340px;
+        //max-height: 85vh; // account for tabs & b=main nav
+    } */
+}
+
+.dialog {
+    .media-card-content {
+        height: 80vh;
+    }
+}
+
+.media-card-content {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    text-align: left;
+    background: white;
+    color: black;
+
+    &.centered {
+        text-align: center;
+
+        .card-footer {
+            float: initial;
+        }
+    }
+
+    md-toolbar {
+        min-height: 40px;
+        background-color: rgba(153, 184, 180, 0.56);
+        color: rgb(71, 71, 71);
+    }
+    .md-toolbar-tools {
+        height: initial;
+        max-height: initial;
+    }
+}
+
+.media-card-header {
+    line-height: normal;
+    background-color: rgba(50, 189, 173, 0.67);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color: rgb(71, 71, 71);
+    text-align: left;
+
+    &.centered {
+        text-align: center;
+    }
+
+    &-actions {
+        width:100%;
+        clear: both;
+        padding: 10px;
+    }
+}
+
+.flex {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.media-info {
+    clear: left;
+    padding: 10px;
+
+    .media-title {
+        font-size: 20px;
+    }
+
+    .media-medium {
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        padding-bottom: 10px;
+    }
+
+    .media-metrics {
+        font-size: 12px;
+
+        & > span:not(:last-of-type)::after {
+            content: "\a0\b7\a0";
+            padding: 0 0 0 4px;
+            display: inline-block;
+        }
+    }
+}
+
+.post-metadata {
+    font-size: 17px;
+    font-weight: 600;
+}
