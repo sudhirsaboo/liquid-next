@@ -18,7 +18,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/liquid/*": ["./components/libs/*"],
+      "@/liquid-layouts/*": ["./layouts/libs/*"],
+
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

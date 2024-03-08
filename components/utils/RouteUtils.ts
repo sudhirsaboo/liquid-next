@@ -1,4 +1,4 @@
-export function constructUrl(route) {
+export function constructUrl(route: { path: any; query?: any; }) {
     if (!route.path) return route;
     const { path, query } = route;
 

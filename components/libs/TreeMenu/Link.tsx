@@ -2,48 +2,49 @@ import * as React from "react";
 import classnames from "classnames";
 import { constructUrl } from "../../utils/RouteUtils";
 
-class Link extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
-
-  onClick(e: any) {
-    if (this.props.onClick) {
-      this.props.onClick(e);
+export default function Link(props: {
+  onClick?: any;
+  active?: any;
+  children?: any;
+  route?: any;
+  title?: any;
+  to?: any;
+  displayCondition?: any;
+  className?: any;
+}) {
+  const onClick = (e: any) => {
+    if (props.onClick) {
+      props.onClick(e);
     }
-  }
+  };
 
-  render() {
-    const { children, route, title, to, displayCondition } = this.props;
+  const { children, route, title, to, displayCondition } = props;
 
-    let href = "/#/";
-    if (to) {
-      if (to.startsWith("/")) {
-        href = `/#${to}`;
-      } else {
-        href = `/#/${to}`;
-      }
-    } else if (route) href = `/#/${constructUrl(route)}`;
-
-    if (displayCondition === false) {
-      return null;
+  let href = "/#/";
+  if (to) {
+    if (to.startsWith("/")) {
+      href = `/#${to}`;
+    } else {
+      href = `/#/${to}`;
     }
+  } else if (route) href = `/#/${constructUrl(route)}`;
 
-    const myClassNames = classnames(this.props.className, {
-      "link--active": this.props.active,
-    });
-
-    return (
-      <a
-        className={myClassNames}
-        href={href}
-        onClick={this.onClick.bind(this)}
-        title={title ? title : ""}
-      >
-        {children}
-      </a>
-    );
+  if (displayCondition === false) {
+    return null;
   }
+
+  const myClassNames = classnames(props.className, {
+    "link--active": props.active,
+  });
+
+  return (
+    <a
+      className={myClassNames}
+      href={href}
+      onClick={onClick}
+      title={title ? title : ""}
+    >
+      {children}
+    </a>
+  );
 }
-
-export default Link;
