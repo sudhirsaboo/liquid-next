@@ -10,6 +10,7 @@ class Card extends React.Component<any, any> {
 
     return (
       <div
+        style={this.props.style}
         className={myClassNames}
         onClick={(e) => {
           e.stopPropagation();
