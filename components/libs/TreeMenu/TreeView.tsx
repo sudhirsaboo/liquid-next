@@ -12,7 +12,7 @@ class TreeView extends React.Component<any, any> {
   }
 
   getInitialState() {
-    return { collapsed: this.props.defaultCollapsed };
+    return { collapsed: this.props.defaultcollapsed };
   }
 
   handleClick = (...args: any[]) => {

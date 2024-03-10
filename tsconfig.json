@@ -20,7 +20,7 @@
     "paths": {
       "@/*": ["./*"],
       "@/liquid/*": ["./components/libs/*"],
-      "@/liquid-layouts/*": ["./layouts/libs/*"],
+      "@/liquid-layouts/*": ["./layouts/lib/*"],
 
     }
   },

@@ -1,0 +1,48 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import  SplitScreen from "../layouts/lib/SplitScreen";
+import {card, list } from "./skeleton"
+import "./html.css";
+
+# Card
+
+ <SplitScreen
+      Left={ <div style={{ display: "flex", backgroundColor: "green" }}>
+        <div style={{}}>{list(100)}</div>
+      </div>}
+      Right={
+        <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "orange",
+          }}
+        >
+          <h1>Tabs</h1>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            backgroundColor: "grey",
+            height: "100%",
+            overflow: "auto",
+            justifyContent: "center",
+            flexFlow: "row wrap",
+          }}
+        >
+          {card(301)}
+        </div>
+      </div>
+      }
+      Header={<div style={{ display: "flex", backgroundColor: "red" }}>
+        <h1>Header</h1>
+      </div>}
+      leftwidth="300"
+    ></SplitScreen>
+
+    

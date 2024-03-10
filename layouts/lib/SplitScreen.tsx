@@ -5,38 +5,36 @@ const Screen = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const HeaderPane = styled.div``;
+const HeaderPane = styled.div`
+  healder: 0;
+`;
 
 const Content = styled.div`
   display: flex;
   overflow: auto;
 `;
 
-const LeftPane = styled.div<{ leftWidth: string }>`
+const LeftPane = styled.div<{ leftwidth: string }>`
   overflow: auto;
-  flex: 0 0 ${(props) => props.leftWidth}px;
+  flex: 0 0 ${(props) => props.leftwidth}px;
 `;
 
-const RightPane = styled.div<{ rightWidth: string }>`
+const RightPane = styled.div<{ rightwidth: string }>`
   overflow: auto;
-  flex: 0 0 ${(props) => props.rightWidth}px;
+  flex: 0 0 ${(props) => props.rightwidth}px;
 `;
 
-export const SplitScreen = (props: any) => {
-  const { Header, Left, Right, leftWidth, rightWidth } = props;
+const SplitScreen = (props: any) => {
+  const { leftwidth, rightwidth } = props;
   return (
     <Screen>
-      <HeaderPane>
-        <Header />
-      </HeaderPane>
+      <HeaderPane>{props.Header}</HeaderPane>
       <Content>
-        <LeftPane leftWidth={leftWidth}>
-          <Left />
-        </LeftPane>
-        <RightPane rightWidth={rightWidth}>
-          <Right />
-        </RightPane>
+        <LeftPane leftwidth={leftwidth}>{props.Left}</LeftPane>
+        <RightPane rightwidth={rightwidth}>{props.Right}</RightPane>
       </Content>
     </Screen>
   );
 };
+
+export default SplitScreen;

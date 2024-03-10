@@ -20,13 +20,9 @@ export default function Link(props: {
 
   const { children, route, title, to, displayCondition } = props;
 
-  let href = "/#/";
+  let href = "#";
   if (to) {
-    if (to.startsWith("/")) {
-      href = `/#${to}`;
-    } else {
-      href = `/#/${to}`;
-    }
+    href = to;
   } else if (route) href = `/#/${constructUrl(route)}`;
 
   if (displayCondition === false) {

@@ -4,15 +4,12 @@ import classnames from "classnames";
 import MenuItem from "./MenuItem";
 import TreeView from "./TreeView";
 
-import data from "./data";
 import "./TreeMenu.scss";
-
-const dataSource: Array<any> = data("SideNav");
 
 class TreeMenu extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    this.state = { open: true };
+    this.state = { open: true, dataSource: this.props.dataSource };
   }
 
   render() {
@@ -24,7 +21,7 @@ class TreeMenu extends React.Component<any, any> {
     return (
       <div id="dash-menu" className={myClassNames}>
         <div className={"side-nav"}>
-          {dataSource.map((node, i) => {
+          {this.state.dataSource?.map((node: any, i: number) => {
             return this.renderTree(node, i, 1);
           })}
         </div>
@@ -50,7 +47,7 @@ class TreeMenu extends React.Component<any, any> {
         itemClassName="header"
         key={key}
         nodeLabel={label}
-        defaultCollapsed={false}
+        defaultcollapsed={false}
       >
         {item.nodes.map((link) => {
           if (link.nodes && link.nodes.length) {
