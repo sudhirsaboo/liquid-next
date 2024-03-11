@@ -14,7 +14,18 @@ class MenuItem extends React.Component<any, any> {
       "menu-item": true,
       "has-submenu": this.props.children != null,
     });
-
+    const LinkClass = this.props.linkClass ? this.props.linkClass : Link;
+    const LinkElement = React.createElement(
+      LinkClass,
+      {
+        dispatch: dispatch,
+        to: to,
+        href: to,
+        onClick: onClick,
+        route: route,
+      },
+      label
+    );
     return (
       <li className={myClassNames} onClick={onClick}>
         <div
@@ -28,15 +39,7 @@ class MenuItem extends React.Component<any, any> {
           <div style={{ color: "rgb(217, 217, 217)", paddingRight: "4px" }}>
             {<Image src={gridIcon} alt="::" />}
           </div>
-          <Link
-            displayCondition={displayCondition}
-            dispatch={dispatch}
-            to={to}
-            onClick={onClick}
-            route={route}
-          >
-            {label}
-          </Link>
+          {LinkElement}
         </div>
         {this.props.children}
       </li>

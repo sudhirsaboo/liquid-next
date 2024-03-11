@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import classnames from "classnames";
 
@@ -47,7 +48,6 @@ class TreeMenu extends React.Component<any, any> {
         itemClassName="header"
         key={key}
         nodeLabel={label}
-        defaultcollapsed={false}
       >
         {item.nodes.map((link) => {
           if (link.nodes && link.nodes.length) {
@@ -73,8 +73,9 @@ class TreeMenu extends React.Component<any, any> {
       return null;
     }
     return (
-      <div className="ui-tree">
+      <div className="ui-tree" key={i}>
         <MenuItem
+          linkClass={this.props.linkClass}
           key={i}
           className="ui-tree-leaf"
           iconClassName={myClassNames}

@@ -1,39 +1,29 @@
-import styled from "styled-components";
-
-const Screen = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-const HeaderPane = styled.div`
-  healder: 0;
-`;
-
-const Content = styled.div`
-  display: flex;
-  overflow: auto;
-`;
-
-const LeftPane = styled.div<{ leftwidth: string }>`
-  overflow: auto;
-  flex: 0 0 ${(props) => props.leftwidth}px;
-`;
-
-const RightPane = styled.div<{ rightwidth: string }>`
-  overflow: auto;
-  flex: 0 0 ${(props) => props.rightwidth}px;
-`;
+import "./SplitScreen.scss";
+const LeftPane = (leftwidth: number) => {
+  return {
+    flex: `0 0 ${leftwidth}px`,
+  };
+};
+const RightPane = (rightwidth: number) => {
+  return {
+    flex: `0 0 ${rightwidth}px`,
+  };
+};
 
 const SplitScreen = (props: any) => {
   const { leftwidth, rightwidth } = props;
   return (
-    <Screen>
-      <HeaderPane>{props.Header}</HeaderPane>
-      <Content>
-        <LeftPane leftwidth={leftwidth}>{props.Left}</LeftPane>
-        <RightPane rightwidth={rightwidth}>{props.Right}</RightPane>
-      </Content>
-    </Screen>
+    <div className="screen">
+      <div className="header-pane">{props.Header}</div>
+      <div className="content">
+        <div className="left-pane" style={LeftPane(leftwidth)}>
+          {props.Left}
+        </div>
+        <div className="right-pane" style={RightPane(rightwidth)}>
+          {props.Right}
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -11,10 +11,6 @@ class TreeView extends React.Component<any, any> {
     };
   }
 
-  getInitialState() {
-    return { collapsed: this.props.defaultcollapsed };
-  }
-
   handleClick = (...args: any[]) => {
     this.setState({ collapsed: !this.state.collapsed });
     if (this.props.onClick) {
