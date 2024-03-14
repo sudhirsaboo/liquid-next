@@ -1,19 +1,16 @@
 import * as React from "react";
 
-import { changeModal } from "../../../../actions/modal";
+// import { changeModal } from "../../../../actions/modal";
 import IconButton from "../button/IconButton";
-import Auth from "../others/Auth";
+// import Auth from "../others/Auth";
 
-import DeleteCard from "./DeleteCard";
+// import DeleteCard from "./DeleteCard";
 
 class DeleteIcon extends React.Component<any, any> {
     onDelete = () => {
         const { dispatch } = this.props;
-        /* if(onClick){
-            onClick();
-        }
-        else*/
-        dispatch(changeModal("modal", this.props, DeleteCard));
+
+        // dispatch(changeModal("modal", this.props, DeleteCard));
     };
 
     render() {
@@ -22,7 +19,8 @@ class DeleteIcon extends React.Component<any, any> {
         }
         return (
             <IconButton
-                className="font-icon fa-close fa"
+                icon="fa-close"
+                class="font-icon"
                 tooltip="Delete"
                 onClick={this.onDelete}
             />
@@ -30,8 +28,8 @@ class DeleteIcon extends React.Component<any, any> {
     }
 }
 
-const DeleteIconWA = Auth(DeleteIcon, false);
-const DeleteIconWOA = DeleteIcon;
+// const DeleteIconWA = Auth(DeleteIcon, false);
+// const DeleteIconWOA = DeleteIcon;
 
-export default DeleteIconWA;
-export { DeleteIconWOA };
+//export default DeleteIconWA;
+export { DeleteIcon };

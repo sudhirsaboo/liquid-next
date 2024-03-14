@@ -20,11 +20,7 @@ class AddIcon extends React.Component<any, any> {
 
     render() {
         return (
-            <IconButton
-                className="fa-plus fa"
-                onClick={this.add}
-                tooltip="Add New"
-            />
+            <IconButton icon="fa-plus" onClick={this.add} tooltip="Add New" />
         );
     }
 }

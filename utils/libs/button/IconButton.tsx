@@ -2,9 +2,10 @@
  * Created by ssaboo on 3/31/16.
  */
 import * as React from "react";
-import * as classnames from "classnames";
+import classnames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { IconButton as RawIconButton } from "react-toolbox/lib/button/IconButton";
+//import { IconButton as RawIconButton } from "react-toolbox/lib/button/IconButton";
 
 class IconButton extends React.Component<any, any> {
     render() {
@@ -13,14 +14,17 @@ class IconButton extends React.Component<any, any> {
         const myClassNames = classnames(this.props.className, {
             "icon-button": true,
         });
+        const style = { boxSizing: "border-box" };
 
         return (
-            <RawIconButton
-                style={this.props.style}
-                className={myClassNames}
-                data-title={this.props.title || this.props.label}
-                onClick={this.props.onClick}
-            />
+            <button onClick={this.props.onClick}>
+                <FontAwesomeIcon
+                    icon={this.props.icon}
+                    style={Object.assign({}, this.props.style, style)}
+                    className={myClassNames}
+                    data-title={this.props.title || this.props.label}
+                />
+            </button>
         );
     }
 }
