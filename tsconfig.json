@@ -5,6 +5,7 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -21,9 +22,12 @@
       "@/*": ["./*"],
       "@/liquid/*": ["./components/libs/*"],
       "@/liquid-layouts/*": ["./layouts/lib/*"],
+      "@/liquid-utils/*": ["./utils/libs/*"],
+      "@/liquid-forms/*": ["./form/libs/*"],
 
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
-}
+  "exclude": [
+    "node_modules"
+],}
