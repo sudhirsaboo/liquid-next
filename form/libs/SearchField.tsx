@@ -1,6 +1,6 @@
 import * as React from "react";
 import Field from "./Field";
-import Input from "react-toolbox/lib/input";
+import { InputText } from "primereact/inputtext";
 import * as keycode from "keycode";
 
 class SearchField extends Field {
@@ -8,7 +8,7 @@ class SearchField extends Field {
         super(props);
     }
 
-    onKeyPress = e => {
+    onKeyPress = (e) => {
         if (this.props.onKeyPress) this.props.onKeyPress(e);
         if (keycode(e) != "enter") {
             return;
@@ -27,18 +27,19 @@ class SearchField extends Field {
 
         return (
             // @ts-ignore
-            <Input
-                ref="input"
-                hint=""
-                label={placeholder}
-                // @ts-ignore
-                defaultValue={value}
-                {...other}
-                disabled={!this.isEditable()}
-                onChange={this.onChange}
-                onBlur={this.onBlur.bind(this)}
-                onKeyPress={this.onKeyPress}
-            />
+            <div>
+                <label htmlFor={placeholder}>{label}</label>
+
+                <InputText
+                    ref="input"
+                    defaultValue={value}
+                    {...other}
+                    disabled={!this.isEditable()}
+                    onChange={this.onChange}
+                    onBlur={this.onBlur.bind(this)}
+                    onKeyPress={this.onKeyPress}
+                />
+            </div>
         );
     }
 }

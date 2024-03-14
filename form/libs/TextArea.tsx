@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Field from "./Field";
 
-import Input from "react-toolbox/lib/input";
+import { InputTextarea } from "primereact/inputtextarea";
 import * as classnames from "classnames";
 
 class TextArea extends Field {
@@ -12,7 +12,7 @@ class TextArea extends Field {
 
     state = {
         value: TextArea.getStoreValue(this.props),
-        valid: true
+        valid: true,
     };
 
     static getDerivedStateFromProps(nextProps, state) {
@@ -45,27 +45,30 @@ class TextArea extends Field {
             this.props.className,
             "input-container",
             {
-                "has-errors": !this.state.valid
+                "has-errors": !this.state.valid,
             }
         );
         return (
-            <Input
-                style={this.props.style}
-                className={myClassNames}
-                ref="input"
-                label={placeholder}
-                floating
-                multiline
-                rows={rows}
-                required={required}
-                value={this.state.value}
-                {...other}
-                disabled={!this.isEditable()}
-                onChange={this.onChange.bind(this)}
-                onBlur={this.onBlur.bind(this)}
-            >
-                {this.getValidationChildren()}
-            </Input>
+            <div className="input-container">
+                <label htmlFor={name}>{placeholder}</label>
+
+                <InputTextarea
+                    id={name}
+                    style={this.props.style}
+                    className={myClassNames}
+                    ref="input"
+                    multiline
+                    rows={rows}
+                    required={required}
+                    value={this.state.value}
+                    {...other}
+                    disabled={!this.isEditable()}
+                    onChange={this.onChange.bind(this)}
+                    onBlur={this.onBlur.bind(this)}
+                >
+                    {this.getValidationChildren()}
+                </InputTextarea>
+            </div>
         );
     }
 }

@@ -29,9 +29,7 @@
         "primereact": "^10.5.1",
         "react": "^18",
         "react-data-grid": "^7.0.0-beta.42",
-        "react-dom": "^18",
-        "react-toolbox": "^2.0.0-beta.13",
-        "styled-components": "^6.1.8"
+        "react-dom": "^18"
     },
     "devDependencies": {
         "@storybook/addon-essentials": "^7.6.17",

@@ -1,9 +1,8 @@
 import * as React from "react";
 import EntryField from "./EntryField";
-import PickerDialog from "react-toolbox/lib/date_picker";
+import { Calendar } from "primereact/calendar";
 import IconButton from "@/liquid-utils/button/IconButton";
 import * as moment from "moment";
-import Input from "react-toolbox/lib/input";
 
 class DateEntryField extends EntryField {
     constructor(props) {
@@ -15,6 +14,7 @@ class DateEntryField extends EntryField {
         format: this.props.format,
         icon: this.props.icon,
         value: DateEntryField.getStoreValueChecked(this.props),
+        date: null,
         valid: true,
     };
 
@@ -46,20 +46,14 @@ class DateEntryField extends EntryField {
         return moment(value, format).toDate();
     }
 
-    handleDateSelect = (date) => {
+    onChange = (e) => {
+        //parent has some logic.
         const { format } = this.state;
+        const date = e.value;
         const value = DateEntryField.dateToValue(date, format, format);
-        this.refs.input["value"] = value;
-        this.setState({ dateActive: false, value });
-        this.setStoreValue(value);
-    };
-
-    handleDateDismiss = () => {
-        this.setState({ dateActive: false });
-    };
-
-    handleInputMouseDown = () => {
-        this.setState({ dateActive: true });
+        // this.refs.input["value"] = value;
+        this.setState({ date }); // js date
+        this.setStoreValue(value); // formatted string date
     };
 
     getValue() {
@@ -81,13 +75,12 @@ class DateEntryField extends EntryField {
                 <label data-name={name}>{label}</label>
 
                 <div className="md-input">
-                    <Input
-                        ref="input"
-                        label={label}
+                    <Calendar
+                        //ref="input"
                         className={"display-input"}
                         name={name}
                         required={required}
-                        value={this.state.value}
+                        value={this.state.date}
                         onChange={this.onChange.bind(this)}
                         onBlur={this.onBlur.bind(this)}
                     />
@@ -95,20 +88,6 @@ class DateEntryField extends EntryField {
                         className={icon}
                         onClick={this.handleInputMouseDown}
                     />
-
-                    {
-                        <PickerDialog
-                            ref="picker"
-                            autoOk={this.props.autoOk}
-                            active={this.state.dateActive}
-                            className={this.props.className}
-                            maxDate={this.props.maxDate}
-                            minDate={this.props.minDate}
-                            onDismiss={this.handleDateDismiss}
-                            onChange={this.handleDateSelect}
-                            value={this.valueToDate(this.state.value)}
-                        />
-                    }
                 </div>
 
                 {this.getValidationChildren()}

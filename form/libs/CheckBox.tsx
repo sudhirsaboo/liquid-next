@@ -1,5 +1,5 @@
 import * as React from "react";
-import MDCheckBox from "react-toolbox/lib/checkbox";
+import { Checkbox as LibCheckbox } from "primereact/checkbox";
 import Field from "./Field";
 
 class CheckBox extends Field {
@@ -12,7 +12,7 @@ class CheckBox extends Field {
         checked:
             this.props.checked != undefined
                 ? this.props.checked
-                : this.toBoolean(CheckBox.getStoreValue(this.props, null))
+                : this.toBoolean(CheckBox.getStoreValue(this.props, null)),
     };
 
     static getDerivedStateFromProps(nextProps, state) {
@@ -42,17 +42,19 @@ class CheckBox extends Field {
     };
 
     render() {
-        const { label } = this.props;
+        const { label, name } = this.props;
 
         return (
             <div className="checkbox-field">
-                <MDCheckBox
+                <label htmlFor={name}>{label}</label>
+
+                <LibCheckbox
+                    id={name}
                     ref="input"
-                    label={label}
                     checked={this.toBoolean(this.state.checked)}
                     onChange={this.handleChange}
                     disabled={this.props.editable === false}
-                ></MDCheckBox>
+                ></LibCheckbox>
             </div>
         );
     }

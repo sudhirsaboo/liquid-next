@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as classnames from "classnames";
 import Field from "./Field";
-import Input from "react-toolbox/lib/input";
+import { InputText } from "primereact/inputtext";
 
 class EntryField extends Field {
     constructor(props) {
@@ -10,7 +10,7 @@ class EntryField extends Field {
 
     state = {
         value: EntryField.getStoreValueChecked(this.props),
-        valid: true
+        valid: true,
     };
 
     static getDerivedStateFromProps(nextProps, state) {
@@ -46,16 +46,18 @@ class EntryField extends Field {
             this.props.className,
             "input-container",
             {
-                "has-errors": !this.state.valid
+                "has-errors": !this.state.valid,
             }
         );
 
         return (
             <div className={myClassNames}>
-                <Input
+                <label htmlFor={name}>{label}</label>
+
+                <InputText
                     ref="input"
+                    id={name}
                     type={type}
-                    label={label}
                     className={"display-input"}
                     name={name}
                     required={required}
@@ -63,7 +65,6 @@ class EntryField extends Field {
                     onChange={this.onChange.bind(this)}
                     onBlur={this.onBlur.bind(this)}
                 />
-
                 {this.getValidationChildren()}
             </div>
         );

@@ -1,8 +1,8 @@
 import * as React from "react";
 import DateEntryField from "./DateEntryField";
-import PickerDialog from "react-toolbox/lib/time_picker";
 import IconButton from "@/liquid-utils/button/IconButton";
 import * as moment from "moment";
+import { Calendar } from "primereact/calendar";
 
 class TimeEntryField extends DateEntryField {
     constructor(props) {
@@ -16,6 +16,7 @@ class TimeEntryField extends DateEntryField {
         type: this.props.type,
         //value: null,
         value: TimeEntryField.getStoreValueChecked(this.props),
+        time: null,
         valid: true,
     };
 
@@ -39,28 +40,25 @@ class TimeEntryField extends DateEntryField {
     }
 
     handleTimeSelect = (e) => {
-        // const { value } = this.state;
         let timeStr;
         let valueDate = null;
-        if (e instanceof Date) {
+        let time = e.value;
+        if (time instanceof Date) {
             valueDate = e; // date
             timeStr = moment(e).format("HH:mm a");
-        } else if (e.target.value) {
-            timeStr = e.target.value; // HH:mm a string
+        } else if (time) {
+            timeStr = time; // HH:mm a string
         }
 
         const dateStr = "1970-01-01";
         const newValue = moment(dateStr);
-        const time = moment(timeStr, "hh:mm a");
+        const time2 = moment(timeStr, "hh:mm a");
         newValue.set({
-            hour: time.get("hour"),
-            minute: time.get("minute"),
-            second: time.get("second"),
+            hour: time2.get("hour"),
+            minute: time2.get("minute"),
+            second: time2.get("second"),
         });
-        //  valueDate = newValue.toDate(); // date with time in date format
-        // const value = date; // TimeEntryField.dateToValue(date, format, format);
-        this.refs.input["value"] = timeStr;
-        this.setState({ dateActive: false, value: timeStr }); // 1970 with time
+        this.setState({ dateActive: false, value: timeStr, time: time }); // 1970 with time
         this.setStoreValue(timeStr); // or timeStr
     };
 
@@ -85,7 +83,7 @@ class TimeEntryField extends DateEntryField {
                     <label data-name={name}>{label}</label>
 
                     <div className="md-input">
-                        <input
+                        {/* <Calendar
                             ref="input"
                             readOnly
                             className={"display-input"}
@@ -94,26 +92,25 @@ class TimeEntryField extends DateEntryField {
                             // defaultValue={this.state.value}
                             onChange={this.onChange.bind(this)}
                             onBlur={this.onBlur.bind(this)}
+                        /> */}
+
+                        <Calendar
+                            ref="picker"
+                            // active={this.state.dateActive}
+                            className={this.props.className}
+                            maxDate={this.props.maxDate}
+                            minDate={this.props.minDate}
+                            // onDismiss={this.handleDateDismiss}
+                            onSelect={this.handleTimeSelect}
+                            onChange={this.handleTimeSelect}
+                            value={this.state.time}
+                            timeOnly
                         />
 
                         <IconButton
                             className={icon}
                             onClick={this.handleInputMouseDown}
                         />
-                        {
-                            <PickerDialog
-                                ref="picker"
-                                autoOk={this.props.autoOk}
-                                active={this.state.dateActive}
-                                className={this.props.className}
-                                maxDate={this.props.maxDate}
-                                minDate={this.props.minDate}
-                                onDismiss={this.handleDateDismiss}
-                                onSelect={this.handleTimeSelect}
-                                onChange={this.handleTimeSelect}
-                                value={this.valueToDate(this.state.value)}
-                            />
-                        }
                     </div>
 
                     {this.getValidationChildren()}

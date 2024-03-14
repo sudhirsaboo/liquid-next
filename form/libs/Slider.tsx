@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Slider as MDSlider } from "react-toolbox/lib/slider";
+import { Slider as LibSlider } from "primereact/slider";
 
 import Field from "./Field";
 
@@ -10,16 +10,17 @@ class Slider extends Field {
     }
 
     applyChange = (e?) => {
-        this.setState({ value: parseInt(e) });
-        this.onChange({ target: { value: e } });
+        const value = e.value;
+        this.setState({ value: parseInt(value) });
+        this.onChange({ target: { value } });
 
         if (!this.props.apply) {
-            this.setStoreValue(parseInt(e));
+            this.setStoreValue(parseInt(value));
         }
     };
 
     state = {
-        value: Slider.getStoreValue(this.props)
+        value: Slider.getStoreValue(this.props),
     };
 
     static getDerivedStateFromProps(nextProps) {
@@ -43,7 +44,7 @@ class Slider extends Field {
                 <label>
                     {label} - {this.state.value}
                 </label>
-                <MDSlider
+                <LibSlider
                     ref="input"
                     value={this.state.value}
                     min={min ? min : 0}
@@ -51,9 +52,9 @@ class Slider extends Field {
                     step={step ? step : 1}
                     onChange={this.applyChange.bind(this)}
                     disabled={this.props.editable === false}
-                    pinned={this.props.config && this.props.config.pinned}
-                    snaps={this.props.config && this.props.config.snaps}
-                ></MDSlider>
+                    // pinned={this.props.config && this.props.config.pinned}
+                    //snaps={this.props.config && this.props.config.snaps}
+                ></LibSlider>
             </div>
         );
     }
