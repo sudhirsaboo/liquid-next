@@ -1,0 +1,48 @@
+/*--------------------------------------------------------------------
+ * Form
+ *------------------------------------------------------------------*/
+
+input.hidden
+{
+ display:none;
+}
+
+button,
+fieldset,
+input,
+optgroup,
+select,
+textarea {
+  /* Correct inproperly inherited font sizes/styles */
+  font: inherit;
+  /* Remove focus outline */
+  &:focus {
+    outline: 0;
+  }
+}
+
+/*--------------------------------------------------------------------
+ * Buttons
+ *------------------------------------------------------------------*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  overflow: visible;
+  -webkit-appearance: button;
+  cursor: pointer;
+  background: $sjargon_warmblue;
+  color: $white;
+  -webkit-font-smoothing: antialiased;
+  border: 0px none;
+  padding: calc($indent_unit/4) calc($indent_unit/2);
+  &:hover {
+  }
+}
+
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+ 

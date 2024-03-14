@@ -1,0 +1,57 @@
+.comments-none{
+  padding: 15px 0 0 15px;
+}
+.comments-container {
+  clear: both;
+  padding: 15px 0 0 0;
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .029em;
+  line-height: 16px;
+  list-style-type: none;
+  //overflow: hidden;
+
+  li {
+    display: table ;
+
+    margin-bottom: 8px;
+    color: #464646;
+
+    .avatar {
+      display: table-cell;
+
+      width: 24px;
+      height: 24px;
+
+      margin-right: 7px;
+      margin-left: 16px;
+
+      border-radius: 50%;
+      vertical-align: -4px
+    }
+    .content {
+      display: table-cell;
+
+      vertical-align: top;
+
+      .contentWrap
+      {
+        margin-left:10px;
+
+        .user-name{
+          font-weight: bold;
+
+        }
+      }
+    }
+
+  }
+}
+.comments-pagination{
+  margin-bottom: 7px;
+  color: #a5a7aa;
+
+}
+

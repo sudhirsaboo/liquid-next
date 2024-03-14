@@ -1,0 +1,10 @@
+.avatar.large {
+  width: 100px;
+  height: 100px;
+
+  &.centered
+  {
+    margin :0 auto;
+    float: none;
+  }
+ }

@@ -1,0 +1,46 @@
+.cards {
+
+  //max-width: 1600px;
+  //padding: 0 50px;
+  margin: 0 auto;
+
+
+  @include respond-xmobile {
+    padding: 0 ;
+  }
+
+  .clearfix:after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    font-size: 0;
+    content: " ";
+    height: 0;
+  }
+
+  /*.grid {
+    clear: none;
+  }*/
+}
+
+.cards-index{
+///padding: 0 50px;
+max-width:1600px;
+margin: 0 auto;
+//padding:20px;
+text-align:left;// cart
+
+  .posts{
+    .card {
+      display:inline-block;
+    }
+
+    @include respond-xmobile {
+        @include prefix(display,flex);
+       @include prefix(flex-flow,row wrap);
+
+      justify-content: center;
+    }
+  }
+}
+

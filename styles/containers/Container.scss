@@ -1,0 +1,135 @@
+.field-centered {
+    justify-content: center;
+    display: flex;
+}
+
+.container {
+
+    width: auto; // sudhir
+    max-width:$bp_xxxlarge;
+    margin:0 auto;
+    padding: $spacing_unit_small;
+
+    @include respond($bp_medium) {
+        padding: $spacing_unit_small;
+    }
+    @include respond($bp_xxlarge) {
+        padding: $spacing_unit_small;
+    }
+
+  @include respond-xmobile {
+        padding:0 10px 0 10px;
+      //  padding-top:$spacing_unit_small;
+      padding-bottom: 20px;
+    }
+
+
+    &-small-top {
+      max-width:$bp_xxxlarge;
+      margin:0 auto;
+      //padding:  $spacing_unit_medium $spacing_unit_small;
+
+      @include respond($bp_medium) {
+        padding: $spacing_unit_medium $spacing_unit_medium;
+        //padding-bottom:0px;  // SS needed to have a space below
+      }
+      @include respond($bp_xxlarge) {
+
+          padding: $spacing_unit_medium $spacing_unit_large;
+          //padding-bottom:0px;  // SS needed to have a space below 
+      }
+    }
+
+    &-small {
+      max-width:$bp_xxxlarge;
+      margin:0 auto;
+      padding:  $spacing_unit_medium $spacing_unit_small;
+      @include respond($bp_medium) {
+          padding: $spacing_unit_medium;
+      }
+      @include respond(1042px) {
+        padding: $spacing_unit_medium $spacing_unit_large *2;
+      }
+      @include respond($bp_xxlarge) {
+        padding-left: 250px;
+        padding-right: 250px;
+      }
+    }
+
+    &-large {
+      max-width:$bp_xxxlarge;
+      margin:0 auto;
+      padding: $spacing_unit_medium $spacing_unit_small;
+      @include respond($bp_large) {
+          padding: $spacing_unit_large $spacing_unit_medium;
+      }
+      @include respond($bp_xlarge) {
+        padding: 150px $spacing_unit_medium;
+      }
+      @include respond($bp_xxlarge) {
+        padding: 115px 200px;
+      }
+    }
+    &-mobile-medium {
+      padding: $spacing_unit_medium $spacing_unit_small;
+      @include respond($bp_xxlarge) {
+        padding: $spacing_unit_large;
+      }
+    }
+
+    &-compact {
+      @include respond($bp_xxlarge) {
+        padding: $spacing_unit_medium;
+      }
+    }
+
+    &-super-compact {
+      @include respond($bp_xxlarge) {
+        padding: $spacing_unit_small;
+      }
+    }
+}
+
+
+.content {
+    @include clearfix;
+    + .content {
+      padding-top: $spacing_unit_small;
+      @include respond($bp_medium) {
+        padding-top: $spacing_unit_medium;
+      }
+    }
+}
+
+.container-content{
+  padding: 25px;
+}
+
+.flex-container {
+  @include prefix(display,flex);
+  @include prefix(flex-flow,row wrap);
+
+  justify-content: center;
+
+  
+
+}
+ /*<section className="flex-container">
+                        <section className="flex-content">
+                        <Arts relax={true} {...this.props}/>
+                        </section>
+                        <section className="flex-nav">
+                            <Ratings  post={post} {...this.props}/>
+                        </section>
+                    </section>*/
+
+.flex-content {
+  width:100%;
+  flex: 1;
+  
+}
+.flex-nav {
+  
+  
+}
+

@@ -1,0 +1,108 @@
+.link--inline {
+    position: relative;
+    display: inline;
+    outline: none;
+    text-decoration: none;
+    font-weight: 600;
+    color: $link_color;
+    cursor: pointer;
+
+
+    &:hover {
+        outline: none;
+ text-decoration: none;
+    }
+    &:after {
+
+        position: absolute;
+        bottom: 3px;
+        left: 0;
+        width: 0%;
+        height:2px;
+        content: '';
+        background: $link_color;
+        @include transition(width 0.3s ease);
+    }
+    &:hover:after {
+        width: 100%;
+    }
+    &:visited {
+        color: $link_color;
+    }
+
+}
+.link--inline.link--white {
+    &:after {
+      background: #dd7d38;
+    }
+}
+
+
+.link--white {
+    color: $white;
+    &:visited {
+        color: $white;
+    }
+    &:hover {
+        color: $white;
+    }
+
+}
+.link--active {
+    color: black;
+
+ &:visited {
+        color: black;
+    }
+}
+
+
+
+.links-list {
+
+  padding:10px;
+  
+  
+  ul {
+    margin:0;
+    padding:0;
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    line-height: 2.2;
+    @include respond($bp_xlarge) {
+      line-height: 1.8;
+    }
+  }
+
+  li {
+    margin:0;
+    padding:0;
+    list-style:none;
+    font-size: $base_font_size_xsmall;
+    font-weight: 300;
+  }
+
+  .link--inline {
+    font-weight: 300;
+    &:after {
+      opacity: 0.6;
+      bottom: 0;
+    }
+  }
+
+  .footer-title {
+    font-weight: 600;
+  }
+
+  .no-link {
+    pointer-events: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+  }
+
+}
+

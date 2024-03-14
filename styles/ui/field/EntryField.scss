@@ -1,0 +1,55 @@
+.input-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.ui-field-group {
+    .input-container {
+        padding-bottom: 26px;
+
+        .md-input {
+            position: relative;
+            button {
+                position: absolute;
+                right: 150px;
+                top: 20px;
+            }
+        }
+
+        &.has-errors {
+            input,
+            select {
+                border-color: red;
+            }
+        }
+    }
+}
+
+input {
+    border: 1px solid transparent;
+    border-color: $field-border;
+    border-radius: 2px;
+    color: black;
+    &:focus {
+        border-color: $field-border-focus;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+            0 0 8px rgba(102, 175, 233, 0.6);
+    }
+}
+
+input[type="password"] {
+    margin: 0 auto;
+}
+
+input[type="email"] {
+    display: block;
+    border-radius: 2px;
+    font-weight: 300;
+    width: 100%;
+    @include transition(border 0.3s ease);
+    &:focus {
+        @include transition(border 0.3s ease);
+    }
+}

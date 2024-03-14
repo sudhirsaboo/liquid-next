@@ -1,0 +1,85 @@
+
+.bg {
+    &--warmblue {
+        background-color: $sjargon_warmblue;
+        color: $white;
+        &--light {
+          background-color: rgba($sjargon_warmblue, 0.9);
+          color: rgba($sjargon_warmblue, 0.5);
+        }
+    }
+   // #007db6
+    &--coolblue {
+        background-color: $sjargon_coolblue;
+        color: $white;
+    }
+    &--teal {
+        background-color: $sjargon_teal;
+        &--light {
+          background-color: rgba($sjargon_teal, 0.9);
+          color: rgba($black, 0.5);
+        }
+    }
+    &--viridian {
+        background-color: $sjargon_viridian;
+        &--light {
+          background-color: rgba($sjargon_viridian, 0.9);
+          color: rgba($black, 0.5);
+        }
+    }
+    &--coolgreen {
+        background-color: $sjargon_coolgreen;
+    }
+    &--leafgreen {
+        background-color: $sjargon_leafgreen;
+    }
+    &--yellowgreen {
+        background-color: $sjargon_yellowgreen;
+    }
+    &--lightblue {
+        background-color: $sjargon_lightblue;
+        color: $text_color;
+    }
+    &--white {
+        background-color: $white;
+        color: $text_color;
+    }
+    &--mid-gray {
+        background-color: $mid_grey;
+    }
+    &--gray {
+        background-color: $almost_white;
+        color: $text_color;
+    }
+    &--lightestgrey {
+        background-color: $lightest_grey;
+        color: $coal;
+    }
+    &--coal {
+        background-color: $coal;
+    }
+    &--silver {
+        background-color: $silver;
+    }
+    &--orange {
+        background-color: $sjargon_orange;
+    }
+    &--white-transparent {
+      background-color: rgba(255, 255, 255, 0.7);
+      color: $coal;
+    }
+    &--rounded {
+      border-radius: 4px;
+    }
+    &--warmblue-gradient {
+      background: linear-gradient(to right, #219fbc 0%,#037db7 100%);
+    }
+    &--viridian-gradient {
+      background: linear-gradient(to right, #60c497 0%,#00a77e 100%);
+    }
+    &--teal-gradient {
+      background: linear-gradient(to right, #3db4b5 0%,#009c9e 100%);
+    }
+
+}
+

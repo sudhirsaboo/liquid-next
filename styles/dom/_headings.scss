@@ -1,0 +1,83 @@
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading_font_family;
+    line-height: 1.2;
+    font-weight: 300;
+}
+
+h1 {
+    @include clearboth;
+    text-align: center;
+    font-size: $font_size4;
+    @include respond($bp_medium) {
+        font-size: $font_size3;
+    }
+    @include respond($bp_large) {
+        font-size: $font_size2;
+    }
+    @include respond($bp_xxxlarge + 100) {
+        font-size: $font_size1;
+
+    }
+}
+h1 + p, h2 + p {
+    padding-top: $spacing_unit_small;
+}
+h1 + h3 {
+    padding-top: $spacing_unit_small;
+}
+h1 + h2 {
+  padding-top: $spacing_unit_small;
+}
+h2 + h3 {
+    padding-top: $spacing_unit_small;
+}
+
+h3 + h1 {
+    padding-top: $spacing_unit_small;
+}
+
+h2 {
+    @include clearboth;
+        font-size: $font_size6;
+    @include respond($bp_medium) {
+        font-size: $font_size5;
+    }
+    @include respond($bp_large) {
+        font-size: $font_size4;
+    }
+    @include respond($bp_xxlarge) {
+        font-size: $font_size3;
+    }
+
+}
+
+
+h3 {
+    //text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: $font_size8;
+    @include respond($bp_medium) {
+        font-size: $font_size7;
+    }
+    @include respond($bp_large) {
+        font-size: $font_size7;
+    }
+    @include respond($bp_xxlarge) {
+        font-size: $font_size6;
+    }
+
+}
+
+h4 {
+    font-weight: 600;
+    margin-bottom: calc($spacing_unit_small/2);
+    margin-top: $spacing_unit_medium;
+
+    @include respond($bp_large) {
+
+    }
+}
+

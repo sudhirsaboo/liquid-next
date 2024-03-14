@@ -1,0 +1,35 @@
+/**
+ * Created by ssaboo on 4/22/16.
+ */
+.display-field {
+
+    @include prefix(display,flex);
+    @include prefix(flex-flow,row);
+    padding:2px;
+
+  &>input {
+      border: none;
+      order: 2;
+      display: block;
+      margin-top: auto;
+      background: none;
+      padding: 2px 2px 1px;
+      border-width: 0 0 1px;
+      line-height: 26px;
+      border-radius: 0;
+      width: auto;
+    }
+
+  label {
+    color: rgba(0,0,0,.5);
+    width:130px;
+  }
+
+  &.Currency, &.Number{
+
+    &> input{
+      text-align: right;
+    }
+  }
+
+ }

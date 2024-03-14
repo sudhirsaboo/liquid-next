@@ -1,0 +1,161 @@
+#mobile-menu .input-container label{
+  align-self: center;
+  }
+
+#mobile-menu nav.mobile>ul {
+  list-style: none;
+  height: 100%;
+  background-color: #f1f1f1;
+  margin: 0 0;
+  @include clearfix;
+
+  li {
+    float: left;
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 0;
+    overflow: hidden;
+    &:hover {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      border-bottom: 0px;
+    }
+
+    &.has-submenu {
+      border-bottom: 0px;
+      &.open {
+        border-bottom: 1px solid #e1e1e1;
+
+        .sub-menu li {
+          border-bottom: 1px solid #C6E1E7;
+
+          &:last-of-type {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+    a {
+      color: $coal;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      height: 100%;
+      width: 100%;
+      padding: 10px 0;
+
+    }
+  }
+  .sub-menu {
+    border-top: 1px solid #e1e1e1;
+  }
+  .sub-menu li {
+    background-color: $sjargon_lightblue;
+    border-bottom: 0;
+    &:last-of-type {
+      border-bottom: 0px;
+    }
+  }
+}
+
+
+
+
+#mobile-menu {
+  display: block;
+  z-index:1000;
+  position: fixed;
+  width: 200px;
+  right: -200px;
+  top: 74px;
+  max-width: 300px;
+  background-color: #f1f1f1;
+  transition: right 0.3s ease-in-out;
+  @include clearfix;
+
+  @include respond($bp_nav) {
+    display: none;
+  }
+
+  &.open {
+    right: 0;
+    transition: right 0.3s ease-in-out;
+   // position: absolute; // problem on mobile iphone, 
+    top: 74px;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+  }
+
+  .has-submenu {
+    padding-bottom: 0;
+    border-bottom: 0px;
+
+    li {
+      height: 0px;
+      transition: height 0.3s ease-in-out;
+      border-bottom: 0px;
+    }
+
+    &.open {
+      border-bottom: 1px solid #e1e1e1;
+      li {
+        height: 71px;
+        transition: all 0.3s ease-in-out;
+        border-bottom: 1px solid #e1e1e1;
+      }
+    }
+  }
+
+  .sub-menu {
+    width: 100%;
+    margin: 0 0;
+    list-style: none;
+    @include clearfix;
+
+  }
+}
+
+
+// MOBILE NAVIGATION
+
+  #mobile-menu-btn {
+    display: block;
+    float: right;
+    color: $coal;
+    font-size: 15px;
+    font-weight: 600;
+    padding-right: 10px;
+    @include vertically-align;
+    top: calc(50% + 4px);
+    @include respond($bp_nav) {
+      display: none;
+    }
+    a {
+      color: $coal;
+      text-decoration: none;
+    }
+  }
+
+
+
+.home {
+  #mobile-menu-btn {
+    color: $white;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  #mobile-menu {
+    top: 74px;
+  }
+  #mobile-menu.open {
+    top: 66px;
+  }
+}

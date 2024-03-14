@@ -1,0 +1,36 @@
+
+svg.iochart {
+  overflow: scroll;
+  height:2000px;
+  -webkit-user-drag: initial;
+}
+
+.node rect {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: #fff;
+}
+
+.node:hover {
+ // filter: url(#drop_shadow);
+}
+
+.edgeLabel rect {
+  fill: #fff;
+}
+
+.edgePath {
+  stroke: #333;
+  stroke-width: 1.5px;
+  fill: none;
+}
+
+.edgePath  {
+  stroke: #999;
+  stroke-width: 1.5px;
+  fill: none;
+}
+
+.page-content {
+  width:100%;
+}

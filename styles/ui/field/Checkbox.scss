@@ -1,0 +1,39 @@
+.checkbox-field
+{
+  padding-bottom:10px;
+}
+
+input[type="checkbox"] {
+  //SS  -webkit-appearance: none;
+  //SS appearance: none;
+  cursor: pointer;
+  background-color: $white;
+  border: 1px solid $almost_white;
+  //    margin-top: $spacing_unit_small/2;
+  //padding: $spacing_unit_small/2;
+  border-radius: 2px;
+  display: inline-block;
+  //  position: relative;
+  margin-right: calc($spacing_unit_small/2);
+  @include respond($bp_medium) {
+    margin-right: $spacing_unit_small;
+  }
+  @include transition(border 0.3s ease);
+  &:active, &:checked:active {
+    @include transition(border 0.3s ease);
+    border: 1px solid $sjargon_warmblue;
+  }
+
+  /*  &:checked:after {
+      content: '\2714';
+      font-size: $font_size8;
+      font-weight: 300;
+      position: absolute;
+      top: -4px;
+      left: 6px;
+      color: $link_color;
+    }*/
+  + p {
+    display: inline-block;
+  }
+}

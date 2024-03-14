@@ -1,0 +1,162 @@
+.menu-item-label
+{
+  display:block;
+  height:100%;
+}
+.super-nav {
+
+  float: left;
+  height: 100%;
+
+  div.logo {
+    margin-bottom: 0;
+
+    @include respond-xmobile {
+      display: none;
+    }
+
+  }
+
+  .avatar {
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+  }
+
+  div.brandlogo {
+    p {
+      color: #fff;
+      font-size: 13px;
+      font-family: inherit;
+      line-height: 28px;
+      text-align: right;
+      margin-bottom: 0;
+    }
+
+    @include respond-xmobile {
+      display: none;
+    }
+  }
+
+  & > ul {
+
+    //height: $super_nav_height;
+    margin: 0;
+    letter-spacing: -4px;
+    list-style: none;
+    text-align: right;
+
+    & > li {
+
+      display: inline-block;
+      float: left;
+      position: relative;
+      padding: 0 10px 3px;
+      font-size: 13px;
+      color: $coal;
+      letter-spacing: normal;
+      *vertical-align: auto;
+
+      &.strong a {
+        font-weight: bold;
+      }
+      &.border-left {
+        border-left: 1px solid #999;
+      }
+
+      &.border-right {
+        border-right: 1px solid #999;
+      }
+
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+
+        @include respond-xmobile {
+          padding-left: 10px;
+        }
+      }
+
+      @include respond-xmobile {
+      }
+
+      & > a {
+        display: block;
+        font-size: 13px;
+        color: $coal;
+        padding: 0;
+
+        .icon {
+          display: block;
+          float: left;
+          text-align: left;
+          font-size: 18px;
+        }
+
+        @include respond-xmobile {
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        @include respond-xmobile {
+          color: #d1d1d1;
+        }
+
+        &  strong {
+          // User Name
+          font-size: 14px;
+          display: inline-block;
+          float: left;
+          font-weight: inherit;
+          //          height: 74px;
+          //          line-height: 74px;
+          max-width: 100px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+      }
+      //a
+      img {
+        padding: 0;
+        margin-bottom: -4px;
+
+      }
+
+    }
+    //li
+
+    @include respond-xmobile {
+      background-color: $super_nav_color;
+      padding-right: 10px;
+    }
+
+  }
+  //ul
+
+  max-width: 910px;
+  width: auto;
+  position: absolute;
+  right: 20px;
+
+  @include respond-xmobile {
+    display: none;
+    right: 0;
+    top: 0;
+  }
+
+  @include respond($bp_xlarge) {
+  }
+
+}
+
+//super-nav
+
+.super-nav-container {
+  padding: 0 15px;
+  width: 100%;
+  background-color: grey;
+}

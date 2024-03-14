@@ -1,0 +1,42 @@
+
+.instruction_area,.validation-area {
+
+  .error,.error-message{
+    color:red;
+  }
+  
+  overflow:auto;
+  min-height: 60px;
+  max-height: 100px;
+  background: #cbebe5;
+  color: initial;
+  padding: 10px;
+  font-size: initial;
+  display: flex;
+  flex-direction:column;
+
+}
+
+
+.validation-area{
+  display:flex;
+  flex-direction:column;
+
+  &.notification-area
+  {
+    max-height:initial;
+    height:initial;
+    z-index:10000;
+    position:sticky;
+
+    div{
+      max-height:initial;
+      height:initial;
+
+    }
+  }
+  div 
+  {
+    
+  }
+}

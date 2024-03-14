@@ -1,0 +1,63 @@
+$thumb_height_small: 280px;
+$thumb_width_small:180px;
+$dropbox_height: 270px;
+$dropbox_width: 537px;
+$progressbar_height: 20px;
+
+// Need both background url set on the div and src set on img.
+.center-cropped-back {
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  img {
+    min-height: 100%;
+    min-width: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+
+.center-cropped-img
+{
+    overflow: hidden;
+    position: relative;
+
+    img {
+        position:absolute;
+        left: -100%;
+        right: -100%;
+        top: -100%;
+        bottom: -100%;
+        margin: auto;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+}
+ 
+// first scales to fit the width and then crops Doesnt work for wide images.
+.scale-crop-center-width
+{
+    overflow: hidden;
+    position: relative;
+    width:100%;
+    height:100%;
+
+    img {
+      position: absolute;
+      top:50%;
+      left:50%;
+      @include transform(translateX(-50%) translateY(-50%));
+      max-width:100%;
+      max-height:100%;
+    }
+
+}
+
+
+.center
+{
+    text-align: center;
+    vertical-align: middle;
+}

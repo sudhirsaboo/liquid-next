@@ -1,0 +1,42 @@
+.slider-container
+{
+.card .card-media{
+// pointer-events:none;//
+
+}
+}
+
+
+.card-media{
+
+  min-height: 100px;
+
+ &.stretch img
+ {
+    max-height: 80vh;
+ }
+  &:not(.stretch)
+  {
+    width: 280px;
+    height: 280px;
+  }
+  position:relative;
+
+  a {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      border: 0;
+      margin: 0 auto;
+    }
+  }
+}

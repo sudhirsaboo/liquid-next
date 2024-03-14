@@ -1,0 +1,50 @@
+
+.modal {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 34, 34, .85);
+  z-index: 1000;
+  -webkit-animation: fade-modal .25s;
+
+
+  @include respond-xmobile {
+  }
+  @include respond-xmobile-g {
+
+    @include prefix(display,flex);
+    @include prefix(justify-content,center);
+  }
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+   >div {
+
+ 
+      @include prefix(align-self,center);
+
+    margin: 0 auto;
+    background: white;
+
+    @include respond-xmobile {
+      max-height:90vh; // for mobile dialog only 90 for iphone
+      ///min-height:90vh; // so that small dialog also cover screen , but what about very small dialog like delete confirm?
+      overflow:auto; 
+    }
+    @include respond-xmobile-g {
+      height:initial;      // Delete Confirm should be small
+      max-height: 90vh; // for upgrade       // Scrollable Dialog (Upgrade) should  be smaller than window and be scrollable
+      overflow: auto; // for upgrade
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+  }
+}
+
+
+//// MODAL

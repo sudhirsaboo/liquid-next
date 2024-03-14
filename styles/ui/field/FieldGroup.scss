@@ -1,0 +1,22 @@
+.ui-field-group
+{
+  text-align: left;
+  padding: 0 0 10px 0;
+  
+  label{
+  clear:none;
+  }
+
+  &> .field-group-header{
+    width: 100%;
+    font-weight: bold;
+    background: $light_grey;
+  }
+
+  &>.content,.field-group-content
+  {
+  padding: 10px 10px 10px 10px;
+    
+  }
+}
+

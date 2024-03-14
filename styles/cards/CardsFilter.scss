@@ -1,0 +1,19 @@
+.cards-filter {
+  //position: relative;
+  float: left;
+  height: 690px;
+  width: 280px;
+  margin: 10px;
+  //background-color: #676A70;
+  background-color: transparent;
+  border: 1px solid #51545B;
+  box-shadow: 0 0 10px;
+  @include transition(opacity 0.2s 0.2s ease-in-out);
+
+  @include respond-xmobile {
+    height: initial;
+    float: initial;
+    margin:0 auto;
+
+  }
+}

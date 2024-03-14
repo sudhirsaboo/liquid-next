@@ -1,0 +1,211 @@
+$slider-max-width: 100%;
+$slider-height: 400px;
+.slider-list
+{
+  .card ,.slider-slide {
+    display:inline-block;
+  }
+}
+
+
+.slider-peeker {
+  overflow-x: visible;
+  padding-bottom: 1px;
+
+  & > .posts {
+    white-space: nowrap;
+    //transform: translate3d(+36px, 0px, 0px); // move from peeker
+    .card {
+      display:inline-block;
+    }
+  }
+
+}
+.playerOpen .slider {
+  transform:initial!important
+}
+.slider-container,.slider-frame {
+  &.single-slide {
+    height: $slider-height; // may have to be removed for scroller
+    max-width: $slider-max-width;
+  }
+  margin: 0 auto; // may have to be removed for scroller
+
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #F6F6F6;
+  /* border: 20px solid #FFF; */
+  padding: 0;
+  //overflow-x: hidden;
+  //padding: 0 4%; // for peek style
+
+}
+
+.slider {
+  //white-space: nowrap;
+  min-height:200px;
+
+}
+
+.slider.animating {
+  -webkit-transition: transform .55s ease-in;
+  -moz-transition: transform 0.55s ease-in;
+  -o-transition: transform 0.55s ease-in;
+  transition: transform 0.55s ease-in;
+}
+
+.slide.fixed {
+  width: 271px;
+  height: 238px;
+  position: static;
+  display: inline-block;
+  //width:16%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  max-width: $slider-max-width;
+  min-height: $slider-height;
+  top: 0;
+  left: 0;
+  vertical-align: top;
+
+  padding: 0 10px 0 10px;
+  //    margin: auto 0;
+ // white-space: nowrap;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    vertical-align: middle;
+    display: initial;
+    //    display:block;
+
+  }
+
+  .imgCenterHelper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+}
+
+.slide.focusOnTop {
+  max-width: 100%;
+  max-height: 100%;
+  height: initial;
+}
+
+.slide.truetoScale {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+
+  background: rgba(20, 20, 20, .5);
+  position: absolute;
+  //z-index: 2;
+  display: block;
+  //          top: 50%;
+  //            margin-top: -35px;
+  outline: none;
+  cursor: pointer;
+  width: 36px;
+  height: 100%;
+  top: 0;
+
+  @include respond-xmobile {
+    background: transparent;
+
+  }
+
+}
+
+.arrow.prev {
+  left: 0;
+  z-index: 2;
+}
+
+.arrow.next {
+  right: 0;
+  z-index: 2; // above nav
+}
+
+/*---------------------------------------------------------
+NAV
+---------------------------------------------------------*/
+
+.slider-container .nav {
+  text-align: center;
+  display: block;
+  position: absolute;
+  //z-index: 1;
+  left: 0;
+  bottom: 14px;
+  right: 0;
+  height: 48px;
+  top: initial;
+  -webkit-user-select: none;
+}
+
+.nonDraggableImage {
+  -webkit-user-drag: none;
+
+}
+
+.nav .wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em 0 .8em;
+}
+
+.nav ul {
+  margin: 0;
+  width: 100%;
+}
+
+.nav .dot, .nav .dot a {
+  display: inline-block;
+  zoom: 1;
+}
+
+.dots .dot {
+  position: relative;
+  margin: 0 8px;
+  width: 12px;
+  height: 12px;
+}
+
+.dots .dot a {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #FFF;
+  border: 1px solid transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.25s, border-color 0.25s;
+  -moz-transition: background-color 0.25s, border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.dots .dot a.active {
+  border-color: #FFF;
+  background-color: transparent;
+}

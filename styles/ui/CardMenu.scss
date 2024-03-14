@@ -1,0 +1,90 @@
+.card-menu  {
+  //display:inline-block
+  //white-space: nowrap;
+.button{
+  display:inline-block;
+  text-align: right;
+  height: 72px;
+  width: 72px;
+  margin: 0 12px 0 0;
+  padding: 0;
+  border: 0 none;
+  position: relative;
+  z-index: 3;
+  background-size: cover;
+;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: 0;
+
+  &.large
+  {
+    font-size: 14px;
+    padding: 0 12px;
+//    line-height: 38px;
+    margin: 4px 12px;
+  }
+
+}
+  ul{
+    display:inline-block;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  li {
+
+  //position: relative;
+    padding-right: 26px;
+    cursor: pointer;
+    overflow: hidden;
+
+    height: 72px;
+    background-position: 40% 50%;
+    z-index: 1;
+    border-bottom: 1px solid;
+    border-bottom-color: #05121A;
+    color:white;
+
+    &:nth-child(odd)
+    {
+      background-color: #404040;
+    }
+    &:nth-child(even)
+    {
+      background-color: rgba(64, 64, 64, 1);
+    }
+    &:hover
+    {
+      background-color: rgba(64, 64, 64, 0.79);
+    }
+
+    &.selected
+    {
+      background-color: $header_background;
+    }
+
+    >p,>div {
+      display: inline-block;
+      position: relative;
+
+      height: 72px;
+      //  line-height: 72px;
+      margin: 0 12px 0 0;
+      padding: 0;
+
+      vertical-align: middle;
+      text-align: right;
+      z-index: 3;
+      background-size: cover;
+      text-transform: uppercase;
+      border-style: solid;
+      cursor: pointer;
+      outline: 0;
+
+
+  }
+
+
+}}
+

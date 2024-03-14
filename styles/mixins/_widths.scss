@@ -1,0 +1,48 @@
+@mixin grid-width($width) {
+  .grid & {
+    width: $width;
+  }
+}
+
+@mixin float-width($width) {
+  width: $width;
+}
+
+@mixin one-whole {
+  width: 100%;
+  @include clearboth;
+}
+
+@mixin three-fourths {
+  @include float-width(73.5%);
+  @include grid-width(75%);
+}
+
+@mixin one-half {
+  @include float-width(48%);
+  @include grid-width(50%);
+}
+
+@mixin two-thirds {
+  @include float-width(65%);
+  @include grid-width(66.66%);
+}
+
+@mixin one-third {
+  @include float-width(31%);
+  @include grid-width(33.3%);
+}
+
+@mixin one-fourth {
+  @include float-width(22.5%);
+  @include grid-width(25%);
+}
+
+@mixin width-full-mobile {
+  @include respond-max-width($bp_medium - 1) {
+    @include float-width(100%);
+    @include grid-width(100%);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

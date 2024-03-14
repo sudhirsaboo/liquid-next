@@ -1,0 +1,109 @@
+.card {
+	background: $white;
+	p {
+		font-size: $font_size8;
+		line-height: $base_line_height_small;
+		color: $text_color;
+			@include respond($bp_medium) {
+			font-size: $font_size7;
+			line-height: 29px;
+			}
+		& + p {
+		padding-top: 0;
+		}
+	}
+	h3 {
+		color: $text_color;
+	}
+
+}
+
+.card--rounded {
+	border-radius: 4px;
+}
+.card__image + .card__text {
+	margin-top: -10px; // When card text follows card image make sure the two but up against each other
+}
+
+.card-name {
+	font-weight: 600;
+	text-align: left;
+	color: $text_color;
+}
+.card-title {
+	color: $text_color_light !important;
+	margin-top: $spacing_unit_small/2;
+	text-align: left;
+}
+.card__text {
+	background: $white;
+	color: $text_color;
+	padding: $spacing_unit_small;
+	text-align: left;
+
+	p + p {
+		padding-top: 0;
+	}
+}
+.card-info {
+	position: absolute;
+	top: -9999px;
+	right: -9999px;
+	@include respond($bp_xlarge){
+		top: 0;
+		right: 0;
+		position: relative;
+	}
+}
+.card__social {
+	position: absolute;
+	margin-top: -75px;
+	@include respond($bp_medium) {
+		margin-top: -90px;
+	}
+}
+%social-icons {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	position: relative;
+	margin-right: 5px;
+	&:last-child {
+	margin-right: 0;
+	}
+}
+
+.card--twitter {
+	background: url('https://sjargonstaticgzip.a.ssl.fastly.net/sjargon_com/ui/social-twitter.svg') center center no-repeat;
+	@extend %social-icons;
+}
+.card--linkedin {
+	background: url('https://sjargonstaticgzip.a.ssl.fastly.net/sjargon_com/ui/social-linkedin.svg') center center no-repeat;
+	@extend %social-icons;
+
+}
+
+
+.card-text {
+	padding: $spacing_unit_small;
+	@include clearfix;
+}
+.card-home {
+	color: $sjargon_warmblue;
+	h2 {
+		font-size: 22px;
+		margin-top: 30px;
+	}
+	.bttn {
+		margin-top: $spacing_unit_small/2;
+		margin-bottom: 30px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.card-shadow {
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}

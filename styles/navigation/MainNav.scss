@@ -1,0 +1,215 @@
+#mobile-indicator , .mobile-indicator {
+  display: none;
+}
+
+#mobile-indicator , .mobile-indicator {
+
+  @include respond-xmobile {
+    display: block;
+  }
+}
+
+.main-nav,.super-nav {
+  float: left;
+  height: 100%;
+ // top: 4px; //re-center b/c header:before
+  position: relative;
+  @include clearfix;
+}
+
+nav.mobile {
+  width: 100%;
+}
+
+.main-menu, .super-menu {
+  display: none;
+  list-style: none;
+  margin-left: 0; // resetting ul/ol styles
+  margin-top: 0; // resetting ul/ol styles
+  height: 32px;
+  text-align: center;
+  @include vertically-align;
+  @include clearfix;
+  @include respond($bp_nav) {
+    display: block;
+  }
+
+  li {
+    float: left;
+    font-size: 15px;
+    margin-right: 22px;
+    margin-bottom: 0;
+    font-weight: 400;
+    position: relative;
+    min-width: 60px; // for submenu alignement
+
+    &.active {
+
+      a {
+
+        color: $coal;
+      }
+    }
+
+    &:hover {
+      a {
+        color: $coal;
+      }
+    }
+    a {
+      text-decoration: none;
+      background-color: transparent;
+      color: $coal;
+      &.active {
+        color: $coal;
+      }
+    }
+  }
+
+  .sub-menu {
+    list-style: none;
+    position: absolute;
+    width: 165px;
+    background-color: $almost_white;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    margin: 0 0;
+    margin-top: 15px;
+    top: 20px;
+    left: -86%;//
+    left:-59px;//super nav submenu
+
+    box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.2);
+    @include clearfix;
+
+    li {
+      float: left;
+      width: 100%;
+      margin-right: 0;
+      border-bottom: 1px solid #e1e1e1;
+      padding: 3px 0;
+      &:hover {
+        font-weight: 400;
+        background-color: orange;
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+      a {
+        color: $coal;
+        text-align: center;
+        display: block;
+        &:hover {
+          color: $coal;
+          font-weight: 400;
+        }
+      }
+
+    }
+
+    &:after {
+      border-style: solid;
+      border-width: 0px 10px 10px 10px;
+      border-color: transparent transparent #f1f1f1 transparent;
+      position: absolute;
+      top: -10px;
+      right: calc(50% - 10px);
+    }
+    // So menu doesnt close on mouse move
+    &:before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      width: 100%;
+      height: 27px;
+      left: 0;
+      display: block;
+    }
+
+  }
+}
+
+
+.home {
+
+  .main-menu,.super-menu  {
+    height: 37px;
+    li {
+      font-weight: 400;
+      &:hover {
+        //margin-right: 21px; // re-styling margin to account for wider font of a on hover
+        //margin-left: -1px; // re-styling margin to center text horizontally
+        font-weight: 400;
+
+        a {
+          color: $coal; // resetting standard styles
+        }
+      }
+      &:last-of-type {
+        margin-right: 0; // resetting standard styles
+        &:hover {
+          margin-left: 0px; // re-styling for strange effect
+        }
+      }
+
+      a {
+        color: $coal;
+      }
+    }
+    .sub-menu {
+      li {
+        font-weight: 400;
+        &:hover {
+          font-weight: 400; // resetting standard styles
+          margin-left: 0; // resetting standard styles
+        }
+        a {
+          color: $coal; // resetting standard styles
+        }
+      }
+    }
+  }
+
+  footer {
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 8px;
+      //  background-image: url('https://sjargonstaticgzip.a.ssl.fastly.net/sjargon_com/background_images/colorbar.png');
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.main-menu, .super-menu {
+  .has-submenu {
+    .sub-menu {
+      visibility: hidden;
+    }
+    &:hover {
+      .sub-menu {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+
+.main-menu .no-link > a {
+  cursor: default;
+  pointer-events: none;
+}
+
+.main-menu .locale-select{
+  flex-direction: row;
+  .control-label{
+    padding-right:16px;
+  }
+  select {
+    background: whitesmoke;
+  }
+ 
+}

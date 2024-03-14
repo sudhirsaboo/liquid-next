@@ -1,0 +1,58 @@
+html {
+
+
+     overflow-x: hidden;
+    //overflow-y: scroll;
+    overflow-y: hidden;
+
+    font-size: $base_font_size_small;
+    line-height: $base_line_height_small;
+    @include respond($bp_medium) {
+        font-size: $base_font_size;
+         line-height: $base_line_height;
+      }
+}
+
+/* Set the base properties */
+body {
+    @include clearfix;
+    @include clearboth;
+    display: block;
+    font-family: $body_font_family;
+    font-weight: 400;
+    color: $text_color;
+    background: $white;
+    counter-reset: u-num;
+    max-width: 2560px;
+    margin: 0 auto;
+    overflow: hidden;
+    //min-height:500px;
+
+}
+
+body.blog, body.category {
+    background: $lightest_grey;
+}
+
+body.page-template-userdocs-php {
+    background-color: $coal;
+}
+
+a{
+    color: rgba(0,0,0,0.7);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    &:hover{
+        color: rgba(0,0,0,0.7);
+       // background-color: rgba(134,96,96,.9);
+        text-decoration: none;
+        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    }
+}
+
+form{
+border:initial;
+padding: 10px;
+}
+

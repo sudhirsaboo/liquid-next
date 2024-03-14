@@ -1,0 +1,99 @@
+
+.nav-header > header {
+  margin: 0 auto;
+  //z-index: 10; // needs to be below popup video
+  z-index: 100; // problem in landscape mode in iphone
+  background-color: $header_background;
+  //test
+  //box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, .05);
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  color: $coal;
+
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 8px;
+    //background-image: url('colorbar.png');
+    background-size: 100% 100%;
+  }
+
+  .contain {
+    max-width: $header_max_width;
+    margin: 0 auto;
+    padding: 0 $spacing_unit_small;
+    height: 100%;
+    margin-top: -8px;
+
+    @include respond-xmobile {
+      margin-left:20px;
+    }
+
+    @include respond($bp_medium) {
+      padding: 0 $spacing_unit_medium;
+    }
+    @include respond($bp_xxlarge) {
+      padding: 0 $spacing_unit_large;
+    }
+    @include clearfix;
+  }
+
+  .logo {
+    @include vertically-align;
+    float: left;
+    margin-top: $nav_logo_margin_top;
+
+    margin-right: $spacing_unit_small;
+
+    @include respond-xmobile {
+      margin-right: 0;
+    }
+
+    a{
+      background-color:transparent;
+    }
+    img {
+      width: $nav_logo_mobile_width;
+      height: $nav_logo_mobile_height;
+
+      @include respond($bp_nav) {
+        width: $nav_logo_width;
+        height: $nav_logo_height;
+      }
+    }
+  }
+
+  .cta {
+    float: right;
+    position: relative;
+    display: none;
+    @include vertically-align;
+    top: calc(50% + 4px);
+    @include respond($bp_nav) {
+      display: block;
+    }
+
+    .bttn {
+      min-width: 145px;
+      padding: 2.5px calc($padding_width/2);
+      margin-top: 0;
+      font-weight: 700;
+    }
+  }
+
+  & + section {
+    margin-top: 74px;
+  }
+
+  & + .block {
+    margin-top: 74px;
+  }
+
+  & + .blog-hero {
+    margin-top: 74px;
+  }
+
+}

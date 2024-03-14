@@ -1,0 +1,58 @@
+.posts-header {
+
+  a:hover {
+    background: rgba(50, 189, 173, 0.36)
+
+  }
+
+  .icon {
+
+    display: inline-block;
+
+    width: 28px;
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+    vertical-align: middle;
+    text-align: center;
+
+    background-size: auto 100%;
+    border-radius: 2px;
+    line-height: 0;
+    font-size: 24px;
+    color: #00bf8f;
+  }
+
+  .icon_img {
+    width: 88%;
+    height: auto;
+    padding: 6%;
+  }
+
+
+  //background: $almost_white;
+  background:  rgba(50, 189, 173, 0.67);
+  padding: calc($spacing_unit_small/2);
+  h2 {
+    font-size: $font-size8;
+    font-weight: 600;
+    a {
+      font-weight: 300;
+      display: inline-block;
+      @include respond($bp_medium) {
+        display: inline;
+      }
+    }
+  }
+  .posts-header-description {
+    font-size: $font-size8;
+    text-align: left;
+    font-weight: 300;
+  }
+}
+
+
+
+.posts-header *{
+  display: inline-block;
+}

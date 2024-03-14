@@ -1,0 +1,53 @@
+.bread-crumbs {
+
+  background-color:black;
+
+//  display: inline-flex;
+  ul {
+    display: inline-block;
+    li {
+      display: inline-block;
+
+      &:last-of-type{
+     // display:none
+      }
+      &:before {
+        content: '\e031';
+        font-family: 'Icon Font Small';
+        font-size: 24px;
+        width: 24px;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        text-transform: none;
+      }
+
+      button{
+        background:transparent;
+      }
+    }
+  }
+
+  .back {
+
+    display: inline-block;
+    box-sizing: border-box;
+    height: 48px;
+    width: 48px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    border-width: 0 1px 0 0;
+
+    color: #ffffff;
+    border-color: #081A29;
+    background-color: #051421;
+
+    &:hover {
+      color: #ffffff;
+      border-color: #0A263B;
+      background-color: #081F30;
+    }
+
+  }
+}

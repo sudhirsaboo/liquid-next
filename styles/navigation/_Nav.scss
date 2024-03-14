@@ -1,0 +1,661 @@
+#mobile-indicator , .mobile-indicator {
+  display: none;
+}
+
+@media (max-width: 828px) {
+  #mobile-indicator , .mobile-indicator {
+    display: block;
+  }
+
+}
+
+.mfp-fade + header {
+  padding-right: 15px;
+}
+
+.nav-header > header {
+  margin: 0 auto;
+  z-index: 10; // needs to be below popup video
+  background-color: $header_background;
+  //test
+  //box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, .05);
+  height: 74px;
+  position: fixed;
+  width: 100%;
+  color: $coal;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 8px;
+    //background-image: url('colorbar.png');
+    background-size: 100% 100%;
+  }
+
+  .contain {
+    max-width: $header_max_width;
+    margin: 0 auto;
+    padding: 0 $spacing_unit_small;
+    height: 100%;
+    margin-top: -8px;
+    @include respond($bp_medium) {
+      padding: 0 $spacing_unit_medium;
+    }
+    @include respond($bp_xxlarge) {
+      padding: 0 $spacing_unit_large;
+    }
+    @include clearfix;
+  }
+
+  .logo {
+    @include vertically-align;
+    float: left;
+    margin-top: $nav_logo_margin_top;
+
+    margin-right: $spacing_unit_small;
+
+    @include respond-xmobile {
+      margin-right: 0;
+    }
+    img {
+      width: $nav_logo_mobile_width;
+      height: $nav_logo_mobile_height;
+
+      @include respond($bp_nav) {
+        width: $nav_logo_width;
+        height: $nav_logo_height;
+      }
+    }
+  }
+
+  .cta {
+    float: right;
+    position: relative;
+    display: none;
+    @include vertically-align;
+    top: calc(50% + 4px);
+    @include respond($bp_nav) {
+      display: block;
+    }
+
+    .bttn {
+      min-width: 145px;
+      padding: 2.5px $padding_width/2;
+      margin-top: 0;
+      font-weight: 700;
+    }
+  }
+
+  & + section {
+    margin-top: 74px;
+  }
+
+  & + .block {
+    margin-top: 74px;
+  }
+
+  & + .blog-hero {
+    margin-top: 74px;
+  }
+
+}
+
+.main-nav,.super-nav {
+  float: left;
+  height: 100%;
+  top: 4px; //re-center b/c header:before
+  position: relative;
+  @include clearfix;
+}
+
+nav.mobile {
+  width: 100%;
+}
+
+#menu-main {
+  display: none;
+  list-style: none;
+  margin-left: 0; // resetting ul/ol styles
+  margin-top: 0; // resetting ul/ol styles
+  height: 32px;
+  text-align: center;
+  @include vertically-align;
+  @include clearfix;
+  @include respond($bp_nav) {
+    display: block;
+  }
+
+  li {
+    float: left;
+    font-size: 15px;
+    margin-right: 22px;
+    margin-bottom: 0;
+    font-weight: 400;
+    position: relative;
+    min-width: 60px; // for submenu alignement
+
+    &.active {
+
+      a {
+
+        color: $coal;
+      }
+    }
+
+    &:hover {
+      a {
+        color: $coal;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $coal;
+      &.active {
+        color: $coal;
+      }
+    }
+  }
+
+  .sub-menu {
+    list-style: none;
+    position: absolute;
+    width: 165px;
+    background-color: $almost_white;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    margin: 0 0;
+    margin-top: 15px;
+    top: 20px;
+    left: -86%;
+    box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.2);
+    @include clearfix;
+
+    li {
+      float: left;
+      width: 100%;
+      margin-right: 0;
+      border-bottom: 1px solid #e1e1e1;
+      padding: 3px 0;
+      &:hover {
+        font-weight: 400;
+        background-color: orange;
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+      a {
+        color: $coal;
+        text-align: center;
+        display: block;
+        &:hover {
+          color: $coal;
+          font-weight: 400;
+        }
+      }
+
+    }
+
+    &:after {
+      border-style: solid;
+      border-width: 0px 10px 10px 10px;
+      border-color: transparent transparent #f1f1f1 transparent;
+      position: absolute;
+      top: -10px;
+      right: calc(50% - 10px);
+    }
+// So menu doesnt close on mouse move
+    &:before {
+       content: "";
+       position: absolute;
+       top: -20px;
+       width: 100%;
+       height: 27px;
+       left: 0;
+       display: block;
+     }
+
+  }
+}
+
+header.home {
+  background-color: transparent;
+  position: absolute;
+  //position:fixed;
+  box-shadow: none;
+  margin-top: $nav_logo_margin_top;
+  color: $white;
+  &:before {
+    display: none;
+  }
+
+  & + section.hero {
+    margin-top: 0;
+  }
+
+  .cta .bttn {
+    font-weight: 700;
+  }
+}
+
+.home {
+
+  header {
+    background-color: transparent;
+    position: absolute;
+    //position:fixed;
+    box-shadow: none;
+    margin-top: $nav_logo_margin_top;
+    color: $coal;
+    &:before {
+      //display: none;
+    }
+
+    & + section.hero {
+      margin-top: 0;
+    }
+
+    .cta .bttn {
+      font-weight: 700;
+    }
+  }
+
+  #menu-main {
+    height: 37px;
+    li {
+      font-weight: 400;
+      &:hover {
+        //margin-right: 21px; // re-styling margin to account for wider font of a on hover
+        //margin-left: -1px; // re-styling margin to center text horizontally
+        font-weight: 400;
+
+        a {
+          color: $coal; // resetting standard styles
+        }
+      }
+      &:last-of-type {
+        margin-right: 0; // resetting standard styles
+        &:hover {
+          margin-left: 0px; // re-styling for strange effect
+        }
+      }
+
+      a {
+        color: $coal;
+      }
+    }
+    .sub-menu {
+      li {
+        font-weight: 400;
+        &:hover {
+          font-weight: 400; // resetting standard styles
+          margin-left: 0; // resetting standard styles
+        }
+        a {
+          color: $coal; // resetting standard styles
+        }
+      }
+    }
+  }
+
+  footer {
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 8px;
+      //  background-image: url('https://sjargonstaticgzip.a.ssl.fastly.net/sjargon_com/background_images/colorbar.png');
+      background-size: 100% 100%;
+    }
+  }
+}
+
+#menu-main, .super-nav {
+  .has-submenu {
+    .sub-menu {
+      visibility: hidden;
+    }
+    &:hover {
+      .sub-menu {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// MOBILE NAVIGATION
+
+#mobile-menu-btn {
+  display: block;
+  float: right;
+  color: $coal;
+  font-size: 15px;
+  font-weight: 600;
+  padding-right: 10px;
+  @include vertically-align;
+  top: calc(50% + 4px);
+  @include respond($bp_nav) {
+    display: none;
+  }
+  a {
+    color: $coal;
+    text-decoration: none;
+  }
+}
+
+.home {
+  #mobile-menu-btn {
+    color: $white;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  #mobile-menu {
+    top: 74px;
+  }
+  #mobile-menu.open {
+    top: 66px;
+  }
+}
+
+#mobile-menu {
+  display: block;
+  z-index:1000;
+  position: fixed;
+  width: 200px;
+  right: -200px;
+  top: 74px;
+  max-width: 300px;
+  background-color: #f1f1f1;
+  transition: right 0.3s ease-in-out;
+  @include clearfix;
+
+  @include respond($bp_nav) {
+    display: none;
+  }
+
+  &.open {
+    right: 0;
+    transition: right 0.3s ease-in-out;
+    position: absolute;
+    top: 74px;
+  }
+
+  #menu-main-1 {
+    list-style: none;
+    height: 100%;
+    background-color: #f1f1f1;
+    margin: 0 0;
+    @include clearfix;
+
+    li {
+      float: left;
+      font-size: 15px;
+      font-weight: 400;
+      position: relative;
+      width: 100%;
+      border-bottom: 1px solid #e1e1e1;
+      margin-bottom: 0;
+      overflow: hidden;
+      &:hover {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        border-bottom: 0px;
+      }
+
+      &.has-submenu {
+        border-bottom: 0px;
+        &.open {
+          border-bottom: 1px solid #e1e1e1;
+
+          .sub-menu li {
+            border-bottom: 1px solid #C6E1E7;
+
+            &:last-of-type {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+      a {
+        color: $coal;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: 10px 0;
+
+      }
+    }
+    .sub-menu {
+      border-top: 1px solid #e1e1e1;
+    }
+    .sub-menu li {
+      background-color: $sjargon_lightblue;
+      border-bottom: 0;
+      &:last-of-type {
+        border-bottom: 0px;
+      }
+    }
+  }
+
+  .has-submenu {
+    padding-bottom: 0;
+    border-bottom: 0px;
+
+    li {
+      height: 0px;
+      transition: height 0.3s ease-in-out;
+      border-bottom: 0px;
+    }
+
+    &.open {
+      border-bottom: 1px solid #e1e1e1;
+      li {
+        height: 71px;
+        transition: all 0.3s ease-in-out;
+        border-bottom: 1px solid #e1e1e1;
+      }
+    }
+  }
+
+  .sub-menu {
+    width: 100%;
+    margin: 0 0;
+    list-style: none;
+    @include clearfix;
+
+  }
+}
+
+/* STICKY NAV - CUSTOMER SUCCESS AND DEVELOPERS PAGES */
+.sticky-nav {
+  height: 73px;
+  max-height: 73px;
+  position: relative;
+  width: 100%;
+  max-width: 2560px;
+  background-color: #fff;
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.2);
+  z-index: $z_index_3;
+  display: none;
+
+  @include respond($bp_large) {
+    display: block;
+  }
+
+  &.stuck {
+    position: fixed;
+    top: 0;
+    height: 0;
+    @include respond($bp_large) {
+      height: auto;
+    }
+  }
+
+  + .block {
+    z-index: $z_index_1;
+    position: relative;
+  }
+  .content {
+    text-align: justify;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1366px;
+
+    @include respond($bp_medium) {
+      padding: 0px $spacing_unit_small;
+    }
+
+    @include respond($bp_xlarge) {
+      padding: 0px $spacing_unit_medium;
+    }
+
+    @include respond($bp_xxlarge) {
+      padding: 0px $spacing_unit_large*2;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  a {
+    padding: 0 0;
+    position: relative;
+    display: inline-block;
+    margin: 17px 0 0;
+    outline: none;
+    color: $coal;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 15px;
+
+    @include respond($bp_large + 100) {
+      font-size: 16px;
+    }
+
+    @include respond($bp_xlarge) {
+      margin: 18px 0 0;
+    }
+
+    &:first-of-type {
+      margin-left: 2%;
+      @include respond($bp_xxlarge) {
+        margin-left: 0;
+      }
+    }
+    &:last-of-type {
+      margin-right: 2%;
+      @include respond($bp_xxlarge) {
+        margin-right: 0;
+      }
+    }
+
+    &.active {
+      outline: none;
+      color: $sjargon_warmblue;
+      @include transition(color 0.2s);
+    }
+
+    &.clicked {
+      outline: none;
+      color: $sjargon_warmblue;
+      @include transition(color 0.2s);
+    }
+
+    &:hover {
+      color: $sjargon_warmblue;
+    }
+  }
+}
+
+.sticky-nav:before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 8px;
+  // background-image: url('https://sjargonstaticgzip.a.ssl.fastly.net/sjargon_com/background_images/colorbar.png');
+  background-size: 100% 100%;
+}
+
+#longform-nav {
+  @include clearfix;
+  padding-bottom: $spacing_unit_medium;
+  width: 100%;
+
+  @include respond($bp_large) {
+    float: left;
+    padding-bottom: 0;
+    max-width: 30%;
+  }
+
+  ul {
+    list-style: none;
+    @include clearfix;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0;
+
+    li {
+      width: 100%;
+      float: left;
+      padding-right: $spacing_unit_small;
+
+      &:nth-of-type(5), &:nth-of-type(6) {
+        margin-bottom: 0;
+
+        @include respond($bp_large) {
+          margin-bottom: 13px;
+        }
+      }
+
+      @include respond($bp_small) {
+        width: 49%;
+      }
+
+      @include respond($bp_large) {
+        width: 100%;
+        margin-bottom: 13px;
+      }
+    }
+  }
+
+  a {
+    font-size: 16px;
+    color: $coal;
+    text-decoration: none;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3em;
+    display: inline-block;
+
+    @include respond($bp_large) {
+      font-size: 18px;
+    }
+
+    &.active, &:hover {
+      font-weight: 600;
+      display: inline-block;
+    }
+  }
+
+}
+
+#menu-main .no-link > a {
+  cursor: default;
+  pointer-events: none;
+}

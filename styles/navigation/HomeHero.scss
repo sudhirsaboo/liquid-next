@@ -1,0 +1,36 @@
+.global-search {
+  width: 270px;
+
+  @include respond-xmobile {
+  width: 200px;
+   // display: none;
+//      position: absolute;
+//      right: 150px;
+//      top: 6px;
+
+  }
+
+  .search  .icon-search {
+    position: absolute;
+    right: 1px;
+    top: -1px;
+    width: 36px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #b2b2b2;
+    overflow: hidden;
+  }
+}
+.login-link {
+  position: fixed;
+  right: 82px;
+  top: 8px;
+  z-index: 9999;
+}
+
+.input-group-btn button
+{
+  //    margin-top: 12.5px;
+  height:34px;
+}

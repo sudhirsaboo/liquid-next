@@ -1,0 +1,203 @@
+// Hero Basic specific styles
+
+.hero__basic {
+
+.container {
+padding: 100px;
+}
+
+  @include respond($bp_medium) {
+    @include text-center;
+  }
+
+  .hero__text {
+    width: 100%;
+    @include respond($bp_large) {
+        width: 80%;
+      }
+    @include respond($bp_xlarge) {
+        width: 65%;
+      }
+  }
+
+  .hero__text.wide {
+    width: 100%;
+    @include respond($bp_large) {
+        width: 80%;
+      }
+    @include respond($bp_xlarge) {
+        width: 75%;
+      }
+  }
+
+  .hero__text {
+    @include center;
+  }
+  .hero__rule {
+    @include center;
+  }
+  img {
+    margin-bottom: -8px;
+  }
+}
+
+
+.hero {
+  width: 100%;
+  color: $white;
+}
+
+
+#hero--homepage{
+  display:block;
+  height:50px;
+  .container { display:none}
+}
+
+.home
+{
+
+  #hero--homepage {
+    z-index:0;
+
+    height:100%;
+    .container { display:block}
+
+    background: #3ab257; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #DD7D38 0%, #DD7D38 50%, #DD7D38 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#DD7D38), color-stop(50%,#DD7D38), color-stop(100%,#DD7D38)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #DD7D38 0%,#DD7D38 50%,#DD7D38 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #DD7D38 0%,#DD7D38 50%,#DD7D38 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #DD7D38 0%,#DD7D38 50%,#DD7D38 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #DD7D38 0%,#DD7D38 50%,#DD7D38 100%); /* W3C */
+
+
+    //  background: linear-gradient(135deg,  #3ab257 0%,#6fb235 50%,#2ba982 100%); /* W3C */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3ab257', endColorstr='#2ba982',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    overflow: hidden;
+    position: relative;
+
+    .container {
+      padding-bottom: 50px;
+    }
+    .content {
+    //  margin-top: 55px;
+      @include respond($bp_large) {
+      //  margin-top: 30px;
+      //  height: 266px;
+      }
+    }
+
+    .bttn {
+      margin-right: 5px;
+      min-width: 120px;
+      padding: 3.75px 5px;
+      @include respond($bp_medium) {
+        margin-right: 20px;
+        min-width: 155px;
+        padding: 3.75px 15px;
+        margin-top: $spacing_unit_medium;
+      }
+
+      font-weight: 600;
+    }
+
+
+    .hero--text {
+//      width: 100%;
+     // float: left;
+      /*
+      @include respond($bp_large) {
+        max-width: 100%;
+        width: 100%;
+        padding-right: 41%;
+        @include vertically-align;
+      }
+      */
+      h1 {
+        font-size: 36px;
+        line-height: 1.2em;
+        margin-bottom: calc($spacing_unit_small/2);
+        @include respond($bp_medium) {
+          font-size: 45px;
+          margin-bottom: 10px;
+        }
+        @include respond($bp_large) {
+          font-size: 50px;
+        }
+      }
+      h1 + p {
+        padding-top: 0;
+        padding-left: 4px;
+        line-height: 1.4em;
+      }
+
+      p {
+        font-weight: 400;
+
+      }
+
+      &.centered{
+         float: none;
+         margin: 0 auto;
+         padding-right: 0;
+         width: 70%;
+
+      }
+    }
+
+    .mobile-mock {
+      position: relative;
+      width: 100%;
+      float: left;
+      bottom: -17px;
+      @include respond($bp_large) {
+        max-width: 670px;
+        width: 100%;
+        position: absolute;
+        left: 46%;
+        top: 54px;
+        float: none;
+      }
+
+      @include respond(1120px) {
+        left: 51%;
+      }
+
+      .iphone-mock {
+        position: relative;
+        @include respond($bp_large) {
+          position: absolute;
+        }
+
+      }
+    }
+
+    #mobile-screens {
+      position: absolute;
+      width: 100%;
+      top: 0;
+    }
+
+    .mobile-screen {
+      position: absolute;
+      padding: 27.6% 32% 0% 24.6%;
+
+      display: none;
+      z-index: 1;
+
+      &.inactive {
+        display: none;
+        z-index: 1;
+      }
+      &.active {
+        z-index: 3;
+        display: block;
+      }
+    }
+  }
+
+}
+
+

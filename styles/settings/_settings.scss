@@ -1,0 +1,163 @@
+//--------------------------------------------------------------------
+// Font
+//--------------------------------------------------------------------
+
+$font_sans_serif:               "Source Sans Pro", Verdana, Helvetica, sans;
+$font_serif:               		"sjargon Serif Web", Arial, serif;
+
+
+$body_font_family:              $font_sans_serif;
+$heading_font_family:           $font_sans_serif;
+
+$blog_font_family:				$font_serif;
+
+//--------------------------------------------------------------------
+// Font sizes
+//--------------------------------------------------------------------
+
+$base_font_size:                16px;
+$base_font_size_medium:         19px;
+$base_font_size_small:          17px;
+$base_font_size_xsmall:         15px;
+$base_font_size_xxsmall:        12px;
+$base_font_size_xxxsmall:        10px;
+
+$base_line_height:              30px;
+$base_line_height_small:        27px;
+$base_line_height_xsmall:       20px;
+$base_line_height_xxsmall:      20px;
+$base_line_height_xxxsmall:     20px;
+
+
+// Heading font sizes
+$font_size1:                    50px;
+$font_size2:                    40px;
+$font_size3:                    35px;
+$font_size4:                    31px;
+$font_size5:                    26px;
+$font_size6:                    22px;
+$font_size7:                    19px;
+$font_size8:                    17px;
+$font_size9:                    16px;
+
+$font_size_small:               80%;
+
+
+$padding_width:                 $base_line_height;
+$indent_unit:                   $base_line_height;
+
+//--------------------------------------------------------------------
+// Spacing Unit
+//--------------------------------------------------------------------
+
+$spacing_unit_small:			25px;
+$spacing_unit_medium:			50px;
+$spacing_unit_large:			100px;
+
+
+//--------------------------------------------------------------------
+// Colors
+//--------------------------------------------------------------------
+
+
+// Greyscale:
+$white:                         #ffffff;
+$lightest_grey:					#f5f5f5;
+$almost_white:                  #e9e9e9;
+$lighter_grey:                   #E0E0E0;
+$light_grey:                    #bbbbbb;
+$mid_grey:                      #999999;
+$dark_grey:                     #676767;
+$almost_black:                  #333333;
+$black:                         #000000;
+$coal:							#474747;
+$silver:						#878787;
+$grey:						#cccccc;
+
+
+$nav-sub:#B2B0B0;
+
+//$field-border: #cfcfcf;
+$field-border: rgba(0, 0, 0, 0.12);
+$field-border-focus:  #66afe9;
+
+$sjargon_warmblue:              #007db6;
+$sjargon_coolblue:              #0091b2;
+$sjargon_teal:                  #009c9e;
+$sjargon_viridian:              #00a77e;
+$sjargon_coolgreen:             #22b24c;
+$sjargon_leafgreen:             #60b031;
+$sjargon_yellowgreen:           #a5b62e;
+$sjargon_lightblue:				#e5f4f7;
+$sjargon_orange:				#f9ad18;
+
+$benefit_pink:					#FF5E99;
+$coffee_green:					#00704A;
+
+
+$background_color:              $white;
+$beige:							#ece3d6;
+
+$link_color:                    $sjargon_coolblue;
+
+$text_color:                    $coal;
+$text_color_light:              $silver;
+
+
+//--------------------------------------------------------------------
+// Sizes
+//--------------------------------------------------------------------
+//reduction by the side nav.
+$bp_reduction:                	0px; // side nav
+$bp_small:                     	320px + $bp_reduction ;
+$bp_medium:                     568px + $bp_reduction;
+$bp_large:                      828px + $bp_reduction;
+$bp_xlarge:                     960px + $bp_reduction;
+$bp_xxlarge:                    1280px + $bp_reduction;
+$bp_xxxlarge:                   1366px + $bp_reduction;
+// This is for turning on mobile navigation.
+$bp_nav:                   		1020px + $bp_reduction;
+
+
+
+
+// Content Margins
+$content_margin_small:          $spacing_unit_small;
+$content_margin_medium:         $spacing_unit_medium;
+$content_margin_large:          $spacing_unit_large;
+
+$top_margin_small:              $spacing_unit_small;
+$top_margin_medium:             $spacing_unit_medium;
+$top_margin_large:              $spacing_unit_large;
+
+$bottom_margin_small:           $spacing_unit_small;
+$bottom_margin_medium:          $spacing_unit_medium;
+$bottom_margin_large:           $spacing_unit_large;
+
+
+//--------------------------------------------------------------------
+// Z-Index
+//--------------------------------------------------------------------
+
+$z_index_1:						100;
+$z_index_2:						200;
+$z_index_3:						300;
+$z-index-highest: 3000 !default;
+$z-index-higher: 2000 !default;
+$z-index-high: 1000 !default;
+$z-index-normal: 1 !default;
+$z-index-low: -1000 !default;
+$z-index-lower: -2000 !default;
+
+//-- Animation
+$animation-duration: .35s;
+$animation-delay: calc($animation-duration / 5);
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+
+// Overlays
+$overlay-color: $black !default;
+$overlay-opacity: .6 !default;

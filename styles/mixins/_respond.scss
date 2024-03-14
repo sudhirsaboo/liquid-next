@@ -1,0 +1,49 @@
+@mixin respond($value) {
+  @media (min-width: #{$value}) {
+    @content
+  }
+}
+
+@mixin respond-mobile {
+  @media only screen and (max-width: ($bp_medium - 1)) {
+    @content;
+  }
+}
+
+@mixin respond-xmobile {
+  @media only screen and (max-width: ($bp_large)) {
+    @content;
+  }
+}
+
+
+@mixin respond-xmobile-g {
+  @media only screen and (min-width: ($bp_large)) {
+    @content;
+  }
+}
+
+@mixin respond-tab {
+  @media only screen and (max-width: ($bp_xlarge)) {
+    @content;
+  }
+}
+
+@mixin respond-max-width($max-width) {
+  @media only screen and (max-width: #{$max-width}) {
+    @content;
+  }
+}
+
+@mixin respond-min-width($min-width) {
+  @media only screen and (min-width: #{$min-width}) {
+    @content;
+  }
+}
+
+@mixin respond-between($min-width, $max-width) {
+  @media screen and (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+    @content;
+  }
+}
+

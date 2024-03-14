@@ -1,0 +1,29 @@
+.image-slide {
+    @include respond-xmobile {
+        .media-card {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .media-card-header {
+            order: 1;
+        }
+    }
+}
+
+.post-comment-form {
+    padding: 0;
+    padding-right: 40px;
+    .ui-field-group .input-container {
+        padding-bottom: 0;
+    }
+}
+
+.card-player {
+    .media-card .media-card-footer {
+        min-height: 150px;
+    }
+    .media-card .media-card-content {
+        height: 100%;
+    }
+}

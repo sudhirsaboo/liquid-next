@@ -1,0 +1,14 @@
+textarea {
+  display: block;
+  overflow: auto; /* Remove scrollbars in IE */
+  width: 100%;
+ // border: 1px solid $text_color;
+  @include prefix(border-radius, 2px);
+  //    padding: $indent_unit/4;
+  outline: none;
+  resize: none;
+  &:focus {
+  //  border: 1px solid $sjargon_warmblue;
+  }
+
+}

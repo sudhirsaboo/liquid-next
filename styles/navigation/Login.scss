@@ -1,0 +1,118 @@
+.ui-buttons {
+    display: flex;
+
+    margin-left: 0px;
+    margin-top: 20px;
+
+    .ui-button {
+        flex: 1;
+        margin: 0 10px 0 0;
+        text-decoration: none;
+        list-style: none;
+
+        button.btn {
+            width: 100%;
+            padding: 7.5px 10px;
+            min-width: initial;
+        }
+
+        &:last-child {
+            margin: 0 0 0 10px;
+        }
+        &:only-child {
+            margin: 0 0 0 0px;
+        }
+    }
+}
+//CBBFCA
+
+.login-container {
+    max-width: 350px;
+
+    .facebook-signin {
+        position: relative;
+        width: 100%;
+
+        background: url("/img/facebook-button.png") no-repeat center center,
+            linear-gradient(#3b5998, #3b5998);
+        background-position: 20px center !important;
+
+        &:hover {
+            background: url("/img/facebook-button.png") no-repeat center center,
+                linear-gradient(#79bcff, #3b5998);
+        }
+
+        &::before {
+            content: "\f09a";
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: inherit;
+            padding-right: 0.5em;
+
+            //background: url('/img/facebook-button-icon.png') no-repeat;
+            background-size: 26px 27px;
+            height: 26px;
+            width: 27px;
+            display: block;
+            position: absolute;
+            //top: 4px;
+            //left: 13px;
+            border-right: solid 1px rgb(70, 98, 155); // instead of line in icon
+        }
+    }
+    .app-login {
+        padding: 10px;
+    }
+    .app-signin-signup {
+        display: flex;
+        justify-content: space-around;
+    }
+    .app-signin {
+        background: #c570cf;
+    }
+}
+
+.btn--signin {
+    background: #c570cf;
+    border-color: #c570cf;
+    ////  width:100%;
+    &:hover {
+        background: tint(#c570cf, 20%);
+    }
+    &:focus {
+        background: tint(#c570cf, 20%);
+    }
+}
+
+.btn--signup {
+    background: #59cf22;
+    border-color: #59cf22;
+    ////width:100%;
+    &:hover {
+        background: tint(#59cf22, 20%);
+    }
+    &:focus {
+        background: tint(#59cf22, 20%);
+    }
+}
+
+.btn--learnmore {
+    @extend .btn--signup;
+}
+
+.logo-container {
+    //padding:10px;
+    max-width: 270px;
+}
+
+.media-card-content {
+    .login-container {
+        padding-bottom: 10px;
+    }
+}
+
+.forgot-password {
+    background: red;
+    margin: 10px;
+}

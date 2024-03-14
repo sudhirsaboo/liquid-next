@@ -1,0 +1,273 @@
+.button-bar {
+    display: flex;
+    align-content: stretch;
+    justify-content: flex-end;
+
+    button {
+        margin: 10px;
+    }
+
+    button[disabled] {
+        background: grey !important;
+    }
+    .btn {
+        min-width: 100px;
+    }
+    .btn:last-child {
+        background: #c570cf;
+
+        &:hover {
+            background: tint(#4c7c71, 20%);
+            @include transition(background 0.3s ease);
+        }
+        &:focus {
+            background: tint(#4c7c71, 20%);
+        }
+    }
+
+    .btn:only-child {
+        background: #c570cf;
+
+        &:hover {
+            background: tint(#4c7c71, 20%);
+            @include transition(background 0.3s ease);
+            &:focus {
+                background: tint(#4c7c71, 20%);
+            }
+        }
+    }
+}
+
+@mixin button-base() {
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    font-size: $base_font_size_xsmall;
+    font-weight: 700;
+    text-align: center;
+    color: $white;
+    cursor: pointer;
+    background: #60c0cf;
+
+    &:focus {
+        background: tint(#60c0cf, 20%);
+    }
+}
+
+.btn {
+    @include button-base;
+    position: relative;
+    //margin: 0 auto;
+    //margin-top: $spacing_unit_small;
+    @include transition(background 0.3s ease);
+
+    &.done:hover {
+        cursor: normal;
+    }
+    &:hover {
+        background: tint(#4c7c71, 20%);
+        @include transition(background 0.3s ease);
+    }
+    &:focus {
+        @include transition(background 0.3s ease);
+    }
+}
+
+.card-footer {
+    > .btn {
+        width: 100%;
+        background: #c570cf;
+    }
+}
+
+.btn--orange {
+    background: $sjargon_orange;
+
+    &:hover {
+        background: tint($sjargon_orange, 20%);
+    }
+}
+
+.btn--green {
+    background-color: tint(#4c7c71, 20%);
+    //  background: $sjargon_leafgreen;
+    &:hover {
+        //  background: tint($sjargon_leafgreen, 20%);
+    }
+}
+
+.btn--blue {
+    background: $sjargon_warmblue;
+    &:hover {
+        background: tint($sjargon_warmblue, 20%);
+    }
+}
+
+.btn--primary {
+    background: #c570cf;
+    border-color: #bf47cd;
+
+    &:hover {
+        background: tint(#4c7c71, 20%);
+    }
+    &:focus {
+        background: tint(#4c7c71, 20%);
+    }
+}
+
+.btn--publish {
+    background: #c570cf;
+    border-color: #bf47cd;
+    width: 100%;
+    &:hover {
+        background: tint(#4c7c71, 20%);
+    }
+    &:focus {
+        background: tint(#4c7c71, 20%);
+    }
+}
+
+.btn--outline {
+    border: 2px solid #fff;
+
+    &--image {
+        border: 2px solid #fff;
+        background: rgba(0, 0, 0, 0.4);
+        &:hover {
+            background: rgba(0, 0, 0, 0.6);
+            @include transition(background 0.3s ease);
+        }
+    }
+}
+
+.btn--small {
+    padding: calc($padding_width/10) calc($padding_width/6);
+    font-size: $base_font_size_xsmall;
+    min-width: 148px;
+}
+
+.btn--xs {
+    padding: calc($padding_width/10) calc($padding_width/6);
+    font-size: $base_font_size_xsmall;
+    min-width: 48px;
+}
+
+.btn--outline--dark {
+    border: 2px solid $text_color;
+    color: $text_color;
+}
+
+.btn-center {
+    // Is used when you wrap a div around a button to center it
+    @include center;
+    text-align: center;
+}
+
+.btn-square {
+    border-radius: 4px;
+}
+
+.bttn {
+    display: inline-block;
+    text-decoration: none;
+    padding: calc($padding_width/8) calc($spacing_unit_small);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    min-width: 155px;
+    transition: all 0.1s ease-in-out;
+    border-radius: 30px;
+    margin-top: $spacing_unit_small;
+
+    &:hover {
+        transition: all 0.1s ease-in-out;
+    }
+}
+
+.bttn-square {
+    border-radius: 4px;
+}
+
+.bttn-orange {
+    background-color: $sjargon_orange;
+    color: $white;
+}
+
+.bttn-warmblue {
+    background-color: $sjargon_warmblue;
+    color: $white;
+    border: 1px solid $sjargon_warmblue;
+    &:hover {
+        color: $sjargon_warmblue;
+    }
+}
+
+.bttn-transparent {
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $white;
+}
+
+.bttn-hover-white {
+    &:hover {
+        background-color: $white;
+    }
+}
+
+.bttn-white {
+    background-color: $white;
+    border: 1px solid $white;
+}
+
+.bttn-hover-leafgreen {
+    color: $sjargon_leafgreen;
+    &:hover {
+        color: $white;
+    }
+}
+.bttn-hover-white {
+    &:hover {
+        background-color: $white;
+        color: $sjargon_leafgreen;
+    }
+}
+
+.bttn-hover-transparent {
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+.bttn-hover-warmblue {
+    color: $sjargon_warmblue;
+    &:hover {
+        color: $white;
+        background-color: $sjargon_warmblue;
+    }
+}
+
+.bttn-hover-lightorange {
+    color: $white;
+    &:hover {
+        background-color: tint($sjargon_orange, 10%);
+    }
+}
+
+.bttn-hover-text-green {
+    &:hover {
+        color: $sjargon_leafgreen;
+    }
+}
+
+.bttn-hover-text-warmblue {
+    &:hover {
+        color: $sjargon_warmblue;
+    }
+}
+
+button.StripeCheckout {
+    width: 100%;
+}

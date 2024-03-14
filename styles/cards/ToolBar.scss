@@ -1,0 +1,11 @@
+.tool-bar {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    min-height: 48x;
+    width: 100%;
+    text-align: left;
+}

@@ -1,0 +1,15 @@
+.card-footer.opaque {
+    float: right;
+    overflow: initial;
+    background: initial;
+
+    @include respond-xmobile-g {
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+}
+
+.card-footer {
+    overflow: auto;
+    background: white;
+}

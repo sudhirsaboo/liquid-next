@@ -1,0 +1,57 @@
+.layout-row
+{
+  flex-direction: row;
+}
+
+.layout-column {
+  flex-direction: column;
+}
+.flex {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.layout, .layout-column, .layout-row {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.app-content{
+  height: 100%;
+    overflow: auto;
+}
+.page-content {
+  width: 100%;
+ // height:100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  //min-width: 300px
+  position: relative;
+}
+
+
+.page-scroll {
+  overflow: auto;
+}
+
+html{
+  height: 100%;
+
+  body{
+    height: 100%;
+
+
+    > div{
+      height: 100%;
+
+      > div{
+        height:100%;
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+
+      }
+    }
+  }
+
+}

@@ -1,0 +1,43 @@
+.tile-menu  {
+//display:inline-block
+}
+
+.tile-menu li {
+  height: 132px;
+  padding-left: 12px;
+  background-size: cover;
+  background-position-y: 50%;
+  position: relative;
+  padding-right: 26px;
+  cursor: pointer;
+  overflow: hidden;
+
+  border-bottom: 1px solid;
+  border-bottom-color: #05121A;
+
+  p {
+    position: absolute;
+    bottom: 2px;
+    font-size: 32px;
+    line-height: 1.231;
+    font-weight: 200;
+    text-shadow: 0 0 24px #000;
+    color: #fff;
+  }
+  &:nth-child(odd)
+  {
+    background-color: rgba(64, 64, 64, 0.74);
+  }
+  &:nth-child(even)
+  {
+    background-color: rgba(64, 64, 64, 0.49);
+  }
+  &:hover
+  {
+    background-color: rgba(64, 64, 64, 1);
+  }
+}
+
+.tile-menu .wall-art {
+  background: url(/img/logo.svg) top left no-repeat;
+}

@@ -1,0 +1,244 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+
+}
+
+h1, h2, h3, h4, h5, h6,
+blockquote {
+    text-rendering: optimizeLegibility;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+i, em {
+    font-style: italic;
+}
+
+small {
+    font-size: $font_size_small;
+    line-height: 0.9em; // fixes line-height bug
+}
+
+.smallcaps {
+    font-variant: small-caps;
+}
+
+sup, sub {
+   vertical-align: baseline;
+   position: relative;
+   top: -0.4em;
+   font-size: $font_size_small;
+   line-height: 0.9em; // fixes line-height bug
+}
+
+sub {
+    top: 0.2em;
+}
+
+
+code,
+kbd,
+samp {
+    background: $silver;
+    border-radius: 2px;
+    font-size: $font_size_small;
+    line-height: 0.9em; /* fixes line-height bug */
+    padding: 2px;
+    vertical-align: middle;
+}
+
+pre {
+  margin-bottom: $base_line_height;
+  overflow: hidden;
+  white-space: pre;
+  code {
+    display: block;
+    padding: calc($indent_unit/2);
+    line-height: 1.2;
+  }
+}
+
+.text-inline {
+  display: inline-block;
+  &.link--inline {
+    display: inline-block;
+  }
+
+}
+
+.text-block {
+  display: block;
+}
+
+
+hr {
+  border: 0;
+  border-bottom: 2px solid $sjargon_orange;
+  padding-top: $spacing_unit_small;
+  margin: 0;
+  max-width: 100px;
+  border-radius: 1px;
+}
+
+ p + h2 {
+  padding-top: $spacing_unit_small;
+}
+
+
+hr + p {
+  padding-top: $spacing_unit_small;
+}
+
+.divider {
+  border: 0;
+  border-bottom: 1px solid $almost_white;
+  padding-top: 0;
+  margin: 0;
+  max-width: 100%;
+  border-radius: 0;
+}
+
+
+
+p {
+    font-weight: 300;
+
+  & + p {
+   // padding-top: $spacing_unit_small;
+  }
+}
+
+
+.force-break {
+  word-break: break-word;
+}
+
+.force-hyphen {
+  word-break: break-all;
+  @include respond($bp_medium) {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+}
+
+@mixin text-left { // For use in mixins
+  text-align: left !important;
+    h1, h2, h3, p {
+      text-align: left !important;
+    }
+}
+.text-left { // For use in markup
+  text-align: left !important;
+    h1, h2, h3, p {
+      text-align: left !important;
+      margin-left: 0 !important;
+    }
+}
+
+@mixin text-center { // For use in mixins
+  text-align: center !important;
+}
+
+.text-center { // For use in markup
+  text-align: center !important;
+}
+
+
+.text {
+  &--warmblue {
+  color: $sjargon_warmblue;
+    &-dark {
+      color: #004981;
+    }
+  }
+  &--teal{
+  color: $sjargon_teal;
+    &-dark {
+      color: #006667;
+    }
+  }
+  &--viridian{
+  color: $sjargon_viridian;
+    &-dark {
+      color: #00743f;
+    }
+  }
+  &--coolgreen{
+  color: $sjargon_coolgreen;
+  }
+  &--leafgreen{
+  color: $sjargon_leafgreen;
+  }
+  &--coolblue{
+  color: $sjargon_coolblue;
+  }
+}
+
+
+blockquote {
+  p {
+    text-align: center;
+    line-height: 1.5;
+  }
+  &:before {
+    content: '“';
+    display: block;
+    font-size: $font_size1;
+    color: inherit;
+    top: 0;
+    left: 0;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+cite {
+  display: block;
+  text-align: center;
+  font-size: $font_size8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $silver;
+  @include respond($bp_medium) {
+    font-size: $font_size8;
+  }
+
+}
+
+.blockquote--large p {
+  font-size: $font_size4;
+  @include respond($bp_medium) {
+    font-size: $font_size3;
+    line-height: 1.4;
+  }
+}
+
+.blockquote--medium p {
+  font-size: $font_size6;
+  @include respond($bp_medium) {
+    font-size: $font_size5;
+    line-height: 1.4;
+  }
+
+}
+
+p + img {
+  margin-top: $spacing_unit_medium;
+}
+
+.play-subhead {
+  font-size: 17px;
+  display: block;
+}
+
+
+.break-desktop {
+  display: none;
+  @include respond($bp_large + 100) {
+    display: block;
+  }
+}
