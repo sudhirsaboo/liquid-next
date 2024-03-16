@@ -12,6 +12,7 @@
     }
     .btn {
         min-width: 100px;
+        padding: calc($indent_unit/4) calc($indent_unit/2);
     }
     .btn:last-child {
         background: #c570cf;

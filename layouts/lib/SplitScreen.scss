@@ -5,6 +5,7 @@
     .content{
         display: flex;
         overflow: auto;
+        flex-direction:row;
         height: 100%;
         .right-pane{
             overflow: auto;

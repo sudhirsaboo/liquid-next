@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import IconButton from "@/liquid-utils/button/IconButton";
 import merge from "lodash/merge";
+import ExpandIcon from "@/liquid-utils/button/ExpandIcon";
 
 class FieldGroup extends React.Component<any, any> {
     constructor(props) {
@@ -69,17 +69,7 @@ class FieldGroup extends React.Component<any, any> {
         return (
             <div className="field-group-header">
                 <a onClick={this.toggleCollpase}>
-                    {collapsed ? (
-                        <IconButton
-                            label="Expand"
-                            className="fa-chevron-down fa"
-                        ></IconButton>
-                    ) : (
-                        <IconButton
-                            label="Collapse"
-                            className="fa-chevron-up fa"
-                        ></IconButton>
-                    )}
+                    <ExpandIcon collapsed={this.state.collapsed}></ExpandIcon>
 
                     {label}
                 </a>

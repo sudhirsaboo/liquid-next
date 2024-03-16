@@ -15,14 +15,14 @@ class TextArea extends Field {
         valid: true,
     };
 
-    static getDerivedStateFromProps(nextProps, state) {
+    /* static getDerivedStateFromProps(nextProps, state) {
         if (state.prevProps === nextProps) {
             return null;
         }
         let value = TextArea.getStoreValue(nextProps);
         if (value === null) value = "";
         return { prevProps: nextProps, value };
-    }
+    } */
     onChange = (e) => {
         this.refs.input["dirty"] = true;
         this.setState({ value: e });
@@ -39,7 +39,8 @@ class TextArea extends Field {
         this.setState({ value });
     }
     render() {
-        const { rows, placeholder, required, apply, ...other } = this.props;
+        const { rows, placeholder, name, required, apply, ...other } =
+            this.props;
 
         const myClassNames = classnames(
             this.props.className,
@@ -56,8 +57,6 @@ class TextArea extends Field {
                     id={name}
                     style={this.props.style}
                     className={myClassNames}
-                    ref="input"
-                    multiline
                     rows={rows}
                     required={required}
                     value={this.state.value}

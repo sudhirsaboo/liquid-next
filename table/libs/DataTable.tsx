@@ -77,7 +77,7 @@ class DataTable extends React.Component<any, any> {
                 rows={10}
                 rowsPerPageOptions={[5, 10, 25]}
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} --"
                 // globalFilter={globalFilter}
                 // header={header}
                 responsiveLayout="scroll"

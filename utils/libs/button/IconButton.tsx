@@ -17,11 +17,10 @@ class IconButton extends React.Component<any, any> {
         const style = { boxSizing: "border-box" };
 
         return (
-            <button onClick={this.props.onClick}>
+            <button className={myClassNames} onClick={this.props.onClick}>
                 <FontAwesomeIcon
                     icon={this.props.icon}
                     style={Object.assign({}, this.props.style, style)}
-                    className={myClassNames}
                     data-title={this.props.title || this.props.label}
                 />
             </button>

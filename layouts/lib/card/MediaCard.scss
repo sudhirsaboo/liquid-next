@@ -87,12 +87,11 @@
     }
 }
 
-.flex {
-    -webkit-flex: 1;
-    -ms-flex: 1;
+ .flex-override {
+    
     flex: 1;
     box-sizing: border-box;
-}
+} 
 
 .media-info {
     clear: left;

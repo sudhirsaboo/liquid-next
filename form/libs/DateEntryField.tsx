@@ -2,7 +2,8 @@ import * as React from "react";
 import EntryField from "./EntryField";
 import { Calendar } from "primereact/calendar";
 import IconButton from "@/liquid-utils/button/IconButton";
-import * as moment from "moment";
+import moment from "moment";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 class DateEntryField extends EntryField {
     constructor(props) {
@@ -14,8 +15,9 @@ class DateEntryField extends EntryField {
         format: this.props.format,
         icon: this.props.icon,
         value: DateEntryField.getStoreValueChecked(this.props),
-        date: null,
+        date: this.valueToDate(DateEntryField.getStoreValueChecked(this.props)),
         valid: true,
+        calendarToggle: false,
     };
 
     static defaultProps = {
@@ -25,17 +27,18 @@ class DateEntryField extends EntryField {
     };
 
     onBlur() {
-        if (this.refs.picker && this.refs.picker["update"])
-            this.refs.picker["update"](this.valueToDate(this.getInputValue()));
         super.onBlur();
     }
 
+    static fillDate(name, post) {
+        post[name + "Date"] = moment(post[name]).format("MM/DD/YYYY");
+    }
     getSubmitValue() {
         const { format } = this.state;
 
-        const res = this.getInputValue(); // This is in browser local
-        if (!res) return null;
-        return moment(res, format).utc().format(); // need in utc yyyy-mm-dd
+        const dateStr = this.state.value; // This is in browser local
+        if (!dateStr) return null;
+        return moment(dateStr, format).utc().format(); // need in utc yyyy-mm-dd
     }
 
     // mm/dd/yyyy to date
@@ -47,15 +50,23 @@ class DateEntryField extends EntryField {
     }
 
     onChange = (e) => {
-        //parent has some logic.
         const { format } = this.state;
         const date = e.value;
         const value = DateEntryField.dateToValue(date, format, format);
         // this.refs.input["value"] = value;
-        this.setState({ date }); // js date
+        this.setState({ date, value }); // js date
         this.setStoreValue(value); // formatted string date
     };
 
+    toggleCalendar() {
+        if (this.state.toggleCalendar) {
+            this.setState({ toggleCalendar: false });
+            this.calendar.current.hide();
+        } else {
+            this.setState({ toggleCalendar: true });
+            this.calendar.current.show();
+        }
+    }
     getValue() {
         const { format } = this.state;
 
@@ -65,6 +76,7 @@ class DateEntryField extends EntryField {
         }
         return null;
     }
+    calendar: any = React.createRef();
 
     render() {
         const { name, label, required } = this.props;
@@ -76,7 +88,7 @@ class DateEntryField extends EntryField {
 
                 <div className="md-input">
                     <Calendar
-                        //ref="input"
+                        ref={this.calendar}
                         className={"display-input"}
                         name={name}
                         required={required}
@@ -85,8 +97,9 @@ class DateEntryField extends EntryField {
                         onBlur={this.onBlur.bind(this)}
                     />
                     <IconButton
+                        icon={faCalendar}
                         className={icon}
-                        onClick={this.handleInputMouseDown}
+                        onClick={() => this.toggleCalendar()}
                     />
                 </div>
 

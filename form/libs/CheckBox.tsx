@@ -15,14 +15,14 @@ class CheckBox extends Field {
                 : this.toBoolean(CheckBox.getStoreValue(this.props, null)),
     };
 
-    static getDerivedStateFromProps(nextProps, state) {
+    /* static getDerivedStateFromProps(nextProps, state) {
         if (state.prevProps === nextProps) {
             return null;
         }
         let value = CheckBox.getStoreValue(nextProps, nextProps);
         if (value === null) value = false;
         return { prevProps: nextProps, checked: value };
-    }
+    } */
     static getStoreValue(p, n) {
         const val = Field.getStoreValue(p, n);
         if (n?.checked === true) {
@@ -35,10 +35,10 @@ class CheckBox extends Field {
         return this.state.checked;
     }
 
-    handleChange = (value) => {
-        this.setState({ ...this.state, checked: value });
+    handleChange = (e) => {
+        this.setState({ ...this.state, checked: e.checked });
 
-        this.onChange({ target: { value: value } });
+        this.onChange({ target: { value: e.checked } });
     };
 
     render() {

@@ -6,10 +6,10 @@
 .layout-column {
   flex-direction: column;
 }
-.flex {
+/*.flex {
   flex: 1;
   box-sizing: border-box;
-}
+}*/
 
 .layout, .layout-column, .layout-row {
   box-sizing: border-box;
@@ -44,7 +44,7 @@ html{
     > div{
       height: 100%;
 
-      > div{
+      > div.content{
         height:100%;
         flex-direction: column;
         box-sizing: border-box;

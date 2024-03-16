@@ -1,24 +1,32 @@
-import * as React from "react";
+import React from "react";
 import DateEntryField from "./DateEntryField";
 import IconButton from "@/liquid-utils/button/IconButton";
-import * as moment from "moment";
+import moment from "moment";
 import { Calendar } from "primereact/calendar";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { format } from "path";
 
 class TimeEntryField extends DateEntryField {
     constructor(props) {
         super(props);
+        this.state = {
+            dateActive: false,
+            format: this.props.format,
+            icon: this.props.icon,
+            type: this.props.type,
+            value: TimeEntryField.getStoreValue(this.props), //hh mm a
+            time: moment(
+                TimeEntryField.getStoreValue(this.props), // js date
+                this.props.format
+            ).toDate(),
+            valid: true,
+            toggleCalendar: false,
+        };
+        console.log("TimeEntryField::STart");
+        console.log(this.state.value);
+        console.log(this.state.time);
+        console.log("TimeEntryField::End");
     }
-
-    state = {
-        dateActive: false,
-        format: this.props.format,
-        icon: this.props.icon,
-        type: this.props.type,
-        //value: null,
-        value: TimeEntryField.getStoreValueChecked(this.props),
-        time: null,
-        valid: true,
-    };
 
     static defaultProps = {
         format: "hh:mm a",
@@ -28,24 +36,19 @@ class TimeEntryField extends DateEntryField {
     getSubmitValue() {
         const { format } = this.state;
 
-        const res = this.getInputValue(); // This is in browser local
-        if (!res) return null;
-        return moment(res, format).format(); // need in utc yyyy-mm-dd
+        const time = this.state.time; // This is in browser local
+        if (!time) return null;
+        return moment(time).format(format); // need in utc yyyy-mm-dd
     }
     onBlur() {
-        /* this.refs.calendar.updateCalendar(
-            this.valueToDate(this.getInputValue())
-        ); */
-        //  super.onBlur();
+        super.onBlur();
     }
 
-    handleTimeSelect = (e) => {
-        let timeStr;
-        let valueDate = null;
-        let time = e.value;
+    handleTimeSelect = ({ value }) => {
+        let timeStr; // hh mm a string
+        let time = value; // javas date
         if (time instanceof Date) {
-            valueDate = e; // date
-            timeStr = moment(e).format("HH:mm a");
+            timeStr = moment(time).format("HH:mm a");
         } else if (time) {
             timeStr = time; // HH:mm a string
         }
@@ -72,6 +75,12 @@ class TimeEntryField extends DateEntryField {
         });
         return startDate.utc().format();
     }
+    static fillDateAndTime(name, post) {
+        post[name + "Time"] = moment(post[name]).format("hh mm a");
+        DateEntryField.fillDate(name, post);
+    }
+    calendar: any = React.createRef();
+
     render() {
         const { name, label } = this.props;
 
@@ -95,21 +104,24 @@ class TimeEntryField extends DateEntryField {
                         /> */}
 
                         <Calendar
-                            ref="picker"
+                            ref={this.calendar}
                             // active={this.state.dateActive}
                             className={this.props.className}
                             maxDate={this.props.maxDate}
                             minDate={this.props.minDate}
                             // onDismiss={this.handleDateDismiss}
                             onSelect={this.handleTimeSelect}
+                            onBlur={this.onBlur.bind(this)}
                             onChange={this.handleTimeSelect}
                             value={this.state.time}
                             timeOnly
+                            hourFormat="12"
                         />
 
                         <IconButton
+                            icon={faTimes}
                             className={icon}
-                            onClick={this.handleInputMouseDown}
+                            onClick={() => this.toggleCalendar()}
                         />
                     </div>
 
