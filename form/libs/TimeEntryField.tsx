@@ -15,10 +15,7 @@ class TimeEntryField extends DateEntryField {
             icon: this.props.icon,
             type: this.props.type,
             value: TimeEntryField.getStoreValue(this.props), //hh mm a
-            time: moment(
-                TimeEntryField.getStoreValue(this.props), // js date
-                this.props.format
-            ).toDate(),
+            time: moment(this.state.value, this.props.format).toDate(), // js date
             valid: true,
             toggleCalendar: false,
         };
@@ -38,7 +35,10 @@ class TimeEntryField extends DateEntryField {
 
         const time = this.state.time; // This is in browser local
         if (!time) return null;
-        return moment(time).format(format); // need in utc yyyy-mm-dd
+        return moment(time).format(format); // hh:mm a
+    }
+    static announceDateTime(time, format = "DD/MM/YYYY hh:mm a") {
+        return moment(time).format(format);
     }
     onBlur() {
         super.onBlur();
@@ -65,9 +65,14 @@ class TimeEntryField extends DateEntryField {
         this.setStoreValue(timeStr); // or timeStr
     };
 
-    static mergeDateAndTime(start, startTime) {
+    static mergeDateAndTime(
+        start /*string in utc */,
+        startTime /*string in utc  */,
+        formatStart = null,
+        formatStartTime = "hh mm a"
+    ) {
         const startDate = moment(start);
-        const startDateTime = moment(startTime);
+        const startDateTime = moment(startTime, formatStartTime);
         startDate.set({
             hour: startDateTime.get("hour"),
             minute: startDateTime.get("minute"),
@@ -79,6 +84,7 @@ class TimeEntryField extends DateEntryField {
         post[name + "Time"] = moment(post[name]).format("hh mm a");
         DateEntryField.fillDate(name, post);
     }
+
     calendar: any = React.createRef();
 
     render() {

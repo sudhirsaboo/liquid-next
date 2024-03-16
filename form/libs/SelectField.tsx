@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 
 import Field from "./Field";
 import { SelectField } from ".";
@@ -60,11 +60,11 @@ class Select extends Field {
             // toto handle value  array also
             let selected = null;
             if (multiple) {
-                selected = value.map(val => {
+                selected = value.map((val) => {
                     return options[val];
                 });
             } else if (options.length) {
-                selected = options.filter(i => {
+                selected = options.filter((i) => {
                     return i.name == value;
                 });
                 ret = selected;
@@ -87,13 +87,15 @@ class Select extends Field {
         let { options, optionsId, playlist } = this.props;
 
         // Make a list of ids from the entities itself
-        if (!optionsId) {
+        if (!optionsId && options) {
             optionsId = { [playlist]: { items: Object.keys(options) } };
         }
-
+        if (!optionsId) {
+            return;
+        }
         const items = playlist in optionsId ? optionsId[playlist].items : [];
 
-        const ops = items.map(optionId => {
+        const ops = items.map((optionId) => {
             return this.renderOption(options[optionId], selected);
         });
 
@@ -108,7 +110,7 @@ class Select extends Field {
 
         const myClassNames = classnames(this.props.className, {
             "has-errors": !this.state.valid,
-            "display-field": true
+            "display-field": true,
         });
 
         return (
@@ -135,15 +137,8 @@ class Select extends Field {
     }
 
     render() {
-        const {
-            type,
-            name,
-            required,
-            multiple,
-            select,
-            label,
-            editable
-        } = this.props;
+        const { type, name, required, multiple, select, label, editable } =
+            this.props;
 
         const view = { class: "test" };
         const value = SelectField.getStoreValue(this.props);
@@ -152,7 +147,7 @@ class Select extends Field {
             this.props.className,
             "input-container",
             {
-                "has-errors": !this.state.valid
+                "has-errors": !this.state.valid,
             }
         );
 

@@ -6,20 +6,18 @@ import Field from "./Field";
 class TagsField extends Field {
     constructor(props) {
         super(props);
-        this.state = { tags: [] };
+        this.state = { tags: Field.getStoreValue(this.props) };
     }
 
     handleChange(e) {
-        const { onChange } = this.props.inputProps;
         const tags = e.value;
-
-        if (onChange) {
-            onChange(e);
-        }
 
         this.setState({ tags: [...tags] });
     }
 
+    getSubmitValue() {
+        return this.state.tags;
+    }
     render() {
         let {
             value,
@@ -41,7 +39,6 @@ class TagsField extends Field {
                 <Chips
                     value={this.state.tags}
                     onChange={this.handleChange.bind(this)}
-                    disabled
                 />
             </div>
         );
