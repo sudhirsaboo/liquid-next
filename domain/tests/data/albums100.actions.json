@@ -1,0 +1,80 @@
+[
+    {
+        "type": "REQUEST_ENTITY",
+        "entity": "ALBUMS",
+        "playlist": "/albums",
+        "filter": {
+            "parent": "/albums",
+            "entityPath": "albums"
+        }
+    },
+    {
+        "type": "RECEIVE_ENTITY",
+        "entity": "ALBUMS",
+        "playlist": "/albums",
+        "filter": { "parent": "/albums", "entityPath": "albums" },
+        "entityIds": [100],
+        "entities": {
+            "albums": {
+                "100": {
+                    "published": 1,
+                    "description": null,
+                    "totalRating": 70,
+                    "noOfRatings": 3,
+                    "cover": 928,
+                    "user": 18,
+                    "name": "test",
+                    "id": 100,
+                    "displayName": null,
+                    "version": 5
+                }
+            },
+            "uploads": {
+                "17": {
+                    "contentType": null,
+                    "url": "img/user.jpg",
+                    "awsUrl": null,
+                    "ext": null,
+                    "video": false,
+                    "name": null,
+                    "id": 17,
+                    "displayName": null,
+                    "version": 0
+                },
+                "928": {
+                    "contentType": "image/jpeg",
+                    "url": "api/upload/928",
+                    "awsUrl": null,
+                    "ext": "JPG",
+                    "video": false,
+                    "name": null,
+                    "id": 928,
+                    "displayName": null,
+                    "version": 1
+                }
+            },
+            "users": {
+                "18": {
+                    "avatar": 17,
+                    "roles": [
+                        {
+                            "id": 2,
+                            "name": "ROLE_USER",
+                            "description": null,
+                            "displayName": null,
+                            "status": null,
+                            "orgName": null,
+                            "new": false
+                        }
+                    ],
+                    "displayName": "demo User",
+                    "viewsCount": 0,
+                    "name": "demo demo",
+                    "id": 18,
+                    "version": 10
+                }
+            }
+        },
+        "page": { "size": 20, "totalElements": 1, "totalPages": 1, "number": 0 }
+    }
+]

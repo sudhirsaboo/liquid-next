@@ -26,6 +26,7 @@
       "@/liquid-utils/*": ["./utils/libs/*"],
       "@/liquid-table/*": ["../liquid-next/table/libs/*"],
       "@/liquid-store/*": ["../liquid-next/store/libs/*"],
+      "@/liquid-domain/*": ["../liquid-next/domain/*"],
       "@/liquid-styles/*": ["../liquid-next/styles/*"],
 
     }

@@ -1,0 +1,176 @@
+Loopback vs http://sailsjs.org/
+ionic
+
+{
+    "name": "account",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "properties": {
+    "id": {
+        "type": "number",
+            "required": true
+    },
+    "acctmgr": {
+        "type": "string"
+    },
+    "supplierId": {
+        "type": "number",
+            "required": true
+    }
+},
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": []
+}
+
+
+{
+"name": "supplier",
+"base": "PersistedModel",
+"idInjection": true,
+"properties": {
+"name": {
+"type": "string"
+}
+},
+"validations": [],
+"relations": {
+"supplier_acct": {
+"type": "hasOne",
+"model": "account",
+"foreignKey": "supplierId"
+}
+},
+"acls": [],
+"methods": []
+}
+
+
+//Relations
+//https://docs.strongloop.com/display/public/LB/HasOne+relations
+// only allow products of type: 'shoe', always include products
+Category.hasMany(Product,
+    { as: 'shoes',
+        scope: { where: { type: 'shoe' },
+            include: 'products'
+        });
+
+Product.hasMany(Image,
+    { scope: function(inst, filter) {
+        return { type: inst.type };
+    }
+    });  // inst is a category - match category type with product type.
+
+
+
+Customer = db.createModel('customer', {
+    name: String,
+    age: Number
+});
+Review = db.createModel('review', {
+    product: String,
+    star: Number
+});
+Order = db.createModel('order', {
+    description: String,
+    total: Number
+});
+
+Customer.scope("youngFolks", {where: {age: {lte: 22}}});
+Review.belongsTo(Customer, {foreignKey: 'authorId', as: 'author'});
+Customer.hasMany(Review, {foreignKey: 'authorId', as: 'reviews'});
+Customer.hasMany(Order, {foreignKey: 'customerId', as: 'orders'});
+Order.belongsTo(Customer, {foreignKey: 'customerId'});
+
+
+
+// findById
+// Note.find = function(filter, cb)
+//var productSchema = {
+//        "name": { "type": "string", "required": true },
+//"price": "number"
+//};
+// schema "name": { "type": "string", "required": true },
+
+
+// Validation strongloop.com
+module.exports = function (user) {
+    user.validatesPresenceOf('name', 'email')
+    user.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
+    user.validatesInclusionOf('gender', {in: ['male', 'female']});
+    user.validatesExclusionOf('domain', {in: ['www', 'billing', 'admin']});
+    user.validatesNumericalityOf('age', {int: true});
+    user.validatesUniquenessOf('email', {message: 'email is not unique'});
+
+
+    user.isValid(function (valid) {
+        if (!valid) {
+            user.errors // hash of errors {attr: [errmessage, errmessage, ...], attr: ...}
+
+
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            UserModel.validatesFormatOf('email', {with: re, message: 'Must provide a valid email'});
+            if (!(UserModel.settings.realmRequired || UserModel.settings.realmDelimiter)) {
+                UserModel.validatesUniquenessOf('email', {message: 'Email already exists'});
+                UserModel.validatesUniquenessOf('username', {message: 'User already exists'});
+            }
+
+        }
+
+        */
+
+// Error response
+      /*  {
+            "name"
+        :
+            "ValidationError",
+                "status"
+        :
+            422,
+                "message"
+        :
+            "The Model instance is not valid. See error object `details` property for more info.",
+                "statusCode"
+        :
+            422,
+                "details"
+        :
+            {
+                "context"
+            :
+                "user",
+                    "codes"
+            :
+                {
+                    "password"
+                :
+                    [
+                        "presence"
+                    ],
+                        "email"
+                :
+                    [
+                        "uniqueness"
+                    ]
+                }
+            ,
+                "messages"
+            :
+                {
+                    "password"
+                :
+                    [
+                        "can't be blank"
+                    ],
+                        "email"
+                :
+                    [
+                        "Email already exists"
+                    ]
+                }
+            }
+        }
+        */
+
