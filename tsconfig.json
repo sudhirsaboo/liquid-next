@@ -22,8 +22,11 @@
       "@/*": ["./*"],
       "@/liquid/*": ["./components/libs/*"],
       "@/liquid-layouts/*": ["./layouts/lib/*"],
-      "@/liquid-utils/*": ["./utils/libs/*"],
       "@/liquid-forms/*": ["./form/libs/*"],
+      "@/liquid-utils/*": ["./utils/libs/*"],
+      "@/liquid-table/*": ["../liquid-next/table/libs/*"],
+      "@/liquid-store/*": ["../liquid-next/store/libs/*"],
+      "@/liquid-styles/*": ["../liquid-next/styles/*"],
 
     }
   },

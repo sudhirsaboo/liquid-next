@@ -1,30 +1,35 @@
 import React from "react";
-import DateEntryField from "./DateEntryField";
-import IconButton from "@/liquid-utils/button/IconButton";
 import moment from "moment";
 import { Calendar } from "primereact/calendar";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import IconButton from "@/liquid-utils/button/IconButton";
+import Field from "../Field";
+import DateEntryField from "../DateEntryField";
 
-class TimeEntryField extends DateEntryField {
+class TimeEntryField extends Field {
     constructor(props) {
         super(props);
-        this.state = {
-            dateActive: false,
-            format: this.props.format,
-            icon: this.props.icon,
-            type: this.props.type,
-            value: TimeEntryField.getStoreValue(this.props), //hh mm a
-            time: moment(
-                TimeEntryField.getStoreValue(this.props),
-                this.props.format
-            ).toDate(), // js date
-            valid: true,
-            toggleCalendar: false,
-        };
-        console.log("TimeEntryField::STart");
-        console.log(this.state.value);
-        console.log(this.state.time);
-        console.log("TimeEntryField::End");
+    }
+    state = {
+        format: this.props.format,
+        icon: this.props.icon,
+        type: this.props.type,
+        value: TimeEntryField.getStoreValue(this.props), //hh:mm a
+        time: moment(
+            TimeEntryField.getStoreValue(this.props),
+            this.props.format
+        ).toDate(), // js date
+        valid: true,
+        toggleCalendar: false,
+    };
+    toggleCalendar() {
+        if (this.state.toggleCalendar) {
+            this.setState({ toggleCalendar: false });
+            this.calendar.current.hide();
+        } else {
+            this.setState({ toggleCalendar: true });
+            this.calendar.current.show();
+        }
     }
 
     static defaultProps = {
@@ -34,7 +39,6 @@ class TimeEntryField extends DateEntryField {
     };
     getSubmitValue() {
         const { format } = this.state;
-
         const time = this.state.time; // This is in browser local
         if (!time) return null;
         return moment(time).format(format); // hh:mm a
@@ -45,27 +49,6 @@ class TimeEntryField extends DateEntryField {
     onBlur() {
         super.onBlur();
     }
-
-    handleTimeSelect = ({ value }) => {
-        let timeStr; // hh mm a string
-        let time = value; // javas date
-        if (time instanceof Date) {
-            timeStr = moment(time).format("HH:mm a");
-        } else if (time) {
-            timeStr = time; // HH:mm a string
-        }
-
-        const dateStr = "1970-01-01";
-        const newValue = moment(dateStr);
-        const time2 = moment(timeStr, "hh:mm a");
-        newValue.set({
-            hour: time2.get("hour"),
-            minute: time2.get("minute"),
-            second: time2.get("second"),
-        });
-        this.setState({ dateActive: false, value: timeStr, time: time }); // 1970 with time
-        this.setStoreValue(timeStr); // or timeStr
-    };
 
     static mergeDateAndTime(
         start /*string in utc */,
@@ -87,6 +70,11 @@ class TimeEntryField extends DateEntryField {
         DateEntryField.fillDate(name, post);
     }
 
+    handleTimeSelect = ({ value }) => {
+        this.setState({ time: value }); // javascript date
+        const valueStr = moment(value).format("hh:mm a");
+        this.setStoreValue(valueStr); // or hh:mm a string
+    };
     calendar: any = React.createRef();
 
     render() {
@@ -96,29 +84,15 @@ class TimeEntryField extends DateEntryField {
 
         return (
             <div>
-                <div className="md-input-container">
+                <div className="input-container">
                     <label data-name={name}>{label}</label>
 
                     <div className="md-input">
-                        {/* <Calendar
-                            ref="input"
-                            readOnly
-                            className={"display-input"}
-                            name={name}
-                            value={this.state.value}
-                            // defaultValue={this.state.value}
-                            onChange={this.onChange.bind(this)}
-                            onBlur={this.onBlur.bind(this)}
-                        /> */}
-
                         <Calendar
                             ref={this.calendar}
-                            // active={this.state.dateActive}
                             className={this.props.className}
                             maxDate={this.props.maxDate}
                             minDate={this.props.minDate}
-                            // onDismiss={this.handleDateDismiss}
-                            onSelect={this.handleTimeSelect}
                             onBlur={this.onBlur.bind(this)}
                             onChange={this.handleTimeSelect}
                             value={this.state.time}

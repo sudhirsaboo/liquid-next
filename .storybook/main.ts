@@ -1,5 +1,7 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 
+const path = require('path');
+
 const config: StorybookConfig = {
   stories: [
     "../stories/**/*.mdx",
@@ -11,6 +13,21 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
   ],
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/liquid': path.resolve(__dirname, "../components/libs"),
+      '@/liquid-layouts': path.resolve(__dirname, "../layouts/lib"),
+      '@/liquid-forms': path.resolve(__dirname, "../form/libs"),
+      '@/liquid-utils': path.resolve(__dirname, "../utils/libs"),
+      '@/liquid-styles': path.resolve(__dirname, "../styles"),
+      '@/liquid-table': path.resolve(__dirname, "../table/libs"),
+
+    };
+
+    return config;
+  },
+  
   framework: {
     name: "@storybook/nextjs",
     options: {},

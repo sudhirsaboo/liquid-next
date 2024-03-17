@@ -45,16 +45,26 @@ class CheckBox extends Field {
         const { label, name } = this.props;
 
         return (
-            <div className="checkbox-field">
-                <label htmlFor={name}>{label}</label>
-
-                <LibCheckbox
-                    id={name}
-                    ref="input"
-                    checked={this.toBoolean(this.state.checked)}
-                    onChange={this.handleChange}
-                    disabled={this.props.editable === false}
-                ></LibCheckbox>
+            <div className="input-container checkbox-field">
+                <label
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        height: "18px",
+                        alignItems: "center",
+                    }}
+                >
+                    <LibCheckbox
+                        id={name}
+                        ref="input"
+                        checked={this.toBoolean(this.state.checked)}
+                        onChange={this.handleChange}
+                        disabled={this.props.editable === false}
+                    ></LibCheckbox>
+                    <span style={{ marginLeft: "10px" }} htmlFor={name}>
+                        {label}
+                    </span>
+                </label>
             </div>
         );
     }

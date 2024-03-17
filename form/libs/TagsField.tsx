@@ -34,7 +34,7 @@ class TagsField extends Field {
         const { tags } = this.state;
 
         return (
-            <div className=" md-input-container">
+            <div className="input-container">
                 <label data-name={name}>{label}</label>
                 <Chips
                     value={this.state.tags}

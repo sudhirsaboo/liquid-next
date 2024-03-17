@@ -24,11 +24,12 @@ class TextArea extends Field {
         return { prevProps: nextProps, value };
     } */
     onChange = (e) => {
-        this.refs.input["dirty"] = true;
-        this.setState({ value: e });
+        // TODO this.refs.input["dirty"] = true;
+        const value = e.target.value;
+        this.setState({ value: value });
         if (this.props.onCommit) this.props.onCommit();
         if (!this.props.apply) {
-            this.setStoreValue(e);
+            this.setStoreValue(value);
         }
     };
 
