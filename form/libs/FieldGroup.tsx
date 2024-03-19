@@ -99,6 +99,7 @@ class FieldGroup extends React.Component<any, any> {
                             model,
                             apply,
                             replaceDirty,
+                            fieldGroup: this,
                         });
                         // return React.cloneElement(child, {model: model, apply:apply});
                     }

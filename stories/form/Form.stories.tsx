@@ -29,6 +29,7 @@ import "@/liquid-styles/main.scss";
 import Page from "@/liquid-layouts/theater/Page";
 import TimeEntryField from "@/liquid-forms/easy/TimeEntryField";
 import { PrimeReactProvider } from "primereact/api";
+import { post, entities, organizations } from "./data";
 
 const meta = {
     title: "Liquid/Form",
@@ -41,67 +42,16 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-const post = {
-    organization: {
-        displayName: "IStrokes Studio",
-        name: "ISTROKES",
-        id: "5",
-    },
-    user: 68,
-    cover: 400,
-    start: "2024-02-28T18:30:00.000+0000",
-    end: "2024-03-30T18:30:00.000+0000",
-    displayName: null,
-    version: 1,
-    name: "test",
-    id: 307,
-    description: "HARD",
-    statement: "HARD",
-    technical: 7,
-    super: true,
-    fee: 100,
-    tags: ["test1", "test2"],
-};
+
 TimeEntryField.fillDateAndTime("start", post);
 
-const entities = {
-    organizations: {
-        "5": {
-            cover: null,
-            parent: null,
-            displayName: "IStrokes Studio",
-            version: 1,
-            name: "ISTROKES",
-            id: 5,
-        },
-        "51": {
-            cover: null,
-            parent: null,
-            displayName: "IStrokes Studio 2",
-            version: 1,
-            name: "ISTROKES 2",
-            id: 51,
-        },
-    },
-};
-const organizations = {
-    organizations: {
-        isFetching: false,
-        items: [5, 51],
-        page: {
-            size: 20,
-            totalElements: 1,
-            totalPages: 1,
-            number: 0,
-        },
-    },
-};
 const handleOnChange = () => {
     const data = form.current.collect().form;
     data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
     alert(JSON.stringify(data));
     alert(TimeEntryField.announceDateTime(data.start));
 };
+
 const form: any = React.createRef();
 
 export const Primary: Story = {

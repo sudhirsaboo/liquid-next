@@ -11,16 +11,12 @@ class Validator extends React.Component<any, any> {
     }
 
     validate() {
-        const { valid, field } = this.props;
+        const { valid, field, model } = this.props;
 
-        const pField = field;
-        let value = null;
-        if (pField && pField.getFieldValue) value = pField.getFieldValue();
-
-        let isValid = true;
-        if (valid) isValid = valid(value, pField);
+        let value = field?.getFieldValue();
+        let isValid = valid ? valid(value, field, this.props) : true;
         this.setState({ valid: isValid });
-        field.setState({ valid: isValid });
+        field?.setState({ valid: isValid });
         return isValid;
     }
 
