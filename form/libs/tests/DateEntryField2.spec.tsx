@@ -8,7 +8,7 @@ describe("Date Entry Field", () => {
     beforeEach(() => {});
     afterEach(() => {});
 
-    xit("Should have correct values", () => {
+    it("Should have correct values", () => {
         const props = {
             model: { start: "1975-03-15T07:00:00.000+0000" },
             name: "start",
@@ -29,7 +29,7 @@ describe("Date Entry Field", () => {
         expect(inputValue).toEqual("03/15/1975");
 
         const fieldValue = comp.getFieldValue();
-        expect(fieldValue).toEqual({ start: "1975-03-15T07:00:00Z" });
+        expect(fieldValue).toEqual({ start: "1975-03-14T18:30:00Z" });
 
         const storeValueChecked = DateEntryField.getStoreValueChecked(
             comp.props

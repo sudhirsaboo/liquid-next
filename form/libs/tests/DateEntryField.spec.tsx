@@ -9,7 +9,7 @@ describe("Date Entry Field", () => {
     beforeEach(() => {});
     afterEach(() => {});
 
-    fit("User Select a new date", () => {
+    it("User Select a new date", () => {
         const props = {
             model: { start: "1975-03-15T07:00:00.000+0000" },
             name: "start",
@@ -25,9 +25,9 @@ describe("Date Entry Field", () => {
 
         expect(inputNode.value).toEqual("09/24/1978");
     });
-    xit("User Select a new date", () => {
+    it("valueToDate", () => {
         const res = DateEntryField.valueToDate("03/15/1975", "MM/DD/YYYY");
 
-        expect(res.toDateString()).toEqual("1975-03-14T18:30:00.000Z");
+        expect(res.toDateString()).toEqual("Sat Mar 15 1975");
     });
 });

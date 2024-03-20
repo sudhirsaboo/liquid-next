@@ -15,7 +15,10 @@ class DateEntryField extends EntryField {
         format: this.props.format,
         icon: this.props.icon,
         value: DateEntryField.getStoreValueChecked(this.props),
-        date: this.valueToDate(DateEntryField.getStoreValueChecked(this.props)),
+        date: DateEntryField.valueToDate(
+            DateEntryField.getStoreValueChecked(this.props),
+            this.props.format
+        ),
         valid: true,
         calendarToggle: false,
     };
@@ -42,9 +45,7 @@ class DateEntryField extends EntryField {
     }
 
     // mm/dd/yyyy to date
-    valueToDate(value) {
-        const { format } = this.state;
-
+    static valueToDate(value, format) {
         if (!value) return new Date();
         return moment(value, format).toDate();
     }
@@ -54,16 +55,16 @@ class DateEntryField extends EntryField {
         const date = e.value;
         const value = DateEntryField.dateToValue(date, format, format);
         // this.refs.input["value"] = value;
-        this.setState({ date, value }); // js date
+        this.setState({ ...this.state, date, value }); // js date
         this.setStoreValue(value); // formatted string date
     };
 
     toggleCalendar() {
         if (this.state.toggleCalendar) {
-            this.setState({ toggleCalendar: false });
+            this.setState({ ...this.state, toggleCalendar: false });
             this.calendar.current.hide();
         } else {
-            this.setState({ toggleCalendar: true });
+            this.setState({ ...this.state, toggleCalendar: true });
             this.calendar.current.show();
         }
     }
