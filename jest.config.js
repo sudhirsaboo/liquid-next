@@ -88,6 +88,8 @@ const config = {
     //   "node"
     // ],
 
+    setupFilesAfterEnv: ["<rootDir>/__tests__/helpers.js"],
+
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     // moduleNameMapper: {},
     moduleNameMapper: {
@@ -98,6 +100,7 @@ const config = {
         "^@/liquid-table/(.*)$": "<rootDir>/table/libs/$1",
         "^@/liquid-domain/(.*)$": "<rootDir>/domain/$1",
         "^@/liquid-styles/(.*)$": "<rootDir>/styles/$1",
+        "^@/test/(.*)$": "<rootDir>/__tests__/$1",
 
         "^@/(.*)$": "<rootDir>/$1",
     },
@@ -155,6 +158,7 @@ const config = {
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
+    //testEnvironment: "jest-environment-node",
     testEnvironment: "jsdom",
 
     // Options that will be passed to the testEnvironment

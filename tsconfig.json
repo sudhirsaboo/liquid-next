@@ -28,6 +28,8 @@
       "@/liquid-store/*": ["../liquid-next/store/libs/*"],
       "@/liquid-domain/*": ["../liquid-next/domain/*"],
       "@/liquid-styles/*": ["../liquid-next/styles/*"],
+      "@/test/*": ["../liquid-next/__tests__/*"],
+
 
     }
   },
