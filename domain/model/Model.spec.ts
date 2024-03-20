@@ -1,7 +1,7 @@
-import * as expect from "expect";
+import expect from "expect";
 import {Upload} from "./Model";
 import Album from "./Portfolio";
-import { APIConstants } from "../../constants/Config";
+import { APIConstants } from "@/store/libs/constants/Config";
 
 describe("Async Test", () => {
     it("should always pass", function() {
@@ -9,7 +9,7 @@ describe("Async Test", () => {
     });
 
     it("Just uploaded Album Cover displays", () => {
-        const album: Album = new Album({});
+        let album= new Album({});
         album.cover = new Upload({});
         album.cover.file = {
             preview:
@@ -34,7 +34,7 @@ describe("Async Test", () => {
         const upload = new Upload(uploadJSON);
         const entities = { uploads: { 1: upload } };
 
-        const album: Album = new Album({});
+        const album = new Album({});
         album.cover = 1;
         const url = album.getCover({ entities }, "large");
         expect(url).toEqual(
@@ -57,7 +57,7 @@ describe("Async Test", () => {
         const upload = new Upload(uploadJSON);
         const entities = { uploads: { 1: upload } };
 
-        const album: Album = new Album({});
+        const album = new Album({});
         album.cover = 1;
         APIConstants.API_ROOT_URL = "artulous-prod-v2/";
         const url = album.getCover({ entities }, "large");

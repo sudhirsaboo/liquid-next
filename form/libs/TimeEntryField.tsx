@@ -21,10 +21,6 @@ class TimeEntryField extends DateEntryField {
             valid: true,
             toggleCalendar: false,
         };
-        console.log("TimeEntryField::STart");
-        console.log(this.state.value);
-        console.log(this.state.time);
-        console.log("TimeEntryField::End");
     }
 
     static defaultProps = {
