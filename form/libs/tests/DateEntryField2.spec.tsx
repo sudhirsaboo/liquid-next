@@ -1,3 +1,4 @@
+import { act } from "@testing-library/react";
 import DateEntryField from "../DateEntryField";
 
 import { mount } from "enzyme";
@@ -36,15 +37,22 @@ describe("Date Entry Field", () => {
         expect(storeValueChecked).toEqual("03/15/1975");
     });
 
-    it("User Select a new date", () => {
+    it("User Select a new date now", async () => {
         const props = {
             model: { start: "1975-03-15T07:00:00.000+0000" },
             name: "start",
             type: "Date",
         };
-        const wrapper = mount(<DateEntryField {...props} />);
+        let wrapper;
+        wrapper = mount(<DateEntryField {...props} />);
+
         const comp = wrapper.instance() as DateEntryField;
-        comp.onChange("09/24/1978"); // User select a new date
-        expect(props.model.start).toEqual("09/24/1978");
+
+        await act(async () => {
+            comp.onChange({ value: "09/24/1978" });
+        });
+        wrapper.update();
+        // User select a new date
+        expect(comp.getInputValue()).toEqual("09/24/1978");
     });
 });

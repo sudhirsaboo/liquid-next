@@ -233,6 +233,7 @@ export class Upload  extends ServerUpload {
     ext: string;
     constructor(props: any) {
         super(props);
+        (<any>Object).assign(this, props);
     }
 
     getUrl(size = "small") {
