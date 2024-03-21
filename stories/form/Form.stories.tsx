@@ -24,7 +24,7 @@ import {
 } from "@/liquid-forms/index";
 
 import "./global.css";
-import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
+import "primereact/resources/themes/md-light-indigo/theme.css";
 import "@/liquid-styles/main.scss";
 
 import Page from "@/liquid-layouts/theater/Page";

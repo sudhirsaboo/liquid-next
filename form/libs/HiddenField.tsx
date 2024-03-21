@@ -2,10 +2,6 @@ import * as React from "react";
 import Field from "./Field";
 
 class HiddenField extends Field {
-    getInputValue() {
-        throw new Error("Method not implemented.");
-    }
-
     constructor(props) {
         super(props);
     }
@@ -18,6 +14,10 @@ class HiddenField extends Field {
     isEditable() {
         return false;
     }
+    getInputValue() {
+        return this.state.value;
+    }
+
     input: any = React.createRef();
 
     render() {

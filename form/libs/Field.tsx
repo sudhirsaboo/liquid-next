@@ -12,12 +12,7 @@ abstract class Field extends React.Component<any, any> {
     //abstract clear();
     abstract input;
 
-    toBoolean(value) {
-        if (value === "true" || value === true) {
-            return true;
-        }
-        return false;
-    }
+    // Used By Checkbox
 
     isEditable() {
         if (this.props.editable === "false" || this.props.editable === false) {
@@ -26,6 +21,7 @@ abstract class Field extends React.Component<any, any> {
         return true;
     }
 
+    // Not used need rewrite
     clear() {
         if (this.input.current) {
             if (this.input.current.setValue) this.input.current.setValue("");
@@ -38,11 +34,11 @@ abstract class Field extends React.Component<any, any> {
 
     onApply(value?) {
         if (this.props.apply) {
-            const object = this.getFieldValue(value);
-            this.props.apply(Object.assign({}, object));
+            this.props.apply(Object.assign({}, this.getFieldValue(value)));
         }
     }
 
+    // Called by Checkbox / Slider
     onChange = (e?, b?, c?) => {
         if (this.input.current) {
             this.input.current.dirty = true;
@@ -65,6 +61,8 @@ abstract class Field extends React.Component<any, any> {
         return this.getInputValue();
     }
     // Object {name: value}
+    // Called by validator.validate
+    // Called by form/fieldgroup collect
     getFieldValue(value?) {
         const { name, select, fgselect } = this.props;
 

@@ -68,6 +68,7 @@ class DateEntryField extends EntryField {
     }
 
     getValue() {
+        console.log("getValue");
         const { format } = this.state;
 
         const value = super.getValue();

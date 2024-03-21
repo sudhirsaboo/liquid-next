@@ -6,13 +6,18 @@ class CheckBox extends Field {
     constructor(props) {
         super(props);
     }
-
+    static toBoolean(value) {
+        if (value === "true" || value === true) {
+            return true;
+        }
+        return false;
+    }
     state = {
         //checked:this.toBoolean( this.getStoreValue()),
         checked:
             this.props.checked != undefined
                 ? this.props.checked
-                : this.toBoolean(CheckBox.getStoreValue(this.props, null)),
+                : CheckBox.toBoolean(CheckBox.getStoreValue(this.props, null)),
     };
 
     /* static getDerivedStateFromProps(nextProps, state) {
@@ -59,7 +64,7 @@ class CheckBox extends Field {
                     <LibCheckbox
                         id={name}
                         ref={this.input}
-                        checked={this.toBoolean(this.state.checked)}
+                        checked={CheckBox.toBoolean(this.state.checked)}
                         onChange={this.handleChange}
                         disabled={this.props.editable === false}
                     ></LibCheckbox>

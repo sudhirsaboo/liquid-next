@@ -25,7 +25,7 @@ import {
 } from "@/liquid-forms/index";
 
 import "./global.css";
-import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
+import "primereact/resources/themes/md-light-indigo/theme.css";
 import "@/liquid-styles/main.scss";
 
 import Page from "@/liquid-layouts/theater/Page";
@@ -56,7 +56,7 @@ const validateForm = (value, field, model) => {
     return true;
 };
 const validateFG = (value, field, model) => {
-    return true;
+    return false;
 };
 
 const form: any = React.createRef();

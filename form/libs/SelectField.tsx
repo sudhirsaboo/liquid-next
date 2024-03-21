@@ -104,7 +104,7 @@ class Select extends Field {
 
     input: any = React.createRef();
 
-    getInputValue(): string | [] {
+    getInputValue() {
         const { multiple } = this.props;
         let value = null;
 

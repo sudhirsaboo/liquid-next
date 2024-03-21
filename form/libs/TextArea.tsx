@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 
 import Field from "./Field";
 
 import { InputTextarea } from "primereact/inputtextarea";
-import * as classnames from "classnames";
+import classnames from "classnames";
 
 class TextArea extends Field {
     constructor(props) {
@@ -15,14 +15,6 @@ class TextArea extends Field {
         valid: true,
     };
 
-    /* static getDerivedStateFromProps(nextProps, state) {
-        if (state.prevProps === nextProps) {
-            return null;
-        }
-        let value = TextArea.getStoreValue(nextProps);
-        if (value === null) value = "";
-        return { prevProps: nextProps, value };
-    } */
     onChange = (e) => {
         this.input.current.dirty = true;
         const value = e.target.value;
