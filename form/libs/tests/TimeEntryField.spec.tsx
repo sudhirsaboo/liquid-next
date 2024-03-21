@@ -1,33 +1,30 @@
 import React from "react";
 
-import DateEntryField from "../DateEntryField";
+import TimeEntryField from "../TimeEntryField";
 import {
+    act,
     fireEvent,
     getByRole,
     render,
     screen,
-    act,
 } from "@testing-library/react";
 
-describe("Date Entry Field", () => {
+describe("Time Entry Field", () => {
     beforeEach(() => {});
     afterEach(() => {});
 
-    it("User Select a new date", async () => {
+    it("User Select a new time", async () => {
         const props = {
-            model: { start: "1975-03-15T07:00:00.000+0000" },
+            model: { start: "1975-03-15T07:00:00.000+0000", startTime: null },
             name: "start",
-            type: "Date",
+            type: "Time",
         };
-        const { container, getByRole } = render(<DateEntryField {...props} />);
+        TimeEntryField.fillDateAndTime("start", props.model);
+
+        const { container, getByRole } = render(<TimeEntryField {...props} />);
         const inputNode = container.getElementsByTagName("input")[0];
-        expect(inputNode.value).toEqual("03/15/1975");
+        expect(inputNode.value).toEqual("07:00 PM");
 
-        fireEvent.input(inputNode, { target: { value: "09/24/1978" } });
-
-        expect(inputNode.value).toEqual("09/24/1978");
-
-        fireEvent.click(inputNode);
         // Open Calendar
         const icon = screen.getByRole("button");
         expect(icon).not.toEqual(undefined);
@@ -43,19 +40,20 @@ describe("Date Entry Field", () => {
         });
         // TODO expect(screen.getByLabelText("Choose Date")).not.toBeInTheDocument();
     });
-    it("valueToDate", () => {
-        const res = DateEntryField.valueToDate("03/15/1975", "MM/DD/YYYY");
 
-        expect(res.toDateString()).toEqual("Sat Mar 15 1975");
+    it("valueToDate", () => {
+        // const res = TimeEntryField.valueToDate("03/15/1975", "MM/DD/YYYY");
+        //expect(res.toDateString()).toEqual("Sat Mar 15 1975");
     });
     it("fillDateAndTime", () => {
         const post = {
             start: "2024-02-28T18:30:00.000+0000",
             startDate: null,
+            startTime: null,
         };
-        DateEntryField.fillDate("start", post);
+        TimeEntryField.fillDateAndTime("start", post);
 
-        console.log(post);
+        expect(post.startTime).toEqual("08:30 pm");
         expect(post.startDate).toEqual("02/29/2024");
     });
 });

@@ -12,6 +12,7 @@ import {
     FieldGroup,
     DateEntryField,
     EntryField,
+    TimeEntryField,
     SelectField,
     TextArea,
     CoverSelect,
@@ -27,7 +28,6 @@ import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "@/liquid-styles/main.scss";
 
 import Page from "@/liquid-layouts/theater/Page";
-import TimeEntryField from "@/liquid-forms/easy/TimeEntryField";
 import { PrimeReactProvider } from "primereact/api";
 import { post, entities, organizations } from "./data";
 

@@ -20,7 +20,6 @@ class DateEntryField extends EntryField {
             this.props.format
         ),
         valid: true,
-        calendarToggle: false,
     };
 
     static defaultProps = {
@@ -36,7 +35,7 @@ class DateEntryField extends EntryField {
     static fillDate(name, post) {
         post[name + "Date"] = moment(post[name]).format("MM/DD/YYYY");
     }
-    getSubmitValue() {
+    getSubmitValue(): null | string {
         const { format } = this.state;
 
         const dateStr = this.state.value; // This is in browser local
@@ -49,7 +48,9 @@ class DateEntryField extends EntryField {
         if (!value) return new Date();
         return moment(value, format).toDate();
     }
-
+    static announceDate(time, format = "DD/MM/YYYY") {
+        return moment(time).format(format);
+    }
     onChange = (e) => {
         const { format } = this.state;
         const date = e.value;
@@ -60,14 +61,13 @@ class DateEntryField extends EntryField {
     };
 
     toggleCalendar() {
-        if (this.state.toggleCalendar) {
-            this.setState({ ...this.state, toggleCalendar: false });
+        if (this.calendar.current.getOverlay()) {
             this.calendar.current.hide();
         } else {
-            this.setState({ ...this.state, toggleCalendar: true });
             this.calendar.current.show();
         }
     }
+
     getValue() {
         const { format } = this.state;
 

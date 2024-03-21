@@ -3,6 +3,7 @@ import DateEntryField from "../DateEntryField";
 
 import { mount } from "enzyme";
 import * as React from "react";
+import { expect } from "chai";
 
 describe("Date Entry Field", () => {
     beforeEach(() => {});
@@ -17,24 +18,33 @@ describe("Date Entry Field", () => {
         const wrapper = mount(<DateEntryField {...props} />);
         const comp = wrapper.instance() as DateEntryField;
         const isEditable = comp.isEditable();
-        expect(isEditable).toEqual(true);
+        expect(isEditable).to.equal(true);
 
         const value = DateEntryField.getStoreValue(comp.props);
-        expect(value).toEqual("1975-03-15T07:00:00.000+0000");
+        expect(value).to.equal("1975-03-15T07:00:00.000+0000");
 
         const forValue = DateEntryField.getFormattedValue(comp.props);
-        expect(forValue).toEqual("03/15/1975");
+        expect(forValue).to.equal("03/15/1975");
 
         const inputValue = comp.getInputValue();
-        expect(inputValue).toEqual("03/15/1975");
+        expect(inputValue).to.equal("03/15/1975");
 
         const fieldValue = comp.getFieldValue();
-        expect(fieldValue).toEqual({ start: "1975-03-14T18:30:00Z" });
+        expect(fieldValue).to.deep.equal({ start: "1975-03-14T18:30:00Z" });
 
         const storeValueChecked = DateEntryField.getStoreValueChecked(
             comp.props
         );
-        expect(storeValueChecked).toEqual("03/15/1975");
+        expect(storeValueChecked).to.equal("03/15/1975");
+
+        const submitValue = comp.getSubmitValue();
+        expect(submitValue).to.equal("1975-03-14T18:30:00Z", "Submit Value");
+
+        const displayValue = DateEntryField.announceDate(
+            submitValue,
+            "MM/DD/YYYY"
+        );
+        expect(displayValue).to.equal("03/15/1975", "Display Value");
     });
 
     it("User Select a new date now", async () => {
@@ -53,6 +63,6 @@ describe("Date Entry Field", () => {
         });
         wrapper.update();
         // User select a new date
-        expect(comp.getInputValue()).toEqual("09/24/1978");
+        expect(comp.getInputValue()).to.equal("09/24/1978");
     });
 });

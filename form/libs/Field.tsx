@@ -136,16 +136,21 @@ class Field extends React.Component<any, any> {
         const value = Field.getStoreValue(props);
 
         if (props.type) {
-            return Field.formatValue(value, props.type);
+            return Field.formatValue(value, props.type, props.format);
         }
         return value;
     }
 
-    static formatValue(value, type) {
+    static formatValue(value, type, format) {
         if (type) {
             switch (type) {
                 case "Date":
                     return this.dateToValue(value, "MM/DD/YYYY");
+                case "Time":
+                    if (!format) {
+                        format = "hh:mm:ss";
+                    }
+                    return this.dateToValue(value, format, format);
                 case "DateTime":
                     return this.dateToValue(value, "MM/DD/YYYY hh:mm:ss A");
                 case "Currency":

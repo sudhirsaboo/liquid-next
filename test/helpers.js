@@ -31,3 +31,5 @@ console.error = (...params) => {
         originalConsoleError(...params);
     }
 };
+
+import "@testing-library/jest-dom";
