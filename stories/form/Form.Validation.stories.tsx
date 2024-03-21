@@ -44,6 +44,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const handleOnChange = () => {
+    form.current.validate();
     const data = form.current.collect().form;
     data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
 };
@@ -52,10 +53,10 @@ const validateName = (data, field) => {
     return data[field.props.name] !== "test";
 };
 const validateForm = (value, field, model) => {
-    return false;
+    return true;
 };
 const validateFG = (value, field, model) => {
-    return false;
+    return true;
 };
 
 const form: any = React.createRef();

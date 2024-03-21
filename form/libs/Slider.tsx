@@ -36,6 +36,8 @@ class Slider extends Field {
     getInputValue() {
         return this.state.value;
     }
+    input: any = React.createRef();
+
     render() {
         const { min, max, step, label } = this.props;
 
@@ -45,7 +47,7 @@ class Slider extends Field {
                     {label} - {this.state.value}
                 </label>
                 <LibSlider
-                    ref="input"
+                    ref={this.input}
                     value={this.state.value}
                     min={min ? min : 0}
                     max={max ? max : 10}

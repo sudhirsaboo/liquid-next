@@ -10,8 +10,8 @@ class Select extends Field {
     }
 
     onChange = (e?) => {
-        if (this.refs.input) {
-            this.refs.input["dirty"] = true;
+        if (this.input.current) {
+            this.input.current.dirty = true;
         }
         let val = null;
         if (e && e.target) val = e.target.value;
@@ -102,6 +102,31 @@ class Select extends Field {
         return ops;
     }
 
+    input: any = React.createRef();
+
+    getInputValue(): string | [] {
+        const { multiple } = this.props;
+        let value = null;
+
+        if (multiple) {
+            value = [];
+            const selections = this.input.current["selectedOptions"];
+            for (let i = 0; i < selections.length; i++) {
+                value.push(selections[i].value);
+            }
+            return value;
+        }
+
+        if (this.input.current) {
+            if (this.input.current.getValue) {
+                value = this.input.current.getValue();
+            } else {
+                value = this.input.current.value;
+            }
+        }
+        return value;
+    }
+
     renderRO() {
         const { type, name, multiple, select, label } = this.props;
 
@@ -120,7 +145,7 @@ class Select extends Field {
                 </label>
 
                 <select
-                    ref="input"
+                    ref={this.input}
                     disabled
                     data-type={type}
                     className={"display-input" + view.class}
@@ -160,7 +185,7 @@ class Select extends Field {
                 </label>
 
                 <select
-                    ref="input"
+                    ref={this.input}
                     data-type={type}
                     className={"display-input" + view.class}
                     name={`${select}-${name}`}

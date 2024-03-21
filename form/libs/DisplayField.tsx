@@ -4,6 +4,11 @@ import Field from "./Field";
 import * as classnames from "classnames";
 
 class DisplayField extends Field {
+    getInputValue() {
+        throw new Error("Method not implemented.");
+    }
+    input: any;
+
     constructor(props) {
         super(props);
     }
@@ -13,7 +18,7 @@ class DisplayField extends Field {
     }
 
     state = {
-        value: DisplayField.getFormattedValue(this.props)
+        value: DisplayField.getFormattedValue(this.props),
     };
 
     static getDerivedStateFromProps(nextProps, state) {
@@ -30,7 +35,7 @@ class DisplayField extends Field {
 
         const myClassNames = classnames(this.props.className, {
             "display-field": true,
-            [type]: true
+            [type]: true,
         });
 
         return (

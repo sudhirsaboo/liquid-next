@@ -41,6 +41,8 @@ class CheckBox extends Field {
         this.onChange({ target: { value: e.checked } });
     };
 
+    input: any = React.createRef();
+
     render() {
         const { label, name } = this.props;
 
@@ -56,7 +58,7 @@ class CheckBox extends Field {
                 >
                     <LibCheckbox
                         id={name}
-                        ref="input"
+                        ref={this.input}
                         checked={this.toBoolean(this.state.checked)}
                         onChange={this.handleChange}
                         disabled={this.props.editable === false}

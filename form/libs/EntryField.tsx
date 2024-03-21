@@ -30,7 +30,7 @@ class EntryField extends Field {
         if (e && e.target) value = e.target.value;
         else value = e;
 
-        this.refs.input["dirty"] = true;
+        this.input.current.dirty = true;
         this.setState({ value });
 
         if (!this.props.apply) {
@@ -38,6 +38,7 @@ class EntryField extends Field {
         }
         if (this.props.onCommit) this.props.onCommit();
     };
+    input: any = React.createRef();
 
     render() {
         const { type, name, required, label } = this.props;
@@ -55,7 +56,7 @@ class EntryField extends Field {
                 <label htmlFor={name}>{label}</label>
 
                 <InputText
-                    ref="input"
+                    ref={this.input}
                     id={name}
                     type={type}
                     className={"display-input"}

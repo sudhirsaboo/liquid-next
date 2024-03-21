@@ -24,7 +24,7 @@ class TextArea extends Field {
         return { prevProps: nextProps, value };
     } */
     onChange = (e) => {
-        // TODO this.refs.input["dirty"] = true;
+        this.input.current.dirty = true;
         const value = e.target.value;
         this.setState({ value: value });
         if (this.props.onCommit) this.props.onCommit();
@@ -39,6 +39,8 @@ class TextArea extends Field {
     setValue(value) {
         this.setState({ value });
     }
+    input: any = React.createRef();
+
     render() {
         const { rows, placeholder, name, required, apply, ...other } =
             this.props;
@@ -55,6 +57,7 @@ class TextArea extends Field {
                 <label htmlFor={name}>{placeholder}</label>
 
                 <InputTextarea
+                    ref={this.input}
                     id={name}
                     style={this.props.style}
                     className={myClassNames}

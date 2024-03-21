@@ -3,35 +3,14 @@ import moment from "moment";
 import Validator from "./Validator";
 
 import NumberUtils from "@/liquid-utils/NumberUtils";
-class Field extends React.Component<any, any> {
+abstract class Field extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = { valid: true };
     }
-
-    /* (nextProps) {
-        if (this.refs.input) {
-            const value = Field.getStoreValueChecked(nextProps);
-
-            let replace = true;
-            if (this.props.apply) {
-                replace = true;
-            } else if (this.refs.input["dirty"]) {
-                replace = false;
-            }
-
-            if (replace) {
-                this.refs.input["value"] = value;
-                if (this.refs.input["setValue"])
-                    this.refs.input["setValue"](value);
-            } else {
-                //  if(this.refs.input.dirty)
-                // console.log(this.replaceUndef(nextProps.label) + this.replaceUndef( nextProps.placeholder )+  "dirty hence not changing");
-                // else if(!value)
-                // console.log( this.replaceUndef(nextProps.label) +  this.replaceUndef(nextProps.placeholder) + " empty hence not changing ");
-            }
-        }
-    } */
+    abstract getInputValue();
+    //abstract clear();
+    abstract input;
 
     toBoolean(value) {
         if (value === "true" || value === true) {
@@ -48,9 +27,9 @@ class Field extends React.Component<any, any> {
     }
 
     clear() {
-        if (this.refs.input) {
-            if (this.refs.input["setValue"]) this.refs.input["setValue"]("");
-            this.refs.input["value"] = "";
+        if (this.input.current) {
+            if (this.input.current.setValue) this.input.current.setValue("");
+            this.input.current.value = "";
         }
         if (this["setValue"]) {
             this["setValue"]("");
@@ -63,10 +42,10 @@ class Field extends React.Component<any, any> {
             this.props.apply(Object.assign({}, object));
         }
     }
-    // eslint-disable-next-line
+
     onChange = (e?, b?, c?) => {
-        if (this.refs.input) {
-            this.refs.input["dirty"] = true;
+        if (this.input.current) {
+            this.input.current.dirty = true;
         }
         let val = null;
         if (e && e.target) val = e.target.value;
@@ -79,38 +58,12 @@ class Field extends React.Component<any, any> {
     }
 
     // Object {name: value}
-    // eslint-disable-next-line
     getValue(props?) {
         return this.getFieldValue();
     }
-
-    getInputValue() {
-        const { multiple } = this.props;
-        let value = null;
-
-        if (multiple) {
-            value = [];
-            const selections = this.refs.input["selectedOptions"];
-            for (let i = 0; i < selections.length; i++) {
-                value.push(selections[i].value);
-            }
-            return value;
-        }
-
-        if (this.refs.input) {
-            if (this.refs.input["getValue"]) {
-                value = this.refs.input["getValue"]();
-            } else {
-                value = this.refs.input["value"];
-            }
-        }
-        return value;
-    }
-
     getSubmitValue() {
         return this.getInputValue();
     }
-
     // Object {name: value}
     getFieldValue(value?) {
         const { name, select, fgselect } = this.props;

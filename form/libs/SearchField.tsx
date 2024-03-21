@@ -17,8 +17,9 @@ class SearchField extends Field {
     };
 
     onChange = () => {
-        this.refs.input["dirty"] = true;
+        this.input.current.dirty = true;
     };
+    input: any = React.createRef();
 
     render() {
         const { placeholder, ...other } = this.props;
@@ -31,7 +32,7 @@ class SearchField extends Field {
                 <label htmlFor={placeholder}>{label}</label>
 
                 <InputText
-                    ref="input"
+                    ref={this.input}
                     defaultValue={value}
                     {...other}
                     disabled={!this.isEditable()}

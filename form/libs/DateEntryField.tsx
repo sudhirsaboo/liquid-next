@@ -55,7 +55,6 @@ class DateEntryField extends EntryField {
         const { format } = this.state;
         const date = e.value;
         const value = DateEntryField.dateToValue(date, format, format);
-        // this.refs.input["value"] = value;
         this.setState({ ...this.state, date, value }); // js date
         this.setStoreValue(value); // formatted string date
     };

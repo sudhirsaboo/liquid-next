@@ -22,5 +22,4 @@ return this.refs.input.refs.input.inputNode.checked
            // return this.state.value; // It would be good if it can get it from RTB refs directly
         }
          <MDCheckBox
-                                      ref="input"
-                                      innerRef="input"
+

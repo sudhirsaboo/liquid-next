@@ -18,12 +18,13 @@ class DateDisplayField extends DisplayField {
         dateActive: false,
         format: this.props.format,
         value: DateDisplayField.getFormattedValue(this.props),
-        prevProps: null
+        prevProps: null,
     };
 
     static defaultProps = {
-        format: "MM/DD/YYYY"
+        format: "MM/DD/YYYY",
     };
+    input: any = React.createRef();
 
     render() {
         const { type, name, label } = this.props;
@@ -32,7 +33,7 @@ class DateDisplayField extends DisplayField {
                 <label data-name={name}>{label}</label>
 
                 <input
-                    ref="input"
+                    ref={this.input}
                     readOnly
                     type={type}
                     className={"display-input"}
