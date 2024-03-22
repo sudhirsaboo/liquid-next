@@ -32,7 +32,7 @@ describe("Date Entry Field", () => {
         const fieldValue = comp.getFieldValue();
         expect(fieldValue).to.deep.equal({ start: "1975-03-14T18:30:00Z" });
 
-        const storeValueChecked = DateEntryField.getStoreValueChecked(
+        const storeValueChecked = DateEntryField.getStoreValueInFormat(
             comp.props
         );
         expect(storeValueChecked).to.equal("03/15/1975");

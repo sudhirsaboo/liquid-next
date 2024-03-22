@@ -22,10 +22,10 @@ class TimeEntryField extends Field {
         valid: true,
     };
     toggleCalendar() {
-        if (this.calendar.current.getOverlay()) {
-            this.calendar.current.hide();
+        if (this.input.current.getOverlay()) {
+            this.input.current.hide();
         } else {
-            this.calendar.current.show();
+            this.input.current.show();
         }
     }
 
@@ -78,7 +78,7 @@ class TimeEntryField extends Field {
         const valueStr = moment(value).format("hh:mm a");
         this.setStoreValue(valueStr); // or hh:mm a string
     };
-    calendar: any = React.createRef();
+    input: any = React.createRef();
 
     render() {
         const { name, label } = this.props;
@@ -92,7 +92,7 @@ class TimeEntryField extends Field {
 
                     <div className="md-input">
                         <Calendar
-                            ref={this.calendar}
+                            ref={this.input}
                             className={this.props.className}
                             maxDate={this.props.maxDate}
                             minDate={this.props.minDate}

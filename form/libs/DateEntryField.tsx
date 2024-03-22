@@ -1,22 +1,23 @@
 import * as React from "react";
-import EntryField from "./EntryField";
+import Field from "./Field";
 import { Calendar } from "primereact/calendar";
 import IconButton from "@/liquid-utils/button/IconButton";
 import moment from "moment";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
-class DateEntryField extends EntryField {
+class DateEntryField extends Field {
     constructor(props) {
         super(props);
     }
+    input: any = React.createRef();
 
     state = {
         dateActive: false,
         format: this.props.format,
         icon: this.props.icon,
-        value: DateEntryField.getStoreValueChecked(this.props),
+        value: DateEntryField.getStoreValueInFormat(this.props), // DD/MM/YYYY
         date: DateEntryField.valueToDate(
-            DateEntryField.getStoreValueChecked(this.props),
+            DateEntryField.getStoreValueInFormat(this.props),
             this.props.format
         ),
         valid: true,
@@ -32,9 +33,14 @@ class DateEntryField extends EntryField {
         super.onBlur();
     }
 
+    getInputValue() {
+        return this.state.value;
+    }
+
     static fillDate(name, post) {
         post[name + "Date"] = moment(post[name]).format("MM/DD/YYYY");
     }
+
     getSubmitValue(): null | string {
         const { format } = this.state;
 
@@ -48,9 +54,11 @@ class DateEntryField extends EntryField {
         if (!value) return new Date();
         return moment(value, format).toDate();
     }
+
     static announceDate(time, format = "DD/MM/YYYY") {
         return moment(time).format(format);
     }
+
     onChange = (e) => {
         const { format } = this.state;
         const date = e.value;
@@ -60,15 +68,14 @@ class DateEntryField extends EntryField {
     };
 
     toggleCalendar() {
-        if (this.calendar.current.getOverlay()) {
-            this.calendar.current.hide();
+        if (this.input.current.getOverlay()) {
+            this.input.current.hide();
         } else {
-            this.calendar.current.show();
+            this.input.current.show();
         }
     }
 
     getValue() {
-        console.log("getValue");
         const { format } = this.state;
 
         const value = super.getValue();
@@ -77,7 +84,6 @@ class DateEntryField extends EntryField {
         }
         return null;
     }
-    calendar: any = React.createRef();
 
     render() {
         const { name, label, required } = this.props;
@@ -89,7 +95,7 @@ class DateEntryField extends EntryField {
 
                 <div className="md-input">
                     <Calendar
-                        ref={this.calendar}
+                        ref={this.input}
                         className={"display-input"}
                         name={name}
                         required={required}

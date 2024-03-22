@@ -44,7 +44,7 @@ describe("Date Display Field", () => {
             "From  HTML Input field to json should have correct json"
         ); */
 
-        const storeValueChecked = DateDisplayField.getStoreValueChecked(
+        const storeValueChecked = DateDisplayField.getStoreValueInFormat(
             comp.props
         );
         expect(storeValueChecked).to.deep.equal("03/15/1975", " ");

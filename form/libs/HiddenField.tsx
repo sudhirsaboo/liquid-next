@@ -7,7 +7,7 @@ class HiddenField extends Field {
     }
 
     state = {
-        value: HiddenField.getStoreValueChecked(this.props),
+        value: HiddenField.getStoreValueInFormat(this.props),
         valid: true,
     };
 

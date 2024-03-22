@@ -37,12 +37,12 @@ describe("Time Entry Field", () => {
             "getFieldValue"
         );
 
-        /* const storeValueChecked = TimeEntryField.getStoreValueChecked(
+        /* const storeValueChecked = TimeEntryField.getStoreValueInFormat(
             comp.props
         );
         expect(storeValueChecked).to.equal(
             "03/15/1975",
-            "getStoreValueChecked"
+            "getStoreValueInFormat"
         ); */
 
         const submitValue = comp.getSubmitValue();

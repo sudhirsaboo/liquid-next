@@ -9,11 +9,10 @@ abstract class Field extends React.Component<any, any> {
         this.state = { valid: true };
     }
     abstract getInputValue();
-    //abstract clear();
     abstract input;
+    //abstract clear();
 
-    // Used By Checkbox
-
+    // Used By TextArea to disble if not editable
     isEditable() {
         if (this.props.editable === "false" || this.props.editable === false) {
             return false;
@@ -57,9 +56,15 @@ abstract class Field extends React.Component<any, any> {
     getValue(props?) {
         return this.getFieldValue();
     }
+
     getSubmitValue() {
         return this.getInputValue();
     }
+
+    collect(value) {
+        return this.getFieldValue(value);
+    }
+
     // Object {name: value}
     // Called by validator.validate
     // Called by form/fieldgroup collect
@@ -77,15 +82,13 @@ abstract class Field extends React.Component<any, any> {
         return Object.assign({}, object);
     }
 
-    collect(value) {
-        return this.getFieldValue(value);
-    }
-
     // Value from the Data Store
-    // can use if needed https://www.npmjs.com/package/key-path
+    // Used by display field
     static getFormattedValue(props) {
         const value = Field.getStoreValue(props);
+        console.log(value);
 
+        console.log("getFormattedValue");
         if (props.type) {
             return Field.formatValue(value, props.type, props.format);
         }
@@ -96,14 +99,17 @@ abstract class Field extends React.Component<any, any> {
         if (type) {
             switch (type) {
                 case "Date":
-                    return this.dateToValue(value, "MM/DD/YYYY");
+                    return Field.dateToValue(
+                        value,
+                        format ? format : "MM/DD/YYYY"
+                    );
                 case "Time":
                     if (!format) {
                         format = "hh:mm:ss";
                     }
-                    return this.dateToValue(value, format, format);
+                    return Field.dateToValue(value, format, format);
                 case "DateTime":
-                    return this.dateToValue(value, "MM/DD/YYYY hh:mm:ss A");
+                    return Field.dateToValue(value, "MM/DD/YYYY hh:mm:ss A");
                 case "Currency":
                     return NumberUtils.formatCurrency(value, 2, 3, ",", ".");
                 case "Number":
@@ -114,17 +120,15 @@ abstract class Field extends React.Component<any, any> {
         return value;
     }
 
-    static getStoreValueChecked(props) {
+    static getStoreValueInFormat(props) {
         const { type } = props;
         const value = Field.getStoreValue(props);
-        // These are just check to ensure no time is preset in Date field
         switch (type) {
             case "Date":
-                return Field.dateToValue(value, "MM/DD/YYYY"); // on resize program dates were getting wrong format
-            case "DateTime": {
-                const format = props.format ? props.format : "hh:mm:ss";
-                return Field.dateToValue(value, format);
-            }
+                return Field.dateToValue(
+                    value,
+                    props.format ? props.format : "MM/DD/YYYY"
+                );
             default:
         }
         return value;
@@ -172,6 +176,9 @@ abstract class Field extends React.Component<any, any> {
     }
 
     static dateToValue(date, format, inFormat?) {
+        console.log(date);
+        console.log("dateToValue");
+
         if (!date) return date;
         if (inFormat) {
             return moment(date, inFormat).local().format(format);

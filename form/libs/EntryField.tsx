@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 import Field from "./Field";
 import { InputText } from "primereact/inputtext";
 
@@ -9,7 +9,7 @@ class EntryField extends Field {
     }
 
     state = {
-        value: EntryField.getStoreValueChecked(this.props),
+        value: EntryField.getStoreValue(this.props),
         valid: true,
     };
 
@@ -17,10 +17,11 @@ class EntryField extends Field {
         if (state.prevProps === nextProps) {
             return null;
         }
-        let value = EntryField.getStoreValueChecked(nextProps);
+        let value = EntryField.getStoreValue(nextProps);
         if (value === null) value = "";
         return { prevProps: nextProps, value };
     }
+
     getInputValue() {
         return this.state.value;
     }
@@ -38,6 +39,7 @@ class EntryField extends Field {
         }
         if (this.props.onCommit) this.props.onCommit();
     };
+
     input: any = React.createRef();
 
     render() {
