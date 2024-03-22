@@ -31,6 +31,8 @@ import "@/liquid-styles/main.scss";
 import Page from "@/liquid-layouts/theater/Page";
 import { PrimeReactProvider } from "primereact/api";
 import { post } from "./data";
+import { within, userEvent, expect } from "@storybook/test";
+
 const meta = {
     title: "Liquid/Form",
     component: Form,
@@ -49,8 +51,7 @@ const handleOnChange = () => {
     data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
 };
 const validateName = (data, field) => {
-    alert(JSON.stringify(data));
-    return data[field.props.name] !== "test";
+    return data[field.props.name] !== "invalidValue";
 };
 const validateForm = (value, field, model) => {
     return true;
@@ -116,4 +117,23 @@ export const Validation: Story = {
             </Page>
         </PrimeReactProvider>
     ),
+    play: async ({ canvasElement }) => {
+        //storybook.js.org/docs/writing-tests/interaction-testing
+        const canvas: Node = within(canvasElement);
+        const input = canvas.getByTestId("test-name");
+        await userEvent.click(input);
+        await userEvent.clear(input, "");
+        await userEvent.type(input, "invalidValue");
+        const okBtn = canvas.getByRole("button", { name: /Ok/i });
+        await expect(okBtn).toBeInTheDocument();
+        await userEvent.click(okBtn);
+        await expect(canvas.getByText("Invalid name")).toBeInTheDocument();
+        await userEvent.click(input);
+        await userEvent.clear(input);
+        await userEvent.type(input, "validValue");
+        await userEvent.tab();
+        await expect(
+            canvas.queryByText("Invalid name")
+        ).not.toBeInTheDocument();
+    },
 };

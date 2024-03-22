@@ -28,7 +28,7 @@ class Validator extends React.Component<any, any> {
         }
         return (
             <div className="validation-error">
-                <a href={`javascript:alert('${message}')`}>{message}</a>
+                <a href="#">{message}</a>
             </div>
         );
     }

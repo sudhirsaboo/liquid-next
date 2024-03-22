@@ -61,7 +61,7 @@ abstract class Field extends React.Component<any, any> {
         return this.getInputValue();
     }
 
-    collect(value) {
+    collect(value?) {
         return this.getFieldValue(value);
     }
 
@@ -198,8 +198,7 @@ abstract class Field extends React.Component<any, any> {
         if (model != null) {
             if (fgselect) {
                 selector = selector[fgselect];
-            }
-            if (select) {
+            } else if (select) {
                 selector = selector[select];
             }
 
@@ -212,7 +211,6 @@ abstract class Field extends React.Component<any, any> {
                     return selector[name];
                 }
             }
-
             return "";
         }
         if (!value) return ""; // To prevent undefined in searchField
@@ -234,8 +232,7 @@ abstract class Field extends React.Component<any, any> {
         if (model != null) {
             if (fgselect) {
                 selector = selector[fgselect];
-            }
-            if (select) {
+            } else if (select) {
                 selector = selector[select];
             }
 
@@ -244,13 +241,10 @@ abstract class Field extends React.Component<any, any> {
             }
 
             if (selector) {
-                if (name in selector) {
-                    selector[name] = value;
-                } else {
-                    selector[name] = value;
-                }
+                selector[name] = value;
             }
         }
+        return selector;
     }
 
     validate() {
@@ -272,12 +266,6 @@ abstract class Field extends React.Component<any, any> {
             }
         }
         return isValid;
-    }
-
-    replaceUndef(input) {
-        if (!input) return "";
-
-        return input;
     }
 }
 

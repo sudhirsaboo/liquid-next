@@ -25,7 +25,12 @@ const getLayout = () => {
     return (
         <Form model={post}>
             <FieldGroup label="Identify">
-                <EntryField name="name" label="Title" type="text">
+                <EntryField
+                    name="name"
+                    label="Title"
+                    type="text"
+                    required={true}
+                >
                     <Validator
                         valid={validateName}
                         message="Invalid name"
@@ -42,9 +47,22 @@ describe("Field Spec", () => {
 
     it("validate check", async () => {
         const wrapper = mount(getLayout());
-        const comp = wrapper.instance() as FieldGroup;
+        const comp = wrapper.instance() as Form;
         act(() => {
             expect(comp.validate()).to.equal(true);
+        });
+        act(() => {
+            expect(comp.collect("test-1")).to.deep.equal({
+                form: { id: "test-1", name: "test" },
+            });
+        });
+    });
+    it("clear check", async () => {
+        const wrapper = mount(getLayout());
+        const comp = wrapper.instance() as Form;
+        act(() => {
+            comp.clear();
+            //expect(wrapper.find("input").prop("value")).to.equal("");
         });
     });
     it("validate check - correct", async () => {
@@ -60,7 +78,6 @@ describe("Field Spec", () => {
             wrapper.container.getElementsByClassName("validation-error");
         expect(errors.length).to.equal(1);
         expect(errors[0].firstChild?.nodeName).to.equal("A");
-        screen.debug();
 
         expect(errors[0].firstChild?.textContent).to.equal("Invalid name");
     });

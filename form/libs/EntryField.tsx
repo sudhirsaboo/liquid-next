@@ -13,14 +13,18 @@ class EntryField extends Field {
         valid: true,
     };
 
-    static getDerivedStateFromProps(nextProps, state) {
+    setValue(v) {
+        this.setState({ value: v });
+    }
+
+    /* static getDerivedStateFromProps(nextProps, state) {
         if (state.prevProps === nextProps) {
             return null;
         }
         let value = EntryField.getStoreValue(nextProps);
         if (value === null) value = "";
         return { prevProps: nextProps, value };
-    }
+    } */
 
     getInputValue() {
         return this.state.value;
@@ -58,6 +62,7 @@ class EntryField extends Field {
                 <label htmlFor={name}>{label}</label>
 
                 <InputText
+                    data-testid={`test-${name}`}
                     ref={this.input}
                     id={name}
                     type={type}
