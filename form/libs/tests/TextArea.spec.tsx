@@ -9,13 +9,17 @@ import { mount } from "enzyme";
 
 import React from "react";
 import { expect } from "chai";
-import EntryField from "../EntryField";
+import TextArea from "../TextArea";
 
 import { FieldGroup, Validator, Field, Form } from "..";
+
+function hasInputValue(e, inputValue: string) {
+    return screen.getByDisplayValue(inputValue) === e;
+}
 const post = {
     displayName: null,
     version: 1,
-    name: "test",
+    description: "test",
     id: 307,
 };
 const validateName = (data, field) => {
@@ -25,17 +29,17 @@ const getLayout = () => {
     return (
         <Form model={post}>
             <FieldGroup label="Identify">
-                <EntryField
-                    name="name"
+                <TextArea
+                    name="description"
                     label="Title"
                     type="text"
                     required={true}
                 >
                     <Validator
                         valid={validateName}
-                        message="Invalid name"
+                        message="Invalid description"
                     ></Validator>
-                </EntryField>
+                </TextArea>
             </FieldGroup>
         </Form>
     );
@@ -53,7 +57,7 @@ describe("Field Spec", () => {
         });
         act(() => {
             expect(comp.collect("test-1")).to.deep.equal({
-                form: { id: "test-1", name: "test" },
+                form: { id: "test-1", description: "test" },
             });
         });
     });
@@ -68,8 +72,8 @@ describe("Field Spec", () => {
     it("validate check - correct", async () => {
         const wrapper = render(getLayout());
 
-        const input = wrapper.container.getElementsByTagName("input")[0];
-        expect(input.value).to.equal("test");
+        const input = wrapper.container.getElementsByTagName("textarea")[0];
+        expect(input.textContent).to.equal("test");
         act(() => {
             fireEvent.change(input, { target: { value: "invalidValue" } });
             fireEvent.blur(input);
@@ -79,12 +83,14 @@ describe("Field Spec", () => {
         expect(errors.length).to.equal(1);
         expect(errors[0].firstChild?.nodeName).to.equal("A");
 
-        expect(errors[0].firstChild?.textContent).to.equal("Invalid name");
+        expect(errors[0].firstChild?.textContent).to.equal(
+            "Invalid description"
+        );
     });
-    it("valid value - correct", async () => {
+    it("valid value - no error msg", async () => {
         const wrapper = render(getLayout());
 
-        const input = wrapper.container.getElementsByTagName("input")[0];
+        const input = wrapper.container.getElementsByTagName("textarea")[0];
         act(() => {
             fireEvent.change(input, { target: { value: "validValue" } });
             fireEvent.blur(input);

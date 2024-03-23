@@ -44,20 +44,30 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
+const formClear = () => {
+    form.current.clear();
+};
 const handleOnChange = () => {
     form.current.validate();
-    const data = form.current.collect().form;
+    const data = form.current.collect("test01", false).form;
+    // alert(JSON.stringify(data));
     data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
 };
 const validateName = (data, field) => {
     return data[field.props.name] !== "invalidValue";
 };
+const validateDesc = (data, field) => {
+    return data[field.props.name] !== "invalidValue";
+};
 const validateForm = (value, field, model) => {
     return true;
 };
-const validateFG = (value, field, model) => {
-    return false;
+const validateFG = (value, field, { model: { copyright, name } }) => {
+    //const data = form.current.collect("test01", false).form;
+    //console.log(copyright);
+
+    return copyright.super1 && copyright.super3;
+    //return true;
 };
 
 const form: any = React.createRef();
@@ -85,6 +95,16 @@ export const Validation: Story = {
                                         message="Invalid name"
                                     ></Validator>
                                 </EntryField>
+                                <TextArea
+                                    name="description"
+                                    label="Title"
+                                    type="text"
+                                >
+                                    <Validator
+                                        valid={validateDesc}
+                                        message="Invalid description"
+                                    ></Validator>
+                                </TextArea>
                             </FieldGroup>
 
                             <FieldGroup label="Copy Right" select="copyright">
@@ -93,15 +113,15 @@ export const Validation: Story = {
                                     message="Invalid FG"
                                 ></Validator>
                                 <CheckBox
-                                    name="super"
+                                    name="super1"
                                     label="Super1"
                                 ></CheckBox>
                                 <CheckBox
-                                    name="super1"
+                                    name="super2"
                                     label="Super2"
                                 ></CheckBox>
                                 <CheckBox
-                                    name="super2"
+                                    name="super3"
                                     label="Super3"
                                 ></CheckBox>
                             </FieldGroup>
@@ -109,6 +129,8 @@ export const Validation: Story = {
                     </CardContent>
                     <CardFooter>
                         <Buttons>
+                            <Button label="Clear" onClick={formClear} />
+
                             <Button label="Cancel" />
                             <Button label="Ok" onClick={handleOnChange} />
                         </Buttons>
@@ -119,7 +141,7 @@ export const Validation: Story = {
     ),
     play: async ({ canvasElement }) => {
         //storybook.js.org/docs/writing-tests/interaction-testing
-        const canvas: Node = within(canvasElement);
+        const canvas = within(canvasElement);
         const input = canvas.getByTestId("test-name");
         await userEvent.click(input);
         await userEvent.clear(input, "");
@@ -135,5 +157,13 @@ export const Validation: Story = {
         await expect(
             canvas.queryByText("Invalid name")
         ).not.toBeInTheDocument();
+        // FieldGroup
+        await expect(canvas.queryByText("Invalid FG")).toBeInTheDocument();
+        const super1 = canvas.getByTestId("test-super1");
+        await userEvent.click(super1);
+        const super3 = canvas.getByTestId("test-super3");
+        await userEvent.click(super3);
+        await userEvent.click(okBtn);
+        await expect(canvas.queryByText("Invalid FG")).not.toBeInTheDocument();
     },
 };

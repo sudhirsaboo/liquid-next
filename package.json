@@ -11,7 +11,7 @@
         "build-storybook": "storybook build",
         "chromatic": "npx chromatic --project-token=chpt_4030d7a801af4ac",
         "test": "jest",
-        "test:one": "jest -- '/EntryField.spec.tsx'",
+        "test:one": "jest -- '/Checkbox.spec.tsx'",
         "test:2": "jest -- DateDisplayField.spec.tsx"
     },
     "dependencies": {

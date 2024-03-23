@@ -60,9 +60,8 @@ class TextArea extends Field {
                     disabled={!this.isEditable()}
                     onChange={this.onChange.bind(this)}
                     onBlur={this.onBlur.bind(this)}
-                >
-                    {this.getValidationChildren()}
-                </InputTextarea>
+                ></InputTextarea>
+                {this.getValidationChildren()}
             </div>
         );
     }

@@ -12,10 +12,14 @@ export const post = {
     version: 1,
     name: "test",
     id: 307,
-    description: "HARD",
+    description: "test",
     statement: "HARD",
     technical: 7,
-    super: true,
+    copyright : {
+        super1:false,
+        super2:false,
+        super3:false,
+    },
     fee: 100,
     tags: ["test1", "test2"],
 };

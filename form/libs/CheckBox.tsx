@@ -12,6 +12,9 @@ class CheckBox extends Field {
         }
         return false;
     }
+    clear() {
+        this.setState({ ...this.state, checked: false });
+    }
     state = {
         //checked:this.toBoolean( this.getStoreValue()),
         checked:
@@ -44,6 +47,9 @@ class CheckBox extends Field {
         this.setState({ ...this.state, checked: e.checked });
 
         this.onChange({ target: { value: e.checked } });
+        if (!this.props.apply) {
+            this.setStoreValue(e.checked);
+        }
     };
 
     input: any = React.createRef();
@@ -63,6 +69,7 @@ class CheckBox extends Field {
                 >
                     <LibCheckbox
                         id={name}
+                        data-testid={`test-${name}`}
                         ref={this.input}
                         checked={CheckBox.toBoolean(this.state.checked)}
                         onChange={this.handleChange}

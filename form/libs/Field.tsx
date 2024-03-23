@@ -1,8 +1,8 @@
-import * as React from "react";
+import React from "react";
 import moment from "moment";
 import Validator from "./Validator";
-
 import NumberUtils from "@/liquid-utils/NumberUtils";
+
 abstract class Field extends React.Component<any, any> {
     constructor(props) {
         super(props);

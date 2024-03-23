@@ -13,8 +13,8 @@ class EntryField extends Field {
         valid: true,
     };
 
-    setValue(v) {
-        this.setState({ value: v });
+    clear() {
+        this.setState({ ...this.state, value: "" });
     }
 
     /* static getDerivedStateFromProps(nextProps, state) {

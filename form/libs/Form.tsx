@@ -49,8 +49,8 @@ class Form extends React.Component<any, any> {
         );
     }
 
-    collect(id) {
-        if (!this.validate()) return false;
+    collect(id, validate = true) {
+        if (validate && !this.validate()) return false;
 
         const keys = Object.keys(this.refs);
         let data = {};
@@ -89,8 +89,8 @@ class Form extends React.Component<any, any> {
         }
     }
 
-    submit(event) {
-        event.preventDefault();
+    submit(event?) {
+        event?.preventDefault();
 
         // this.reset_error()
 
