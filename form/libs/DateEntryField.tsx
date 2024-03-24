@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Field from "./Field";
 import { Calendar } from "primereact/calendar";
 import IconButton from "@/liquid-utils/button/IconButton";

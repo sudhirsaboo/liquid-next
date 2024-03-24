@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 class ProgressBar extends React.Component<any, any> {
     constructor(props) {
@@ -18,7 +18,7 @@ class ProgressBar extends React.Component<any, any> {
             backgroundColor: this.props.color || "#0BD318",
             width: completed + "%",
             transition: "width 200ms",
-            height: this.props.height || 10
+            height: this.props.height || 10,
         };
 
         return (

@@ -1,5 +1,5 @@
 //import strictUriEncode from 'strict-uri-encode';
-import * as decodeComponent from "decode-uri-component";
+import  decodeComponent from "decode-uri-component";
 
 const strictUriEncode = str =>
     encodeURIComponent(str).replace(

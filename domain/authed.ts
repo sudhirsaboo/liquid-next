@@ -1,6 +1,6 @@
-import * as Cookies from "js-cookie";
+import  Cookies from "js-cookie";
 
-import * as types from "@/liquid-store/constants/ActionTypes";
+import  types from "@/liquid-store/constants/ActionTypes";
 import { AUTHED_PLAYLIST_SUFFIX } from "../constants/PlaylistConstants";
 import { APIConstants } from "@/liquid-store/constants/Config";
 
@@ -11,7 +11,7 @@ import { login } from "../utils/Login";
 import Authed from "./model/Authed";
 
 const COOKIE_PATH = "accessToken";
-import * as fetch from "isomorphic-fetch";
+import  fetch from "isomorphic-fetch";
 
 function authUser(accessToken) {
     return dispatch => {

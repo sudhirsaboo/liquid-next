@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import Field from "./Field";
 
-import * as classnames from "classnames";
+import classnames from "classnames";
 
 class DisplayField extends Field {
     getInputValue() {

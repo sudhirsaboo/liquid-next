@@ -2,7 +2,7 @@ import { act } from "@testing-library/react";
 import TimeEntryField from "../TimeEntryField";
 
 import { mount } from "enzyme";
-import * as React from "react";
+import React from "react";
 import { expect } from "chai";
 
 describe("Time Entry Field", () => {

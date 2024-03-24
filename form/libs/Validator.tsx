@@ -1,7 +1,7 @@
 /**
  * Created by ssaboo on 3/15/16.
  */
-import * as React from "react";
+import React from "react";
 
 class Validator extends React.Component<any, any> {
     constructor(props) {

@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import Field from "./Field";
 import { InputText } from "primereact/inputtext";
-import * as keycode from "keycode";
+import keycode from "keycode";
 
 class SearchField extends Field {
     constructor(props) {

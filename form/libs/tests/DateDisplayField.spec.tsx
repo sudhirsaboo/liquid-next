@@ -1,7 +1,7 @@
 import DateDisplayField from "../DateDisplayField";
 
 import { mount } from "enzyme";
-import * as React from "react";
+import React from "react";
 
 import { expect } from "chai";
 

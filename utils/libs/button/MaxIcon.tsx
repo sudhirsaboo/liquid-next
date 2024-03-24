@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 
 import IconButton from "../button/IconButton";
 
@@ -7,7 +7,7 @@ class MaxIcon extends React.Component<any, any> {
     render() {
         const myClassNames = classnames(this.props.className, {
             "fa-expand fa": true,
-            "fa-compress": this.props.on
+            "fa-compress": this.props.on,
         });
 
         return (

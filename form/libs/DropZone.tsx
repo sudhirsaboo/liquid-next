@@ -1,5 +1,5 @@
 import accepts from "attr-accept";
-import * as React from "react";
+import React from "react";
 
 const supportMultiple =
     typeof document !== "undefined" && document && document.createElement
@@ -19,7 +19,7 @@ class Dropzone extends React.Component<any, any> {
         this.onDrop = this.onDrop.bind(this);
 
         this.state = {
-            isDragActive: false
+            isDragActive: false,
         };
     }
 
@@ -45,7 +45,7 @@ class Dropzone extends React.Component<any, any> {
 
         this.setState({
             isDragActive: allFilesAccepted,
-            isDragReject: !allFilesAccepted
+            isDragReject: !allFilesAccepted,
         });
 
         if (this.props.onDragEnter) {
@@ -69,7 +69,7 @@ class Dropzone extends React.Component<any, any> {
 
         this.setState({
             isDragActive: false,
-            isDragReject: false
+            isDragReject: false,
         });
 
         if (this.props.onDragLeave) {
@@ -85,7 +85,7 @@ class Dropzone extends React.Component<any, any> {
 
         this.setState({
             isDragActive: false,
-            isDragReject: false
+            isDragReject: false,
         });
 
         const droppedFiles = e.dataTransfer
@@ -125,7 +125,7 @@ class Dropzone extends React.Component<any, any> {
     }
 
     allFilesAccepted(files) {
-        return files.every(file => accepts(file, this.props.accept));
+        return files.every((file) => accepts(file, this.props.accept));
     }
 
     open() {
@@ -172,11 +172,11 @@ class Dropzone extends React.Component<any, any> {
             style = {};
             activeStyle = {
                 borderStyle: "solid",
-                backgroundColor: "#eee"
+                backgroundColor: "#eee",
             };
             rejectStyle = {
                 borderStyle: "solid",
-                backgroundColor: "#ffdddd"
+                backgroundColor: "#ffdddd",
             };
         }
 
@@ -184,16 +184,16 @@ class Dropzone extends React.Component<any, any> {
         if (activeStyle && isDragActive) {
             appliedStyle = {
                 ...style,
-                ...activeStyle
+                ...activeStyle,
             };
         } else if (rejectStyle && isDragReject) {
             appliedStyle = {
                 ...style,
-                ...rejectStyle
+                ...rejectStyle,
             };
         } else {
             appliedStyle = {
-                ...style
+                ...style,
             };
         }
 
@@ -202,9 +202,9 @@ class Dropzone extends React.Component<any, any> {
             type: "file",
             style: { display: "none" },
             multiple: supportMultiple && multiple,
-            ref: el => (this.fileInputEl = el),
+            ref: (el) => (this.fileInputEl = el),
             onChange: this.onDrop,
-            name: null
+            name: null,
         };
 
         if (name && name.length) {
@@ -239,7 +239,7 @@ class Dropzone extends React.Component<any, any> {
     public static defaultProps: Partial<PageProps> = {
         disablePreview: false,
         disableClick: false,
-        multiple: true
+        multiple: true,
     };
 }
 

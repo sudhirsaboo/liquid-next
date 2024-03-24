@@ -1,4 +1,4 @@
-import * as types from "@/liquid-store/constants/ActionTypes";
+import  types from "@/liquid-store/constants/ActionTypes";
 
 export function changeModal(modal = "modal", props?, Card?) {
     return {

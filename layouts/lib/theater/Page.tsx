@@ -4,8 +4,8 @@
 /**
  * Created by ssaboo on 2/29/16.
  */
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 
 class Page extends React.Component<any, any> {
     constructor(props) {
@@ -14,7 +14,7 @@ class Page extends React.Component<any, any> {
 
     render() {
         const myClassNames = classnames(this.props.className, {
-            "ui-page ": true
+            "ui-page ": true,
         });
 
         return <div className={myClassNames}>{this.props.children}</div>;

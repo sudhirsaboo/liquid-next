@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 
 class Image extends React.Component<any, any> {
     constructor(props) {
@@ -7,7 +7,7 @@ class Image extends React.Component<any, any> {
 
         this.state = {
             loaded: false,
-            prevProps: null
+            prevProps: null,
         };
     }
 
@@ -30,7 +30,7 @@ class Image extends React.Component<any, any> {
         const { className, ...props } = this.props;
         const rootClassName = classnames(className, "slide-animate", {
             "ng-hide-remove": true,
-            "ng-hide-add": this.state.loaded
+            "ng-hide-add": this.state.loaded,
         });
 
         return <img ref="react_img" {...props} className={rootClassName} />;

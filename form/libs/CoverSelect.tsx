@@ -1,10 +1,10 @@
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 import Dropzone from "./DropZone";
 import ProgressBar from "./ProgressBar";
 import IconButton from "@/liquid-utils/button/IconButton";
 
-import * as PropTypes from "prop-types"; // ES6
+import PropTypes from "prop-types"; // ES6
 
 class CoverSelect extends React.Component<any, any> {
     constructor(props) {

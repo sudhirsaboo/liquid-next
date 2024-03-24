@@ -1,7 +1,7 @@
 /**
  * Created by ssaboo on 2/29/16.
  */
-import * as React from "react";
+import React from "react";
 
 import Close from "@/liquid-forms/button/Close";
 

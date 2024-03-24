@@ -1,7 +1,7 @@
 /**
  * Created by ssaboo on 3/31/16.
  */
-import * as React from "react";
+import React from "react";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

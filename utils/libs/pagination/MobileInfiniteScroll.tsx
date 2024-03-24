@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 
 class MobileInfiniteScroll extends React.Component<any, any> {
     constructor(props) {

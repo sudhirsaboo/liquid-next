@@ -1,7 +1,7 @@
 /**
  * Created by ssaboo on 4/2/16.
  */
-import * as React from "react";
+import React from "react";
 import merge from "lodash/merge";
 import { DataTable as PrimeDataTable } from "primereact/datatable";
 import { Column } from "primereact/column";

@@ -2,7 +2,7 @@ import { act } from "@testing-library/react";
 import Field from "../Field";
 
 import { mount } from "enzyme";
-import * as React from "react";
+import React from "react";
 import { expect } from "chai";
 import TimeEntryField from "../TimeEntryField";
 import DateEntryField from "../DateEntryField";

@@ -1,55 +1,55 @@
-import * as React from "react";
-import * as classnames from "classnames";
+import React from "react";
+import classnames from "classnames";
 
 import BaseComponent from "../BaseComponent";
 import Curtain from "../Curtain";
 
 class Dialog2 extends BaseComponent {
-  isHidden(el) {
-    return el.offsetParent === null;
-  }
-
-  isMobile() {
-    if (this.isHidden(document.getElementById("mobile-indicator"))) {
-      return false;
+    isHidden(el) {
+        return el.offsetParent === null;
     }
-    return true;
-  }
 
-  render() {
-    const myClassNames = classnames(this.props.className, {
-      theater: true,
-      dialog: true,
-      active: this.props.active || this.props.displayCondition,
-      centered: true,
-    });
+    isMobile() {
+        if (this.isHidden(document.getElementById("mobile-indicator"))) {
+            return false;
+        }
+        return true;
+    }
 
-    const { displayCondition, active, dismiss } = this.props;
+    render() {
+        const myClassNames = classnames(this.props.className, {
+            theater: true,
+            dialog: true,
+            active: this.props.active || this.props.displayCondition,
+            centered: true,
+        });
 
-    if (!displayCondition && !active) return null;
+        const { displayCondition, active, dismiss } = this.props;
 
-    return (
-      <div
-        className={myClassNames}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        <Curtain
-          className="curtain"
-          onClick={dismiss}
-          active={active}
-          escapable={false}
-        ></Curtain>
+        if (!displayCondition && !active) return null;
 
-        <div className="centerCellWrap">{this.props.children}</div>
-      </div>
-    );
-  }
+        return (
+            <div
+                className={myClassNames}
+                onClick={(e) => {
+                    e.stopPropagation();
+                }}
+            >
+                <Curtain
+                    className="curtain"
+                    onClick={dismiss}
+                    active={active}
+                    escapable={false}
+                ></Curtain>
 
-  constructor(props) {
-    super(props);
-  }
+                <div className="centerCellWrap">{this.props.children}</div>
+            </div>
+        );
+    }
+
+    constructor(props) {
+        super(props);
+    }
 }
 
 /*Dialog2.propTypes = {

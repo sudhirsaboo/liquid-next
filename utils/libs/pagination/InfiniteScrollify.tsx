@@ -1,6 +1,6 @@
-import * as React from "react";
+import React from "react";
 
-export default function(InnerComponent, scrollerWindowClassName?, onScroll?) {
+export default function (InnerComponent, scrollerWindowClassName?, onScroll?) {
     class InfiniteScrollComponent extends React.Component<any, any> {
         constructor(props) {
             super(props);

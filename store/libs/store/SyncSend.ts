@@ -1,5 +1,5 @@
 import { normalize, arrayOf } from "../normalizr";
-// import * as fetch from "isomorphic-fetch";
+// import  fetch from "isomorphic-fetch";
 import IDGenerator from "@/liquid-utils/IDGenerator";
 
 import { APIConstants } from "../constants/Config";

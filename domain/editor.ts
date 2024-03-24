@@ -3,7 +3,7 @@
  */
 import Store from "@/liquid-store/store/SyncStore";
 import Proxy from "@/liquid-store/proxy/Proxy";
-import * as types from "@/liquid-store/constants/ActionTypes";
+import  types from "@/liquid-store/constants/ActionTypes";
 import { editorSchema } from "./schema/Editor";
 
 class Editor extends Store {

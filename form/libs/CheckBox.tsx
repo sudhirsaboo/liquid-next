@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Checkbox as LibCheckbox } from "primereact/checkbox";
 import Field from "./Field";
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import DisplayField from "./DisplayField";
 
 class DateDisplayField extends DisplayField {
