@@ -1,7 +1,7 @@
 import React from "react";
 import Field from "./Field";
 import { Calendar } from "primereact/calendar";
-import IconButton from "liquid-util/button/IconButton";
+import IconButton from "@liquid101/util/button/IconButton";
 import moment from "moment";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 

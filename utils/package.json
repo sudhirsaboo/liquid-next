@@ -1,6 +1,6 @@
 {
-    "name": "liquid-util",
-    "version": "0.0.2",
+    "name": "@liquid101/util",
+    "version": "0.0.3",
     "description": "",
     "main": "index.js",
     "types": "index.d.ts",
@@ -10,7 +10,7 @@
         "compile": "tsc",
         "clean": "rm -rf dist",
         "prebuild:package": "npm run clean && npm run compile && node dist/esm/setup.js",
-        "build:package": "cd dist/esm && npm publish"
+        "build:package": "cd dist/esm && npm publish --access public"
     },
     "author": "",
     "license": "ISC",

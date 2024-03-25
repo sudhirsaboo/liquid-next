@@ -15,12 +15,12 @@ import TagsField from "./TagsField";
 import Slider from "./Slider";
 import DisplayField from "./DisplayField";
 import HiddenField from "./HiddenField";
-import Link from "liquid-util/link/Link";
-import Button from "liquid-util/button/Button";
-// import { ButtonWA } from "liquid-util/button/Button";
-import Buttons from "liquid-util/button/Buttons";
+import Link from "@liquid101/util/link/Link";
+import Button from "@liquid101/util/button/Button";
+// import { ButtonWA } from "@liquid101/util/button/Button";
+import Buttons from "@liquid101/util/button/Buttons";
 
-import IconButton from "liquid-util/button/IconButton";
+import IconButton from "@liquid101/util/button/IconButton";
 
 export {
     Form,

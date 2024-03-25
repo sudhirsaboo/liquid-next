@@ -24,7 +24,7 @@
         "@/liquid-layouts/*": ["./layouts/lib/*"],
         "@/liquid-forms/*": ["./packages/form/libs/*"],
         "@/liquid-table/*": ["../liquid-next/packages/table/libs/*"],
-        "liquid-util/*": ["../../utils/libs/*"],
+        "@liquid101/util/*": ["../../utils/libs/*"],
         "@/liquid-store/*": ["../liquid-next/store/libs/*"],
         "@/liquid-domain/*": ["../liquid-next/domain/*"],
         "@/liquid-styles/*": ["../liquid-next/styles/*"],

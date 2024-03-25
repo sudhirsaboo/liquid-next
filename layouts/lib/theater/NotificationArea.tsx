@@ -3,7 +3,7 @@
  */
 import React from "react";
 
-import Close from "liquid-util/button/Close";
+import Close from "@liquid101/util/button/Close";
 
 class NofitificationArea extends React.Component<any, any> {
     constructor(props) {
