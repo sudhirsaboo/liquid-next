@@ -1,7 +1,7 @@
 import React from "react";
 
 import merge from "lodash/merge";
-import ExpandIcon from "@/liquid-utils/button/ExpandIcon";
+import ExpandIcon from "liquid-util/button/ExpandIcon";
 
 class FieldGroup extends React.Component<any, any> {
     constructor(props) {

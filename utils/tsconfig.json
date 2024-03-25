@@ -33,7 +33,7 @@
   
       }
     },
-    "include": [ "src", "setup.ts",],
+    "include": [ "libs", "setup.ts",],
     "exclude": [
       "node_modules"
   ],}

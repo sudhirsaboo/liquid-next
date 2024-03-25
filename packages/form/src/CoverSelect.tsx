@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import Dropzone from "./DropZone";
 import ProgressBar from "./ProgressBar";
-import IconButton from "@/liquid-utils/button/IconButton";
+import IconButton from "liquid-util/button/IconButton";
 
 import PropTypes from "prop-types"; // ES6
 

@@ -96,7 +96,7 @@ const config = {
         "^@/liquid-store/(.*)$": "<rootDir>/store/libs/$1",
         "^@/liquid-layouts/(.*)$": "<rootDir>/layout/lib/$1",
         "^@/liquid-forms/(.*)$": "<rootDir>/forms/libs/$1",
-        "^@/liquid-utils/(.*)$": "<rootDir>/utils/libs/$1",
+        "^liquid-util/(.*)$": "<rootDir>/utils/libs/$1",
         "^@/liquid-table/(.*)$": "<rootDir>/table/libs/$1",
         "^@/liquid-domain/(.*)$": "<rootDir>/domain/$1",
         "^@/liquid-styles/(.*)$": "<rootDir>/styles/$1",

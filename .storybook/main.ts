@@ -19,7 +19,7 @@ const config: StorybookConfig = {
       '@/liquid': path.resolve(__dirname, "../components/libs"),
       '@/liquid-layouts': path.resolve(__dirname, "../layouts/lib"),
       '@/liquid-forms': path.resolve(__dirname, "../packages/form/libs"),
-      '@/liquid-utils': path.resolve(__dirname, "../utils/libs"),
+      'liquid-util': path.resolve(__dirname, "../utils/libs"),
       '@/liquid-styles': path.resolve(__dirname, "../styles"),
       '@/liquid-table': path.resolve(__dirname, "../packages/table/libs"),
 

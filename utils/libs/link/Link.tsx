@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { constructUrl } from "@/liquid-utils/RouteUtils";
+import { constructUrl } from "../RouteUtils";
 
 export default function Link(props: {
     onClick?: any;

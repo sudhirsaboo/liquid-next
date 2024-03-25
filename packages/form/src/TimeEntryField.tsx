@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { Calendar } from "primereact/calendar";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import IconButton from "@/liquid-utils/button/IconButton";
+import IconButton from "liquid-util/button/IconButton";
 import Field from "./Field";
 import DateEntryField from "./DateEntryField";
 

@@ -1,7 +1,7 @@
 import Store from "@/liquid-store/store/SyncStore";
 import Proxy from "@/liquid-store/proxy/Proxy";
 import { cartSchema } from "./schema/Cart";
-import IDGenerator from "@/liquid-utils/IDGenerator";
+import IDGenerator from "liquid-util/IDGenerator";
 import CartModel from "./model/Cart";
 
 class Cart extends Store {
