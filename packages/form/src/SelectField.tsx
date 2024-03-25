@@ -2,9 +2,8 @@ import React from "react";
 import classnames from "classnames";
 
 import Field from "./Field";
-import { SelectField } from ".";
 
-class Select extends Field {
+class SelectField extends Field {
     constructor(props) {
         super(props);
     }
@@ -204,7 +203,7 @@ class Select extends Field {
     }
 }
 
-export default Select;
+export default SelectField;
 /**
  * Created by ssaboo on 2/29/16.
  */

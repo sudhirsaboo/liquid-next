@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+      "target": "ES2015",
+      "module": "esnext",
+      
+      "outDir": "dist/esm",
+      "declaration": true,
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+    
+     "moduleResolution": "bundler",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "react-jsx",
+      "incremental": true,
+      
+      "paths": {
+        "@/*": ["./*"],
+        "@/liquid/*": ["./components/libs/*"],
+        "@/liquid-layouts/*": ["./layouts/lib/*"],
+        "@/liquid-forms/*": ["./packages/form/libs/*"],
+        "@/liquid-table/*": ["../liquid-next/packages/table/libs/*"],
+        "@/liquid-utils/*": ["../../utils/libs/*"],
+        "@/liquid-store/*": ["../liquid-next/store/libs/*"],
+        "@/liquid-domain/*": ["../liquid-next/domain/*"],
+        "@/liquid-styles/*": ["../liquid-next/styles/*"],
+        "@/test/*": ["../liquid-next/__tests__/*"],
+  
+  
+      }
+    },
+    "include": [ "src", "setup.ts",],
+    "exclude": [
+      "node_modules"
+  ],}
+  
