@@ -1,6 +1,6 @@
 {
-    "name": "liquid-form",
-    "version": "1.0.10",
+    "name": "@liquid101/form",
+    "version": "0.0.6",
     "description": "",
     "main": "index.js",
     "types": "index.d.ts",
@@ -8,9 +8,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile": "tsc",
-        "clean": "rm -rf dist",
-        "prebuild:package": "npm run clean && npm run compile && node dist/esm/packages/form/src/setup.js",
-        "build:package": "cd dist/esm/packages/form/src && npm publish"
+        "build:clean": "rm -rf dist",
+        "prebuild:package": "npm run build:clean && npm run compile && npm version patch  && node dist/esm/packages/form/src/setup.js ",
+        "build:package": "cd dist/esm/packages/form/src  && npm publish  --access public"
     },
     "author": "",
     "license": "ISC",
@@ -20,6 +20,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
+        "@fortawesome/free-brands-svg-icons": "^6.5.1",
+        "@fortawesome/free-regular-svg-icons": "^6.5.1",
+        "@fortawesome/free-solid-svg-icons": "^6.5.1",
+        "@fortawesome/react-fontawesome": "^0.2.0",
         "attr-accept": "^2.2.2",
         "classnames": "^2.5.1",
         "keycode": "^2.2.1",

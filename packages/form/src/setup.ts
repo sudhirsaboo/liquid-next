@@ -16,7 +16,7 @@ function main() {
     fs.writeFileSync(__dirname + "/version.txt", Buffer.from(sourceObj.version, "utf-8") );
 
     fs.copyFileSync(__dirname + "/../../../../../.npmignore", __dirname + "/.npmignore");  
-}   // fs.copyFileSync(__dirname + "/../../../../packages/form/src", __dirname + "/dist");  
+    fs.copyFileSync(__dirname + "/../../../../../README.md", __dirname + "/README.md");  
 
-
+}
 main();
