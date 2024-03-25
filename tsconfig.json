@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -22,9 +23,9 @@
       "@/*": ["./*"],
       "@/liquid/*": ["./components/libs/*"],
       "@/liquid-layouts/*": ["./layouts/lib/*"],
-      "@/liquid-forms/*": ["./form/libs/*"],
+      "@/liquid-forms/*": ["./packages/form/libs/*"],
+      "@/liquid-table/*": ["../liquid-next/packages/table/libs/*"],
       "@/liquid-utils/*": ["./utils/libs/*"],
-      "@/liquid-table/*": ["../liquid-next/table/libs/*"],
       "@/liquid-store/*": ["../liquid-next/store/libs/*"],
       "@/liquid-domain/*": ["../liquid-next/domain/*"],
       "@/liquid-styles/*": ["../liquid-next/styles/*"],

@@ -1,3 +1,4 @@
+// @ts-nocheck 
 export function addClass(className) {
     if (this.classList) {
         this.classList.add(className);

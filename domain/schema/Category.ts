@@ -9,6 +9,7 @@ import Category from "../model/Category";
 
 const _schema = new Schema("categories");
 _schema.model = Category;
+//@ts-ignore
 Category.schema = _schema;
 
 _schema.define({

@@ -8,12 +8,12 @@ import { APIConstants } from "@/liquid-store/constants/Config";
  */
 export default class Model {
     id: any;
-    cover: Upload | number;
-    avatar: Upload | number;
+    cover: Upload | number | undefined;
+    avatar: Upload | number | undefined;
     file: any;
     user: any;
-    static schema: any;
-    displayName: string;
+    displayName: string = "";
+
     constructor(object: any) {
         (<any>Object).assign(this, object);
     }
@@ -21,7 +21,7 @@ export default class Model {
     setCover(cover: any) {
         this.cover = cover;
     }
-
+ 
     /* Helper that depends on props*/
     static getPost(props, entityName) {
         const { filter, entities } = props;
@@ -55,7 +55,7 @@ export default class Model {
         if (this.cover && this.cover instanceof Upload && this.cover.url) {
             return APIConstants.API_ROOT_URL + this.cover.url;
         }
-        let cover = null;
+        let cover;
         if (props && this.cover && typeof this.cover === "number") {
             const { entities } = props;
             cover = entities.uploads[this.cover];
@@ -73,7 +73,7 @@ export default class Model {
     }
 
     getCoverO(props: any) {
-        let cover = null;
+        let cover;
 
         // If cover is id, lookup
         if (props && this.cover && typeof this.cover === "number") {
@@ -93,7 +93,7 @@ export default class Model {
         if (this.avatar && this.avatar instanceof Upload && this.avatar.url) {
             return APIConstants.API_ROOT_URL + this.avatar.url;
         }
-        let avatar = null;
+        let avatar;
         if (props && this.avatar && typeof this.avatar === "number") {
             const { entities } = props;
             avatar = entities.uploads[this.avatar];
@@ -227,10 +227,10 @@ export  class ServerUpload extends Model {
 }
 
 export class Upload  extends ServerUpload {
-    url: string;
-    video: boolean;
-    awsUrl: string;
-    ext: string;
+    url: string = "";
+    video: boolean = false;
+    awsUrl: string = "";
+    ext: string = "";
     constructor(props: any) {
         super(props);
         (<any>Object).assign(this, props);

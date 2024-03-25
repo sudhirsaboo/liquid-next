@@ -12,6 +12,7 @@ import { schema as Album } from "./Portfolio";
 
 const _schema = new Schema("albumratings");
 _schema.model = AlbumRating;
+//@ts-ignore
 AlbumRating.schema = _schema;
 
 _schema.define({

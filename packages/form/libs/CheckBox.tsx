@@ -52,8 +52,6 @@ class CheckBox extends Field {
         }
     };
 
-    input: any = React.createRef();
-
     render() {
         const { label, name } = this.props;
 
@@ -75,7 +73,7 @@ class CheckBox extends Field {
                         onChange={this.handleChange}
                         disabled={this.props.editable === false}
                     ></LibCheckbox>
-                    <span style={{ marginLeft: "10px" }} htmlFor={name}>
+                    <span style={{ marginLeft: "10px" }} html-for={name}>
                         {label}
                     </span>
                 </label>

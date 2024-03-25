@@ -116,7 +116,7 @@ class Proxy {
             return `${url}/${filter.path}`;
         }
         // Parent
-        const parent = filter.parent;
+        const parent: any = filter.parent;
         if (parent && filter.entityPath != parent) {
             url = url.replace(/\/$/, '');
             if (!parent.startsWith("/")){
@@ -188,8 +188,8 @@ class Proxy {
         return this.schema.getKey();
     }
 
-    getCollection(json, modelClass) {
-        let coll = [];
+    getCollection(json: any, modelClass) {
+        let coll : any[]= [];
 
         // Collection Returned
         if (json._embedded) {

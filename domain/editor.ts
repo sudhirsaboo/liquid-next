@@ -3,7 +3,7 @@
  */
 import Store from "@/liquid-store/store/SyncStore";
 import Proxy from "@/liquid-store/proxy/Proxy";
-import  types from "@/liquid-store/constants/ActionTypes";
+import  * as types from "@/liquid-store/constants/ActionTypes";
 import { editorSchema } from "./schema/Editor";
 
 class Editor extends Store {
@@ -25,7 +25,7 @@ class Editor extends Store {
     }
 
     addDataItemOverride(playlist: any, id: any, entity: any) {
-        const entityIds = [];
+        const entityIds: any[] = [];
         entityIds.push(id);
 
         const entities = { properties: {} };
@@ -41,7 +41,7 @@ class Editor extends Store {
     }
 
     removeDataItem(playlist, id, entity) {
-        const entityIds = [];
+        const entityIds : any []= [];
         entityIds.push(id);
 
         const entities = { properties: {} };

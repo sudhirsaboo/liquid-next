@@ -5,6 +5,7 @@ import { schema as user } from "./User";
 
 const property = new Schema("properties");
 property.model = Art;
+//@ts-ignore
 Art.schema = property;
 
 const comment = new Schema("comments");

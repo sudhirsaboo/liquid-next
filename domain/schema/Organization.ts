@@ -9,6 +9,7 @@ import Organization from "../model/Organization";
 
 const _schema = new Schema("organizations");
 _schema.model = Organization;
+//@ts-ignore
 Organization.schema = _schema;
 
 _schema.define({});

@@ -10,6 +10,7 @@ import { schema as User } from "./User";
 
 const _schema = new Schema("roles");
 _schema.model = Role;
+//@ts-ignore
 Role.schema = _schema;
 
 _schema.define({

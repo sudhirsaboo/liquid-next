@@ -1,7 +1,7 @@
 import Model from "./server/Image";
 
 export default class Art extends Model {
-    liked: boolean;
+    liked: boolean = false;
 
     constructor(props) {
         super(props);

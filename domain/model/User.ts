@@ -1,8 +1,8 @@
 import Model from "./server/User";
 import { APIConstants } from "@/liquid-store/constants/Config";
 export default class User extends Model {
-    followedByMe: boolean;
-    followers_count: number;
+    followedByMe: boolean = false;
+    followers_count: number = 0;
 
     constructor(props) {
         super(props);

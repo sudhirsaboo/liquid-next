@@ -1,4 +1,4 @@
-import  types from "@/liquid-store/constants/ActionTypes";
+import  * as types from "@/liquid-store/constants/ActionTypes";
 
 function changeIsMobile(isMobile) {
     return {

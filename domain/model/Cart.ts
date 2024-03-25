@@ -1,10 +1,10 @@
 import Model from "./Model";
 export default class Cart extends Model {
-    user: number;
-    subtotal: number;
-    total: number;
-    itemCount: number;
-    items: Array<any>;
+    user: number = 0;
+    subtotal: number = 0;
+    total: number = 0;
+    itemCount: number = 0;
+    items: Array<any> = [];
 
     constructor(props) {
         super(props);

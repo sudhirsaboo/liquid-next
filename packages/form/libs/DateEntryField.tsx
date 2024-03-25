@@ -75,10 +75,11 @@ class DateEntryField extends Field {
         }
     }
 
-    getValue() {
+    //@ts-ignore
+    getValue(props?) {
         const { format } = this.state;
 
-        const value = super.getValue();
+        const value = super.getValue(null);
         if (value) {
             return moment(value).format(format);
         }

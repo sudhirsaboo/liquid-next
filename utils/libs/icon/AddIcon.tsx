@@ -1,19 +1,19 @@
 import React from "react";
 
-import { changeModal } from "../../../../actions/modal";
+//import { changeModal } from "../../../../actions/modal";
 import IconButton from "../button/IconButton";
-import Auth from "../others/Auth";
 
 class AddIcon extends React.Component<any, any> {
     dismiss = () => {
         const { dispatch } = this.props;
-        dispatch(changeModal(null));
+        // dispatch(changeModal(null));
     };
 
     add = () => {
         const { dispatch, Editor, onClick } = this.props;
-        if (Editor) dispatch(changeModal("modal", this.props, Editor));
-        else if (onClick) {
+        if (Editor) {
+            //dispatch(changeModal("modal", this.props, Editor));
+        } else if (onClick) {
             onClick();
         }
     };
@@ -25,4 +25,4 @@ class AddIcon extends React.Component<any, any> {
     }
 }
 
-export default Auth(AddIcon);
+export default AddIcon;

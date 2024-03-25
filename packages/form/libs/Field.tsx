@@ -9,7 +9,7 @@ abstract class Field extends React.Component<any, any> {
         this.state = { valid: true };
     }
     abstract getInputValue();
-    abstract input;
+    input: any = React.createRef();
     //abstract clear();
 
     // Used By TextArea to disble if not editable

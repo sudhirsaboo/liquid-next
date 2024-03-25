@@ -34,7 +34,7 @@ class FeaturedProperties extends Store {
             .then(response => response.json())
             .then(tjson => me.transformResponse(tjson))
             .then(ojson => {
-                const list = [];
+                const list : any[]= [];
                 let allEntityIds = [];
 
                 for (const key in ojson) {

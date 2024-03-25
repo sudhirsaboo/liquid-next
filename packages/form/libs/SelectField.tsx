@@ -47,7 +47,7 @@ class Select extends Field {
         );
     }
 
-    getFieldValue(value) {
+    getFieldValue(value?) {
         const { name, select, multiple, fgselect, wholeObject } = this.props;
 
         if (!value) value = this.getSubmitValue();
@@ -55,7 +55,7 @@ class Select extends Field {
         // Getting the whole object
         if (wholeObject) {
             const { options } = this.props;
-            let ret = null;
+            let ret;
 
             // toto handle value  array also
             let selected = null;
@@ -106,7 +106,7 @@ class Select extends Field {
 
     getInputValue() {
         const { multiple } = this.props;
-        let value = null;
+        let value;
 
         if (multiple) {
             value = [];

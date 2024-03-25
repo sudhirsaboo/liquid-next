@@ -9,6 +9,7 @@ import Activity from "../model/Activity";
 
 const _schema = new Schema("activities");
 _schema.model = Activity;
+//@ts-ignore
 Activity.schema = _schema;
 
 _schema.define({});

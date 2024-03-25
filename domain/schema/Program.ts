@@ -8,6 +8,7 @@ import Program from "../model/Program";
 
 const program = new Schema("programs");
 program.model = Program;
+//@ts-ignore
 Program.schema = program;
 
 program.define({

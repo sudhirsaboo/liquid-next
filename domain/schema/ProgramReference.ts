@@ -12,6 +12,7 @@ import { schema as User } from "./User";
 
 const _schema = new Schema("programreferences");
 _schema.model = ProgramReference;
+//@ts-ignore
 ProgramReference.schema = _schema;
 
 _schema.define({

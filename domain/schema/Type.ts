@@ -10,6 +10,7 @@ import { schema as Organization } from "./Organization";
 
 const _schema = new Schema("types");
 _schema.model = Type;
+//@ts-ignore
 Type.schema = _schema;
 
 _schema.define({

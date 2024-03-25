@@ -229,7 +229,7 @@ export function stringify(obj, options?) {
                     if (value2 === undefined) {
                         continue;
                     }
-
+                    //@ts-ignore
                     result.push(formatter(key, value2, result.length));
                 }
 

@@ -13,6 +13,7 @@ const setting = new Schema("settings");
 const userBiography = new Schema("userBiographies");
 
 user.model = User;
+//@ts-ignore
 User.schema = user;
 
 metric.model = User;

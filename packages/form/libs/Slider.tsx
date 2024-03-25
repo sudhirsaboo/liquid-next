@@ -42,7 +42,7 @@ class Slider extends Field {
         const { min, max, step, label } = this.props;
 
         return (
-            <div class="input-container">
+            <div className="input-container">
                 <label>
                     {label} - {this.state.value}
                 </label>

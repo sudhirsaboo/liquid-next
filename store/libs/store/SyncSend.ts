@@ -167,7 +167,7 @@ abstract class SyncSend extends SyncAction {
         // eslint-disable-next-line
         const me = this;
 
-        const collection = [];
+        const collection : any[]= [];
         collection.push(item);
 
         const normalized = normalize(collection, arrayOf(me.getSchema()));
@@ -186,7 +186,7 @@ abstract class SyncSend extends SyncAction {
     }
 
     deleteOne(playlist, filter, item) {
-        const entityIds = [];
+        const entityIds: any[] = [];
         item.markedForDelete = true;
         entityIds.push(item.id);
         return this.doDeleteData(entityIds, playlist);
@@ -369,7 +369,7 @@ abstract class SyncSend extends SyncAction {
         let url = this.getProxy().addUrl(objectid, filter);
         if (filter.url) url = filter.url;
 
-        let body = null;
+        let body : string = "";
         if (item.body) {
             body = item.body;
         } else {
@@ -385,7 +385,7 @@ abstract class SyncSend extends SyncAction {
 
             body = JSON.stringify(clone);
         }
-        let response = null;
+        let response;
         try {
             response = await fetch(url, {
                 method,
@@ -393,7 +393,7 @@ abstract class SyncSend extends SyncAction {
                 body,
                 credentials: "include"
             });
-        } catch (args) {
+        } catch (args: any) {
             let json = null;
             if (args.json) json = await args.json();
             dispatch(this.doReceiveError({ args, body: json }));
@@ -442,7 +442,7 @@ abstract class SyncSend extends SyncAction {
         if (!item.id) return;
 
         const url = this.getProxy().addUrl(item.id);
-        let response = null;
+        let response;
         try {
             response = await fetch(url, {
                 method: "delete",
@@ -521,7 +521,7 @@ abstract class SyncSend extends SyncAction {
 
         const url = this.getProxy().url(id, filter);
 
-        let body = null;
+        let body;
         if (item && item.body) body = item.body;
         else body = JSON.stringify(item);
         let response;
@@ -532,7 +532,7 @@ abstract class SyncSend extends SyncAction {
                 body,
                 credentials: "include"
             });
-        } catch (err) {
+        } catch (err: any) {
             let json = null;
             if (err.json) {
                 json = await err.json();

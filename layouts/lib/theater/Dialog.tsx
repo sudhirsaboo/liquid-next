@@ -1,10 +1,9 @@
 import React from "react";
 import classnames from "classnames";
 
-import BaseComponent from "../BaseComponent";
 import Curtain from "../Curtain";
 
-class Dialog2 extends BaseComponent {
+class Dialog2 extends React.Component<any, any> {
     isHidden(el) {
         return el.offsetParent === null;
     }

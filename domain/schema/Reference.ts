@@ -3,6 +3,7 @@ import Reference from "../model/Reference";
 
 const reference = new Schema("references");
 reference.model = Reference;
+//@ts-ignore
 Reference.schema = reference;
 
 reference.define({});

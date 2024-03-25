@@ -5,6 +5,7 @@ import Schedule from "../model/Schedule";
 
 const schedule = new Schema("schedules");
 schedule.model = Schedule;
+//@ts-ignore
 Schedule.schema = schedule;
 
 schedule.define({

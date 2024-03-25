@@ -141,7 +141,7 @@ class SyncStore extends SyncSend {
         const playlist = context.playlist;
         const filter = context.filter;
 
-        let action = null;
+        let action;
         if (item.id) {
             action = this.patch(playlist, filter, item);
             dispatch(action);

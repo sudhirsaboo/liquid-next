@@ -1,3 +1,4 @@
+/* eslint-disable react/no-find-dom-node */
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -8,14 +9,14 @@ class MobileInfiniteScroll extends React.Component<any, any> {
     }
 
     componentDidMount() {
-        // eslint-disable-next-line
-        const el = ReactDOM.findDOMNode(this.refs.scroll);
+        // @ts-ignore
+        const el: Element = ReactDOM.findDOMNode(this.refs.scroll);
         el.addEventListener("scroll", this.onScroll, false);
     }
 
     componentWillUnmount() {
-        // eslint-disable-next-line
-        const el = ReactDOM.findDOMNode(this.refs.scroll);
+        // @ts-ignore
+        const el: Element = ReactDOM.findDOMNode(this.refs.scroll);
         el.removeEventListener("scroll", this.onScroll, false);
     }
 

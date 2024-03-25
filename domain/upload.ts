@@ -18,7 +18,7 @@ class Uploads extends Store {
         const { user } = authed;
         const playlist = `/users/${user.id}/art`;
 
-        const uploads = [];
+        const uploads : any[] = [];
         if (!type) type = "UNKNOWN";
 
         if (files && files.length) {

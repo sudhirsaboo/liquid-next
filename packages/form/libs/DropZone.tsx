@@ -92,10 +92,10 @@ class Dropzone extends React.Component<any, any> {
             ? e.dataTransfer.files
             : e.target.files;
         const max = this.props.multiple ? droppedFiles.length : 1;
-        const files = [];
+        const files: any[] = [];
 
         for (let i = 0; i < max; i++) {
-            const file = droppedFiles[i];
+            const file: any = droppedFiles[i];
             // We might want to disable the preview creation to support big files
             if (!this.props.disablePreview) {
                 file.preview = window.URL.createObjectURL(file);

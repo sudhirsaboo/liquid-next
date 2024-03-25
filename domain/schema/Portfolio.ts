@@ -5,6 +5,7 @@ import Album from "../model/Portfolio";
 
 const album = new Schema("albums");
 album.model = Album;
+//@ts-ignore
 Album.schema = album;
 
 album.define({

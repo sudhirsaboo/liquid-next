@@ -4,6 +4,10 @@ import { Chips } from "primereact/chips";
 import Field from "./Field";
 
 class TagsField extends Field {
+    getInputValue() {
+        throw new Error("Method not implemented.");
+    }
+    input: any;
     constructor(props) {
         super(props);
         this.state = { tags: Field.getStoreValue(this.props) };

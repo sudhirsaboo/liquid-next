@@ -2,7 +2,6 @@ import React from "react";
 import classnames from "classnames";
 
 import IconButton from "../button/IconButton";
-import Auth from "../others/Auth";
 
 class SubmitIcon extends React.Component<any, any> {
     render() {
@@ -22,4 +21,4 @@ class SubmitIcon extends React.Component<any, any> {
     }
 }
 
-export default Auth(SubmitIcon, true);
+export default SubmitIcon;

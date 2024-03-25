@@ -4,6 +4,9 @@ import { InputText } from "primereact/inputtext";
 import keycode from "keycode";
 
 class SearchField extends Field {
+    getInputValue() {
+        throw new Error("Method not implemented.");
+    }
     constructor(props) {
         super(props);
     }
@@ -22,7 +25,7 @@ class SearchField extends Field {
     input: any = React.createRef();
 
     render() {
-        const { placeholder, ...other } = this.props;
+        const { placeholder, label, ...other } = this.props;
 
         const value = SearchField.getStoreValue(this.props);
 

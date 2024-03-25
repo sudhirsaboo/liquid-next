@@ -3,6 +3,7 @@ import Upload from "../model/Upload";
 
 const upload = new Schema("uploads");
 upload.model = Upload;
+//@ts-ignore
 Upload.schema = upload;
 
 upload.define({});
