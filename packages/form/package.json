@@ -1,6 +1,6 @@
 {
     "name": "@liquid101/form",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "",
     "main": "index.js",
     "types": "index.d.ts",
@@ -13,7 +13,11 @@
         "build:package": "cd dist/esm/packages/form/src  && npm publish  --access public"
     },
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sudhirsaboo/liquid-next"
+    },
     "peerDependencies": {
         "react": "^18",
         "react-dom": "^18"
