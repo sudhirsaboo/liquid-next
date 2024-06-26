@@ -5,3 +5,7 @@ npm publish --dry
 
 npm run build:package --w packages/form
 npm run build:clean --w packages/form
+
+npm publish --workspace="utils" --dry
+npm run build:package --w utils
+npm run build:clean --w utils

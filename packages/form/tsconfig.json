@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
       "target": "ES2015",
-      "module": "esnext",
+      "module": "CommonJS",
       
-      "outDir": "dist/esm",
+      "outDir": "dist/cjs",
       "declaration": true,
       "lib": ["dom", "dom.iterable", "esnext"],
       "allowJs": true,
@@ -12,7 +12,6 @@
       "noImplicitAny": false,
       "esModuleInterop": true,
     
-     "moduleResolution": "bundler",
       "resolveJsonModule": true,
       "isolatedModules": true,
       "jsx": "react-jsx",

@@ -1,6 +1,6 @@
 {
     "name": "@liquid101/form",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "",
     "main": "index.js",
     "types": "index.d.ts",
@@ -9,8 +9,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile": "tsc",
         "build:clean": "rm -rf dist",
-        "prebuild:package": "npm run build:clean && npm run compile && npm version patch  && node dist/esm/packages/form/src/setup.js ",
-        "build:package": "cd dist/esm/packages/form/src  && npm publish  --access public"
+        "prebuild:package": "npm run build:clean && npm run compile && npm version patch  && node dist/cjs/packages/form/src/setup.js ",
+        "build:package": "cd dist/cjs/packages/form/src  && npm publish  --access public"
     },
     "author": "",
     "license": "MIT",

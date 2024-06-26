@@ -18,5 +18,13 @@
   padding: 10px 10px 10px 10px;
     
   }
+  &>.content,.field-group-content
+  {
+    .ui-field-group{
+      margin: 10px 10px 10px 10px;
+
+    }
+    
+  }
 }
 

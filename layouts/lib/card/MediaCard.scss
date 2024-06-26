@@ -15,7 +15,8 @@
 
     &.stretch {
         width: 100%;
-        max-height: 90vh; // to account for nav header
+        height:100%;
+        //max-height: 90vh; // to account for nav header
     }
     .media-card-footer {
         min-height: 65px;

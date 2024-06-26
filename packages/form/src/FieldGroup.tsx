@@ -111,7 +111,9 @@ class FieldGroup extends React.Component<any, any> {
         return (
             <div className="ui-field-group">
                 {this.renderHeader()}
-                <div className="field-group-content">{childrenWithProps}</div>
+                <div className="field-group-content" style={this.props.style}>
+                    {childrenWithProps}
+                </div>
             </div>
         );
     }

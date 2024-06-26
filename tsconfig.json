@@ -23,8 +23,8 @@
       "@/*": ["./*"],
       "@/liquid/*": ["./components/libs/*"],
       "@/liquid-layouts/*": ["./layouts/lib/*"],
-      "@/liquid-forms/*": ["./packages/form/libs/*"],
-      "@/liquid-table/*": ["../liquid-next/packages/table/libs/*"],
+      "@/liquid-forms/*": ["./packages/form/src/*"],
+      "@/liquid-table/*": ["../liquid-next/packages/table/src/*"],
       "@liquid101/util/*": ["./utils/libs/*"],
       "@/liquid-store/*": ["../liquid-next/store/libs/*"],
       "@/liquid-domain/*": ["../liquid-next/domain/*"],
@@ -34,7 +34,8 @@
 
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/setup.ts"
 ],}
