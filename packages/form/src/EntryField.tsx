@@ -17,14 +17,14 @@ class EntryField extends Field {
         this.setState({ ...this.state, value: "" });
     }
 
-    /* static getDerivedStateFromProps(nextProps, state) {
+    static getDerivedStateFromProps(nextProps, state) {
         if (state.prevProps === nextProps) {
             return null;
         }
         let value = EntryField.getStoreValue(nextProps);
         if (value === null) value = "";
         return { prevProps: nextProps, value };
-    } */
+    }
 
     getInputValue() {
         return this.state.value;
