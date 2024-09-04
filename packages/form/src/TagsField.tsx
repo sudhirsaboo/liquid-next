@@ -7,6 +7,16 @@ class TagsField extends Field {
     getInputValue() {
         throw new Error("Method not implemented.");
     }
+    static getDerivedStateFromProps(nextProps, state) {
+        if (state.prevProps === nextProps) {
+            return null;
+        }
+
+        let value = TagsField.getStoreValue(nextProps);
+        if (value === null) value = "";
+        return { prevProps: nextProps, value };
+    }
+
     input: any;
     constructor(props) {
         super(props);
@@ -15,7 +25,9 @@ class TagsField extends Field {
 
     handleChange(e) {
         const tags = e.value;
-
+        if (!this.props.apply) {
+            this.setStoreValue(tags);
+        }
         this.setState({ tags: [...tags] });
     }
 

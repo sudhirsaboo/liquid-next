@@ -15,6 +15,14 @@ class TextArea extends Field {
         valid: true,
     };
 
+    static getDerivedStateFromProps(nextProps, state) {
+        if (state.prevProps === nextProps) {
+            return null;
+        }
+        let value = TextArea.getStoreValue(nextProps);
+        if (value === null) value = "";
+        return { prevProps: nextProps, value };
+    }
     onChange = (e) => {
         this.input.current.dirty = true;
         const value = e.target.value;

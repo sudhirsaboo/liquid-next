@@ -46,10 +46,20 @@ type Story = StoryObj<typeof meta>;
 TimeEntryField.fillDateAndTime("start", post);
 
 const handleOnChange = () => {
-    const data = form.current.collect().form;
-    data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
+    const data = post; //form.current.collect().form;
+    //data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
     alert(JSON.stringify(data));
     alert(TimeEntryField.announceDateTime(data.start));
+};
+const handleOnChange_collect = () => {
+    const data = form.current.collect().form;
+    //data.start = TimeEntryField.mergeDateAndTime(data.start, data.startTime);
+    alert(JSON.stringify(data));
+    alert(TimeEntryField.announceDateTime(data.start));
+};
+
+const handleChangeClick = () => {
+    post.description = "new desciption";
 };
 
 const form: any = React.createRef();
@@ -120,14 +130,24 @@ export const Primary: Story = {
                                     name="technical"
                                     label="Technical Competency"
                                 />
+                            </FieldGroup>
+                            <FieldGroup>
                                 <TagsField name="tags" label="Tags"></TagsField>
                             </FieldGroup>
                         </Form>
                     </CardContent>
                     <CardFooter>
                         <Buttons>
+                            <Button
+                                label="Change"
+                                onClick={handleChangeClick}
+                            />
                             <Button label="Cancel" />
                             <Button label="Ok" onClick={handleOnChange} />
+                            <Button
+                                label="Ok (Collect)"
+                                onClick={handleOnChange_collect}
+                            />
                         </Buttons>
                     </CardFooter>
                 </Card>
