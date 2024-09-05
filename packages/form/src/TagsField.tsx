@@ -12,22 +12,22 @@ class TagsField extends Field {
             return null;
         }
 
-        let value = TagsField.getStoreValue(nextProps);
+        let value = Field.getStoreValue(nextProps);
         if (value === null) value = "";
-        return { prevProps: nextProps, value };
+        return { prevProps: nextProps, tags: value };
     }
+    state = { tags: Field.getStoreValue(this.props) };
 
     input: any;
     constructor(props) {
         super(props);
-        this.state = { tags: Field.getStoreValue(this.props) };
     }
 
     handleChange(e) {
         const tags = e.value;
-        if (!this.props.apply) {
-            this.setStoreValue(tags);
-        }
+        this.setStoreValue(tags);
+        this.onApply(tags);
+
         this.setState({ tags: [...tags] });
     }
 
@@ -36,7 +36,6 @@ class TagsField extends Field {
     }
     render() {
         let {
-            value,
             name,
             label,
             onChange,
@@ -46,8 +45,6 @@ class TagsField extends Field {
             replaceDirty,
             ...other
         } = this.props;
-
-        const { tags } = this.state;
 
         return (
             <div className="input-container">
