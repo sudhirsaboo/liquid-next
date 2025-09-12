@@ -127,8 +127,12 @@ class SelectField extends Field {
     }
 
     renderRO() {
-        const { type, name, multiple, select, label } = this.props;
+        const { displayCondition, type, name, multiple, select, label } =
+            this.props;
 
+        if (displayCondition === false) {
+            return null;
+        }
         const view = { class: "test" };
         const value = SelectField.getStoreValue(this.props);
 
@@ -161,9 +165,20 @@ class SelectField extends Field {
     }
 
     render() {
-        const { type, name, required, multiple, select, label, editable } =
-            this.props;
+        const {
+            displayCondition,
+            type,
+            name,
+            required,
+            multiple,
+            select,
+            label,
+            editable,
+        } = this.props;
 
+        if (displayCondition === false) {
+            return null;
+        }
         const view = { class: "test" };
         const value = SelectField.getStoreValue(this.props);
 

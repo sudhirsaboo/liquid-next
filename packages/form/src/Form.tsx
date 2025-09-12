@@ -4,9 +4,11 @@ import merge from "lodash/merge";
 
 class Form extends React.Component<any, any> {
     render() {
-        const { model, apply, replaceDirty } = this.props;
+        const { model, apply, replaceDirty, displayCondition } = this.props;
         const { post, error, className } = this.props;
-
+        if (displayCondition === false) {
+            return null;
+        }
         let childrenWithProps = null;
         if (model != null || apply != null) {
             childrenWithProps = React.Children.map(

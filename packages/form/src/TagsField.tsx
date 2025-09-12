@@ -43,9 +43,13 @@ class TagsField extends Field {
             model,
             apply,
             replaceDirty,
+            displayCondition,
             ...other
         } = this.props;
 
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <div className="input-container">
                 <label data-name={name}>{label}</label>

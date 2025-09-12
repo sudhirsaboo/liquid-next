@@ -78,7 +78,11 @@ class FieldGroup extends React.Component<any, any> {
     }
 
     render() {
-        const { model, apply, select, replaceDirty } = this.props;
+        const { model, apply, select, replaceDirty, displayCondition } =
+            this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         const { collapsed } = this.state;
 
         // Add model property to each child. // React make us clone even to add new property

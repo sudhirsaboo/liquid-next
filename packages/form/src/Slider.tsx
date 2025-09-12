@@ -39,8 +39,11 @@ class Slider extends Field {
     input: any = React.createRef();
 
     render() {
-        const { min, max, step, label } = this.props;
+        const { displayCondition, min, max, step, label } = this.props;
 
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <div className="input-container">
                 <label>

@@ -134,6 +134,16 @@ export const Primary: Story = {
                             <FieldGroup>
                                 <TagsField name="tags" label="Tags"></TagsField>
                             </FieldGroup>
+                            <FieldGroup displayCondition={true}>
+                                <TagsField name="tags" label="Tags"></TagsField>
+                            </FieldGroup>
+                            <FieldGroup>
+                                <TagsField
+                                    displayCondition={false}
+                                    name="tags"
+                                    label="Tags"
+                                ></TagsField>
+                            </FieldGroup>
                         </Form>
                     </CardContent>
                     <CardFooter>

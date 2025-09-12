@@ -54,8 +54,10 @@ class CheckBox extends Field {
     };
 
     render() {
-        const { label, name } = this.props;
-
+        const { label, name, displayCondition } = this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <div className="input-container checkbox-field">
                 <label

@@ -27,7 +27,11 @@ class DateDisplayField extends DisplayField {
     input: any = React.createRef();
 
     render() {
-        const { type, name, label } = this.props;
+        const { type, name, label, displayCondition } = this.props;
+
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <div>
                 <label data-name={name}>{label}</label>

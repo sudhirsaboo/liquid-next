@@ -6,8 +6,11 @@ class ValidationArea extends React.Component<any, any> {
     }
 
     render() {
-        const {} = this.props;
+        const { displayCondition } = this.props;
 
+        if (displayCondition === false) {
+            return null;
+        }
         if (this.props.children) {
             return (
                 <div className="instruction_area">{this.props.children}</div>

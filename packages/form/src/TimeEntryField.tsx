@@ -81,10 +81,12 @@ class TimeEntryField extends Field {
     input: any = React.createRef();
 
     render() {
-        const { name, label } = this.props;
+        const { name, label, displayCondition } = this.props;
 
         const { icon } = this.state;
-
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <div>
                 <div className="input-container">

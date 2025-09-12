@@ -21,8 +21,11 @@ class Validator extends React.Component<any, any> {
     }
 
     render() {
-        const { message } = this.props;
+        const { message, displayCondition } = this.props;
 
+        if (displayCondition === false) {
+            return null;
+        }
         if (this.state.valid) {
             return null;
         }

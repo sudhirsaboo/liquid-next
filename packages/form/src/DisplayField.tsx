@@ -31,8 +31,10 @@ class DisplayField extends Field {
     }
 
     render() {
-        const { type, name, label } = this.props;
-
+        const { type, name, label, displayCondition } = this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         const myClassNames = classnames(this.props.className, {
             "display-field": true,
             [type]: true,

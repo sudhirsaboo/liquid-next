@@ -21,8 +21,10 @@ class HiddenField extends Field {
     input: any = React.createRef();
 
     render() {
-        const { name } = this.props;
-
+        const { name, displayCondition } = this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <input
                 ref={this.input}

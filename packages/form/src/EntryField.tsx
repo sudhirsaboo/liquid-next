@@ -47,8 +47,10 @@ class EntryField extends Field {
     input: any = React.createRef();
 
     render() {
-        const { type, name, required, label } = this.props;
-
+        const { type, name, required, label, displayCondition } = this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         const myClassNames = classnames(
             this.props.className,
             "input-container",

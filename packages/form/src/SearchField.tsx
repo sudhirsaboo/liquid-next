@@ -25,8 +25,10 @@ class SearchField extends Field {
     input: any = React.createRef();
 
     render() {
-        const { placeholder, label, ...other } = this.props;
-
+        const { placeholder, label, displayCondition, ...other } = this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         const value = SearchField.getStoreValue(this.props);
 
         return (

@@ -42,9 +42,18 @@ class TextArea extends Field {
     input: any = React.createRef();
 
     render() {
-        const { rows, placeholder, name, required, apply, ...other } =
-            this.props;
-
+        const {
+            rows,
+            placeholder,
+            name,
+            required,
+            apply,
+            displayCondition,
+            ...other
+        } = this.props;
+        if (displayCondition === false) {
+            return null;
+        }
         const myClassNames = classnames(
             this.props.className,
             "input-container",

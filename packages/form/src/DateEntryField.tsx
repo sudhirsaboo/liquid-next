@@ -87,9 +87,11 @@ class DateEntryField extends Field {
     }
 
     render() {
-        const { name, label, required } = this.props;
+        const { name, label, required, displayCondition } = this.props;
         const { icon } = this.state;
-
+        if (displayCondition === false) {
+            return null;
+        }
         return (
             <div className="input-container">
                 <label data-name={name}>{label}</label>
