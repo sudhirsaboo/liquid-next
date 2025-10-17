@@ -5,7 +5,7 @@ import classnames from "classnames";
 
 class DisplayField extends Field {
     getInputValue() {
-        throw new Error("Method not implemented.");
+        return this.state.value;
     }
     input: any;
 
